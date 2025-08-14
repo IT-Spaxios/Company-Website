@@ -1,192 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Heading</title>
+<style>
  /* =================================== */
-/* ORGANIC SHADOW SHAPES               */
+/* BINARY WAVE DIVIDER STYLES          */
 /* =================================== */
-.about-section {
-    position: relative;
-    overflow: hidden;
-    background-color: whitesmoke;
-    padding: 60px 5%;
-}
-
-.organic-shadows {
-    position: absolute;
-    top: 0;
-    left: 0;
+.binary-wave-divider {
     width: 100%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
+    margin: 0 auto;
+    opacity: 0;
+    transition: opacity 0.6s ease;
 }
 
-.shadow-shape {
-    position: absolute;
-    background: rgba(188, 191, 198, 0.2);
-    filter: blur(60px);
-    opacity: 0.7;
+.binary-wave-divider.top {
+    margin-bottom: 40px;
 }
 
-/* Irregular organic shape 1 */
-.shape-1 {
-    width: 400px;
-    height: 400px;
-    top: -100px;
-    right: -100px;
-    clip-path: polygon(
-        0% 15%, 15% 15%, 15% 0%, 
-        85% 0%, 85% 15%, 100% 15%, 
-        100% 85%, 85% 85%, 85% 100%, 
-        15% 100%, 15% 85%, 0% 85%
-    );
-    transform: rotate(45deg);
+.binary-wave-divider.bottom {
+    margin-top: 40px;
 }
 
-/* Irregular organic shape 2 */
-.shape-2 {
-    width: 300px;
-    height: 500px;
-    bottom: -150px;
-    left: -50px;
-    clip-path: polygon(
-        50% 0%, 80% 10%, 100% 35%, 
-        100% 70%, 80% 90%, 50% 100%, 
-        20% 90%, 0% 70%, 0% 35%, 
-        20% 10%
-    );
+.binary-wave-divider.visible {
+    opacity: 1;
 }
 
-/* Irregular organic shape 3 */
-.shape-3 {
-    width: 250px;
-    height: 250px;
-    top: 30%;
-    left: 20%;
-    clip-path: path(
-        'M 0,100 C 50,200 50,0 100,100 C 150,200 150,0 200,100 C 250,200 250,0 300,100 L 300,300 L 0,300 Z'
-    );
+.binary-wave-divider svg {
+    width: 100%;
+    height: 24px;
 }
 
-/* Rest of your existing styles */
-.about-container { 
-    max-width: 1200px; 
-    width: 100%; 
-    margin: 0 auto; 
+/* =================================== */
+/* TEXT IN SHAPE BLOCK (UPDATED)       */
+/* =================================== */
+.text-in-shape-container {
+    padding: 0 5%;
+    margin: 60px 0;
+}
+
+.text-in-shape {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px;
+    text-align: center;
+    background: linear-gradient(135deg, #1a2a3d 0%, #2c3e50 50%, #34495e 100%);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 15px;
+}
+
+.text-in-shape h6 {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.7;
+    margin: 0;
     position: relative;
     z-index: 2;
 }
 
-.section-headline { 
-    text-align: center; 
-    margin-bottom: 40px; 
+/* Animation for shape */
+.text-in-shape {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.1);
 }
 
-.section-headline h2 { 
-    font-size: 38px; 
-    color: #0d2a81; 
-    font-weight: 400; 
-    line-height: 1.4; 
+.text-in-shape.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
-
-.section-headline h2 strong { 
-    font-weight: 700; 
-}
-
-.about-content { 
-    display: flex; 
-    align-items: center; 
-    gap: 60px; 
-    width: 100%;
-}
-
-.about-image {
-    flex: 0 0 45%;
-}
-
-.about-text { 
-    flex: 1; 
-}
-
-.about-text p { 
-    font-size: 16px; 
-    color: #555e68; 
-    line-height: 1.8; 
-    margin-bottom: 20px; 
-}
-
-.section-cta { 
-    text-align: center; 
-    margin-top: 40px; 
-}
-
-.section-cta .btn-primary { 
-    padding: 14px 35px; 
-    border-radius: 8px; 
-    text-decoration: none; 
-    font-weight: bold; 
-    color: white; 
-    background-image: linear-gradient(to bottom, #24eef5, #1ba6b3); 
-    border: none; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
-    transition: all 0.3s ease; 
-    display: inline-block; 
-}
-
-.section-cta .btn-primary:hover { 
-    transform: translateY(-3px); 
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); 
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-    .about-content {
-        flex-direction: column;
-    }
-    .about-image {
-        margin-bottom: 40px;
-    }
-}
-   </style>
+</style>
 </head>
 <body>
+
 <!-- =================================== -->
-<!-- ABOUT SECTION WITH IRREGULAR SHADOWS -->
+<!-- TEXT IN SHAPE BLOCK WITH BINARY WAVE -->
 <!-- =================================== -->
-<section class="about-section">
-    <div class="organic-shadows">
-        <div class="shadow-shape shape-1"></div>
-        <div class="shadow-shape shape-2"></div>
-        <div class="shadow-shape shape-3"></div>
+<div class="text-in-shape-container">
+    <!-- Binary Wave Divider Top -->
+    <div class="binary-wave-divider top">
+        <svg viewBox="0 0 1200 24" preserveAspectRatio="none">
+            <path d="M0,12 C150,18 350,6 500,12 C650,18 850,6 1000,12 L1200,12" 
+                  stroke="#0d2a81" 
+                  stroke-width="2" 
+                  fill="none"
+                  stroke-dasharray="4 3"></path>
+            <circle cx="150" cy="12" r="1.5" fill="#24eef5"/>
+            <circle cx="450" cy="8" r="1.5" fill="#24eef5"/>
+            <circle cx="750" cy="16" r="1.5" fill="#24eef5"/>
+            <circle cx="1050" cy="10" r="1.5" fill="#24eef5"/>
+        </svg>
     </div>
-
-    <div class="about-container">
-        <div class="section-headline">
-            <h2>Why does your business need<br><strong>the best website development company?</strong></h2>
-        </div>
-        <div class="about-content">
-            <div class="about-image">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MDAgNTAwIj48cGF0aCBkPSJNMjUwLDUwIEMzNTAsNTAgNDUwLDE1MCA0NTAsMjUwIEM0NTAsMzUwIDM1MCw0NTAgMjUwLDQ1MCBDMTUwLDQ1MCA1MCwzNTAgNTAsMjUwIEM1MCwxNTAgMTUwLDUwIDI1MCw1MCBaIiBmaWxsPSIjZTY5ZjJmZiIvPjwvc3ZnPg==" alt="Website illustration">
-            </div>
-            
-            <div class="about-text">
-                <p>Many businessmen and entrepreneurs struggle to generate leads, sales, and conversions in today's competitive market...</p>
-                <p>Visibility means not only being seen—it is about branding your business...</p>
-                <p>A premium business website design is a solution to elevate your brand and conversions...</p>
-            </div>
-        </div>
-        <div class="section-cta">
-            <a href="#" class="btn-primary"><b>Click here > we will explain how it works.</b></a>
-        </div>
+    
+    <!-- Main Content -->
+    <div class="text-in-shape">
+        <h6>Process makes the best outcome, don't trust those who say within 3hrs get your websites. We can also give a website in 2 hours by changing the color and text. But we don't do that. Because every business has a mission and vision, we value that. Our premium website development service has a procedure to follow in every project. By following these steps, we are giving a 100% efficient website for a client.</h6>
     </div>
-</section>
-
-
-
-
+    
+    <!-- Binary Wave Divider Bottom -->
+    <div class="binary-wave-divider bottom">
+        <svg viewBox="0 0 1200 24" preserveAspectRatio="none">
+            <path d="M0,12 C200,6 400,18 600,12 C800,6 1000,18 1200,12" 
+                  stroke="#0d2a81" 
+                  stroke-width="2" 
+                  fill="none"
+                  stroke-dasharray="3 4"></path>
+            <circle cx="300" cy="8" r="1.5" fill="#24eef5"/>
+            <circle cx="600" cy="16" r="1.5" fill="#24eef5"/>
+            <circle cx="900" cy="6" r="1.5" fill="#24eef5"/>
+        </svg>
+    </div>
+</div>
 </body>
+<script>
+  // Add this to your existing JS
+function initTextShapeAnimation() {
+    const textShape = document.querySelector('.text-in-shape');
+    const dividers = document.querySelectorAll('.binary-wave-divider');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                textShape.classList.add('visible');
+                dividers.forEach(div => div.classList.add('visible'));
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+    
+    observer.observe(textShape);
+}
+
+// Call this after DOM loads
+document.addEventListener('DOMContentLoaded', initTextShapeAnimation);
+</script>
 </html>
