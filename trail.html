@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .client-section-custom {
+    padding: 100px 0;
+    background-color: #f8f9fa; /* A light background for the section */
+    overflow: hidden; /* Important for containing the logos */
+}
+
+.client-section-custom .trigger-section {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Height of the animation area */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styles for the central card */
+.client-section-custom .client-section-card {
+    position: relative;
+    z-index: 10;
+    max-width: 450px;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.client-section-custom .client-section-card i {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.client-section-custom .client-section-card h5 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0d2a81;
+    margin-bottom: 15px;
+}
+
+.client-section-custom .client-section-card p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.client-section-custom .unlock-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    background-color: #0d2a81;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.client-section-custom .unlock-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(13, 42, 129, 0.3);
+}
+
+.client-section-custom .unlock-btn img {
+    margin-right: 10px;
+}
+
+
+/* --- Logo Animation --- */
+.client-section-custom .move {
+    position: absolute;
+    width: 70px; /* Adjust logo size */
+    height: 70px;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 1.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth transition */
+}
+
+/* When the section is active, logos become visible */
+.client-section-custom .trigger-section.active .move {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Starting positions for left logos */
+.client-section-custom .img-1  { top: 10%; left: 5%; transition-delay: 0.1s; }
+.client-section-custom .img-2  { top: 30%; left: 2%; transition-delay: 0.3s; }
+.client-section-custom .img-3  { top: 50%; left: 8%; transition-delay: 0.5s; }
+.client-section-custom .img-4  { top: 70%; left: 3%; transition-delay: 0.2s; }
+.client-section-custom .img-5  { top: 90%; left: 10%; transition-delay: 0.4s; }
+.client-section-custom .img-6  { top: 20%; left: 15%; transition-delay: 0.6s; }
+/* ... Define positions for all left logos ... */
+
+/* Starting positions for right logos */
+.client-section-custom .img-24 { top: 15%; right: 4%; transition-delay: 0.15s; }
+.client-section-custom .img-25 { top: 35%; right: 7%; transition-delay: 0.35s; }
+.client-section-custom .img-26 { top: 55%; right: 2%; transition-delay: 0.55s; }
+.client-section-custom .img-27 { top: 75%; right: 9%; transition-delay: 0.25s; }
+.client-section-custom .img-28 { top: 95%; right: 5%; transition-delay: 0.45s; }
+.client-section-custom .img-29 { top: 25%; right: 14%; transition-delay: 0.65s; }
+/* ... Define positions for all right logos ... */
+
+/* Final positions when section is active */
+.client-section-custom .trigger-section.active .img-1  { top: 20%; left: 20%; }
+.client-section-custom .trigger-section.active .img-2  { top: 40%; left: 15%; }
+.client-section-custom .trigger-section.active .img-3  { top: 60%; left: 22%; }
+/* ... Define final positions for all logos ... */
+
+.client-section-custom .trigger-section.active .img-24 { top: 25%; right: 18%; }
+.client-section-custom .trigger-section.active .img-25 { top: 45%; right: 24%; }
+.client-section-custom .trigger-section.active .img-26 { top: 65%; right: 16%; }
+/* ... Define final positions for all logos ... */
+    </style>
+</head>
+<body>
+    <section class="client-section-custom">
+    <div class="container-fluid">
+        <div class="trigger-section" id="target-section-custom">
+            
+            <img src="kohli-removebg-preview.png" class="img-1 move" alt="Client Logo 1">
+            <img src="kohli-removebg-preview.png" class="img-3 move" alt="Client Logo 3">
+            <img src="kohli-removebg-preview.png" class="img-4 move" alt="Client Logo 4">
+            <img src="kohli-removebg-preview.png" class="img-2 move" alt="Client Logo 2">
+            <img src="kohli-removebg-preview.png" class="img-5 move" alt="Client Logo 5">
+            <img src="kohli-removebg-preview.png" class="img-6 move" alt="Client Logo 6">
+            <img src="kohli-removebg-preview.png" class="img-7 move" alt="Client Logo 7">
+            <img src="kohli-removebg-preview.png" class="img-8 move" alt="Client Logo 8">
+            <img src="kohli-removebg-preview.png" class="img-9 move" alt="Client Logo 9">
+            <img src="ukohli-removebg-preview.png" class="img-10 move" alt="Client Logo 10">
+            <img src="kohli-removebg-preview.png" class="img-24 move" alt="Client Logo 24">
+            <img src="kohli-removebg-preview.png" class="img-25 move" alt="Client Logo 25">
+            <img src="kohli-removebg-preview.png" class="img-26 move" alt="Client Logo 26">
+            <img src="kohli-removebg-preview.png" class="img-27 move" alt="Client Logo 27">
+            <img src="kohli-removebg-preview.png" class="img-28 move" alt="Client Logo 28">
+            <img src="kohli-removebg-preview.png" class="img-29 move" alt="Client Logo 29">
+            <img src="kohli-removebg-preview.png" class="img-30 move" alt="Client Logo 30">
+            <img src="kohli-removebg-preview.png" class="img-31 move" alt="Client Logo 31">
+            <img src="kohli-removebg-preview.png" class="img-32 move" alt="Client Logo 32">
+            <img src="kohli-removebg-preview.png" class="img-33 move" alt="Client Logo 33">
+             <div class="client-section-card wow fadeInDown">
+                <i><img src="uploads/themes/clean-blog/new-images/web-development-new/tt-logo.webp" alt="Team Tweaks"></i>
+                <h5>Custom Solutions for Your Brand</h5>
+                <p>We don't use templates. Every website is a unique, tailor-made masterpiece designed to reflect your brand's identity and goals.</p>
+                <p><a data-toggle="modal" data-target="#webdev" class="bl_bg_btn unlock-btn">
+                    <img src="uploads/themes/clean-blog/new-images/web-development-new/right_arrow.webp" alt="Arrow Icon">
+                    <span>Start Your Project</span>
+                </a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Select the new section we created
+    const targetSection = document.getElementById('target-section-custom');
+
+    // If the section doesn't exist, do nothing.
+    if (!targetSection) {
+        return;
+    }
+
+    // Set up the observer to watch when the section becomes visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // When the section is visible, add the 'active' class to trigger the CSS animation
+                targetSection.classList.add('active');
+                
+                // Optional: Stop observing after it has animated once
+                observer.unobserve(targetSection);
+            }
+        });
+    }, {
+        threshold: 0.4 // Trigger when 40% of the section is visible
+    });
+
+    // Start observing the section
+    observer.observe(targetSection);
+});
+</script>
+</body>
+</html>
