@@ -361,27 +361,56 @@ counters.forEach(counter => counterObserver.observe(counter));
         }, 1000);
     };
 
-    const handleSubmit = () => {
-        const nameInput = document.getElementById('name');
-        const contactInput = document.getElementById('contact');
-        const emailInput = document.getElementById('email');
+    const handleSubmit = async () => {
+    const nameInput = document.getElementById('name');
+    const contactInput = document.getElementById('contact');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
 
-        const name = nameInput ? nameInput.value : '';
-        const contact = contactInput ? contactInput.value : '';
-        const email = emailInput ? emailInput.value : '';
+    const name = nameInput ? nameInput.value.trim() : '';
+    const contact = contactInput ? contactInput.value.trim() : '';
+    const email = emailInput ? emailInput.value.trim() : '';
+    const message = messageInput ? messageInput.value.trim() : '';
 
-        if (!name || !contact || !email) {
-            addMessage("Please fill in all required fields (Name, Contact, Email).", 'bot');
-            return;
-        }
-        const formData = `Name: ${name}\nContact: ${contact}\nEmail: ${email}`;
-        addMessage(formData, 'user');
-        hideAllOptions();
-        setTimeout(() => {
-            addMessage("Thank you for submitting. Our team will reach out to you soon!", 'bot');
+    // ✅ Check all fields including message
+    if (!name || !contact || !email || !message) {
+        addMessage("Please fill in all required fields (Name, Contact, Email, Message).", 'bot');
+        return;
+    }
+
+    // ✅ Show user submission in chat
+    const formData = `Name: ${name}\nContact: ${contact}\nEmail: ${email}\nMessage: ${message}`;
+    addMessage(formData, 'user');
+    hideAllOptions();
+
+    try {
+        const res = await fetch("https://company-website-beta-six.vercel.app/api/chat/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                serviceCategory: chosenService || "General", // ✅ added
+                subCategory: chosenSub || "",                // ✅ added
+                name,
+                contact,
+                email,
+                message
+            })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+            addMessage("✅ Thank you for submitting. Our team will reach out to you soon!", 'bot');
             setTimeout(closeChatbox, 3000);
-        }, 1000);
-    };
+        } else {
+            addMessage("❌ Oops! Something went wrong. Please try again later.", 'bot');
+            console.error("API Error:", data);
+        }
+    } catch (err) {
+        addMessage("⚠️ Network error. Please try again later.", 'bot');
+        console.error("Network error:", err);
+    }
+};
 
     if (chatFab) chatFab.addEventListener('click', openChatbox);
     if (chatboxCloseBtn) chatboxCloseBtn.addEventListener('click', closeChatbox);
@@ -401,6 +430,7 @@ counters.forEach(counter => counterObserver.observe(counter));
         firstOptions.addEventListener('click', (e) => {
             if (!e.target.matches('.option-btn')) return;
             const choice = e.target.dataset.service;
+             chosenService = choice; // ✅ save it
             addMessage(choice, 'user');
             hideAllOptions();
             if (choice === 'Website Development') {
@@ -420,6 +450,7 @@ counters.forEach(counter => counterObserver.observe(counter));
     const handleSubOptionClick = (e) => {
         if (!e.target.matches('.choice-btn')) return;
         const choice = e.target.dataset.sub;
+        chosenSub = choice; // ✅ save it
         addMessage(choice, 'user');
         showForm("To discuss this further, please provide your details and our team will get in touch.");
     };
@@ -433,3 +464,89 @@ counters.forEach(counter => counterObserver.observe(counter));
         autoOpenTimer = setTimeout(openChatbox, 10000);
     }
 });
+
+
+    // ----------------------
+    // Toast function
+    // ----------------------
+    function showToast(message, duration = 4000, bgColor = "#4BB543") {
+        let toast = document.getElementById("toast");
+        if (!toast) {
+            // Create toast if it doesn't exist
+            toast = document.createElement("div");
+            toast.id = "toast";
+            toast.style.cssText = `
+                visibility: hidden;
+                min-width: 250px;
+                background-color: ${bgColor};
+                color: white;
+                text-align: center;
+                border-radius: 5px;
+                padding: 16px;
+                position: fixed;
+                z-index: 1000;
+                left: 50%;
+                bottom: 30px;
+                transform: translateX(-50%);
+                font-size: 17px;
+            `;
+            document.body.appendChild(toast);
+        }
+
+        toast.textContent = message;
+        toast.style.backgroundColor = bgColor;
+        toast.style.visibility = "visible";
+
+        setTimeout(() => {
+            toast.style.visibility = "hidden";
+        }, duration);
+    }
+
+    // ----------------------
+    // webDevContactForm submission
+   
+    
+   
+    // ----------------------
+    // contactForm submission with backend API
+    // ----------------------
+   const form = document.getElementById("footer-form");
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = {
+            name: form.name.value,
+            email: form.email.value,
+            message: form.message.value
+        };
+
+        try {
+            const res = await fetch("https://company-website-beta-six.vercel.app/api/contact/addcontact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            });
+
+            console.log("Response:", res);
+            const data = await res.json();
+            console.log("Data:", data);
+
+            if (res.ok) {
+                showToast("Thank you! Your query has been received. We will get back to you soon.");
+
+                form.reset();
+
+                // Remove focused class if using focus animation
+                document.querySelectorAll('.form-group1').forEach(group => group.classList.remove('focused'));
+            } else {
+                showToast("Something went wrong. Please try again!", 4000, "#FF4C4C");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            showToast("Server not reachable!", 4000, "#FF4C4C");
+        }
+    });
+  }
+
+

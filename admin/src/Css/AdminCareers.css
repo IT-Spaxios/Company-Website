@@ -1,0 +1,59 @@
+.admin-career-page {
+  padding: 20px;
+}
+
+.career-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.career-form input,
+.career-form select,
+.career-form textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.career-form button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.career-form button:hover {
+  background: #0056b3;
+}
+
+.career-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.career-list th,
+.career-list td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.career-list th {
+  background: #f4f4f4;
+}
+
+.career-list button {
+  background: #dc3545;
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.career-list button:hover {
+  background: #a71d2a;
+}
