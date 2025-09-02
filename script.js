@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    // ===================================================================
+    // 1.(ANIMATION OBSERVERS)
+    // ===================================================================hero animated fonts
+    
+
     // இந்த Observer, ஒருமுறை மட்டும் ஸ்க்ரோல் செய்யும்போது இயங்கும் அனிமேஷன்களைக் கையாளும்.
     const observerOnce = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -7,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.1 });
+
     // இந்த Observer, ஸ்க்ரோல் செய்யும்போது அனிமேஷன்கள் மீண்டும் மீண்டும் நிகழ உதவும்.
     const observerRepeat = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -18,14 +25,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, { threshold: 0.1 });
+
     // ஒருமுறை மட்டும் இயங்க வேண்டிய உறுப்புகள்:
-    const onceAnimated = document.querySelectorAll('.about-section, .zigzag-row, .section-service-headline, .tech-heading-container, .showcase-heading, .showcase-paragraph, .portfolio-section .section-headline, .faq-section-final, .section-workflow-headline');
+    const onceAnimated = document.querySelectorAll('.about-section, .zigzag-row, .section-service-headline, .tech-heading-container, .showcase-heading, .showcase-paragraph, .portfolio-section .section-headline, .faq-section-final, .section-workflow-headline, .portfolio-item-stacked');
     onceAnimated.forEach(el => observerOnce.observe(el));
+
     // மீண்டும் மீண்டும் இயங்க வேண்டிய உறுப்புகள்:
     const repeatAnimated = document.querySelectorAll('.slide-left, .service-grid, .promo-card, .identify-left-content, .split-stats-section');
     repeatAnimated.forEach(el => observerRepeat.observe(el));
+
+
     // ===================================================================
-    // 2. ஹெட்டர் மற்றும் மொபைல் மெனு (HEADER & MOBILE MENU)
+    // 2.(HEADER & MOBILE MENU)
     // ===================================================================
     const header = document.querySelector('.header');
     const topBar = document.querySelector('.top-bar');
@@ -33,26 +44,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburgerClose = document.getElementById('hamburger-close');
     const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
     const body = document.body;
-// ========================================== hideheader=====
 
-// ==================
+    if (topBar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                topBar.classList.add('top-bar--hidden');
+            } else {
+                topBar.classList.remove('top-bar--hidden');
+            }
+        });
+    }
 
     const toggleMenu = (show) => {
         if (mobileMenuOverlay) mobileMenuOverlay.classList.toggle('active', show);
         if (body) body.classList.toggle('no-scroll', show);
     };
-    if (hamburgerOpen) {hamburgerOpen.addEventListener('click', () => toggleMenu(true));}
-    if (hamburgerClose) { hamburgerClose.addEventListener('click', () => toggleMenu(false)); }
-    if (mobileMenuOverlay) {mobileMenuOverlay.addEventListener('click', (e) => {
-            if (e.target === mobileMenuOverlay) {toggleMenu(false);}});}
+
+    if (hamburgerOpen) {
+        hamburgerOpen.addEventListener('click', () => toggleMenu(true));
+    }
+    if (hamburgerClose) {
+        hamburgerClose.addEventListener('click', () => toggleMenu(false));
+    }
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileMenuOverlay) {
+                toggleMenu(false);
+            }
+        });
+    }
+
+
     // ===================================================================
-    // 3. LOTTIE அனிமேஷன்கள் (LOTTIE ANIMATIONS)
+    // 3.(LOTTIE ANIMATIONS)
     // ===================================================================
     const lottieAnimations = [
         { id: 'website-build-vector', path: 'https://lottie.host/8807d9f9-5777-4a0b-9366-f51952e96eb0/8vH98yQv61.json' },
         { id: 'website-vector', path: 'https://assets1.lottiefiles.com/packages/lf20_ikvz7qhc.json' }
-        // தேவைப்பட்டால் மற்ற Lottie அனிமேஷன்களையும் இங்கே சேர்க்கவும்
     ];
+
     lottieAnimations.forEach(anim => {
         const container = document.getElementById(anim.id);
         if (container && typeof lottie !== 'undefined') {
@@ -65,37 +95,63 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
-    // ===================================================================
-    // 4. கவுண்டர் செக்‌ஷன் (COUNTER SECTION)
-    // ===================================================================
-    const counters = document.querySelectorAll('.distraction-counter');
-    const animateCounter = (counter) => {
-        const target = +counter.getAttribute('data-target');
-        counter.dataset.isAnimating = 'true';
-        const updateCount = () => {
-            const count = +counter.innerText;
-            const increment = target / 200; // வேகம்
-            if (count < target) {
-                counter.innerText = Math.ceil(count + increment);
-                setTimeout(updateCount, 10);
-            } else {
-                counter.innerText = target;
+// ===================================================================
+// COUNTER SECTION (UPDATED FOR DESKTOP REPEAT)
+// ===================================================================
+const counters = document.querySelectorAll('.distraction-counter');
+
+// The function that makes the numbers count up
+const animateCounter = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    counter.dataset.isAnimating = 'true'; // Prevents multiple animations at once
+    
+    const updateCount = () => {
+        const count = +counter.innerText;
+        const increment = target / 200; // Speed of the count
+        
+        if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 10);
+        } else {
+            counter.innerText = target;
+            counter.dataset.isAnimating = 'false';
+        }
+    };
+    updateCount();
+};
+
+// The Intersection Observer that checks if the counters are on screen
+const counterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        const counter = entry.target;
+
+        // --- LOGIC FOR DESKTOP (repeats animation) ---
+        if (window.innerWidth > 768) {
+            if (entry.isIntersecting && counter.dataset.isAnimating !== 'true') {
+                // If it's on screen and not already running, start it.
+                animateCounter(counter);
+            } else if (!entry.isIntersecting) {
+                // If it's off-screen, reset it for the next time.
+                counter.innerText = '0';
                 counter.dataset.isAnimating = 'false';
             }
-        };
-        updateCount();
-    };
-    const counterObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
+        } 
+        // --- LOGIC FOR MOBILE (runs only once) ---
+        else {
             if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                observer.unobserve(entry.target); // ஒருமுறை மட்டுமே இயங்கும்
+                animateCounter(counter);
+                observer.unobserve(counter); // This makes it run only one time on mobile
             }
-        });
-    }, { threshold: 0.5 });
-    counters.forEach(counter => counterObserver.observe(counter));
+        }
+    });
+}, {
+    threshold: 0.1 // Start when 50% of the element is visible
+});
+
+// Attach the observer to all counters
+counters.forEach(counter => counterObserver.observe(counter));
     // ===================================================================
-    // (TECHNOLOGIES FILTER)
+    // 5.(TECHNOLOGIES FILTER)
     // ===================================================================
     const filterButtons = document.querySelectorAll('.tech-filter-nav li');
     const techItems = document.querySelectorAll('.tech-item');
@@ -114,6 +170,106 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+
+    // ===================================================================
+    // 6. (PORTFOLIO POPUP)
+    // ===================================================================
+    const portfolioItems = document.querySelectorAll('.portfolio-item-stacked');
+    const popupOverlay = document.querySelector('.coverflow-popup-overlay');
+    const carousel = document.querySelector('.coverflow-carousel');
+    const popupTitle = document.getElementById('popup-title');
+    const popupCategory = document.getElementById('popup-category');
+    const closeBtn = document.querySelector('.popup-close-btn');
+    const prevBtn = document.querySelector('.popup-nav-btn.prev');
+    const nextBtn = document.querySelector('.popup-nav-btn.next');
+
+    if (portfolioItems.length > 0 && popupOverlay && carousel) {
+        let slides = [];
+        let currentIndex = 0;
+        let scrollPosition = 0;
+
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imageCards = item.querySelectorAll('.stack-card');
+                if (imageCards.length === 0) return;
+                createCarousel(imageCards);
+                scrollPosition = window.pageYOffset;
+                document.body.style.top = `-${scrollPosition}px`;
+                document.body.classList.add('popup-active');
+                popupOverlay.classList.add('active');
+            });
+        });
+
+        function createCarousel(imageCards) {
+            carousel.innerHTML = '';
+            slides = [];
+            const reversedCards = Array.from(imageCards).reverse();
+            reversedCards.forEach(card => {
+                const img = card.querySelector('img');
+                if (img) {
+                    const slide = document.createElement('div');
+                    slide.className = 'carousel-slide';
+                    const projectInfo = card.closest('.portfolio-item-stacked').querySelector('.project-info');
+                    const title = projectInfo ? projectInfo.querySelector('h3').textContent : 'Project Image';
+                    const category = projectInfo ? projectInfo.querySelector('p').textContent : 'Website';
+                    slide.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
+                    slide.dataset.title = title;
+                    slide.dataset.category = category;
+                    carousel.appendChild(slide);
+                    slides.push(slide);
+                }
+            });
+            currentIndex = 0;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('center', 'left', 'right', 'hide-left', 'hide-right');
+                if (index === currentIndex) {
+                    slide.classList.add('center');
+                    if (popupTitle) popupTitle.textContent = slide.dataset.title;
+                    if (popupCategory) popupCategory.textContent = slide.dataset.category;
+                } else if (index === (currentIndex - 1 + slides.length) % slides.length) {
+                    slide.classList.add('left');
+                } else if (index === (currentIndex + 1) % slides.length) {
+                    slide.classList.add('right');
+                } else if (index < currentIndex) {
+                    slide.classList.add('hide-left');
+                } else {
+                     slide.classList.add('hide-right');
+                }
+            });
+        }
+        
+        function showNext() { if(slides.length > 0) { currentIndex = (currentIndex + 1) % slides.length; updateCarousel(); } }
+        function showPrev() { if(slides.length > 0) { currentIndex = (currentIndex - 1 + slides.length) % slides.length; updateCarousel(); } }
+
+        function closePopup() {
+            popupOverlay.classList.remove('active');
+            document.body.classList.remove('popup-active');
+            document.body.style.top = '';
+            window.scrollTo(0, scrollPosition);
+        }
+
+        if (nextBtn) nextBtn.addEventListener('click', showNext);
+        if (prevBtn) prevBtn.addEventListener('click', showPrev);
+        if (closeBtn) closeBtn.addEventListener('click', closePopup);
+        popupOverlay.addEventListener('click', (e) => { if (e.target === popupOverlay) { closePopup(); }});
+
+        let touchStartX = 0;
+        carousel.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+        carousel.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) { showNext(); }
+            if (touchEndX - touchStartX > 50) { showPrev(); }
+        }, { passive: true });
+    }
+
+    // ===================================================================
+    // 7. மற்ற செயல்பாடுகள் (OTHER FUNCTIONALITY)
+    // ===================================================================
     // FAQ Accordion
     const faqItemsFinal = document.querySelectorAll('.faq-section-final .faq-item');
     if (faqItemsFinal.length > 0) {
@@ -133,180 +289,147 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    // Chatbox
+
+    // ===================================================================
+    // 8. (CHATBOX)
+    // ===================================================================
+    const chatFab = document.getElementById('chat-fab');
     const chatboxContainer = document.getElementById('chatbox-container');
-    const chatToggleButton = document.getElementById('chat-toggle-button');
-    const chatCloseButton = document.getElementById('chatbox-close-btn');
-    if (chatToggleButton && chatboxContainer && chatCloseButton) {
-        chatToggleButton.addEventListener('click', () => chatboxContainer.classList.add('active'));
-        chatCloseButton.addEventListener('click', () => chatboxContainer.classList.remove('active'));
-    }});
-document.addEventListener('DOMContentLoaded', function () {
-    // ======================================================== //
-    // SCRIPT TO FIX PORTFOLIO SECTION LAG/STUTTER              //
-    // ======================================================== //
-    const portfolioItemsForAnimation = document.querySelectorAll(".portfolio-item-stacked");
+    const chatboxCloseBtn = document.getElementById('chatbox-close-btn');
+    const messagesContainer = document.getElementById('chatbox-messages');
+    const chatInputContainer = document.querySelector('.chatbox-input');
+    const chatInput = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('send-btn');
+    const firstOptions = document.getElementById('first-options');
+    const devOptions = document.getElementById('dev-options');
+    const dmOptions = document.getElementById('dm-options');
+    const formWrap = document.getElementById('form-wrap');
+    const formSubmitBtn = document.getElementById('form-submit-btn');
 
-    if (portfolioItemsForAnimation.length > 0) {
-        const observer = new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const itemIndex = Array.from(portfolioItemsForAnimation).indexOf(entry.target);
-                        // Add a staggered delay to each item for a smooth loading effect
-                        entry.target.style.transitionDelay = `${itemIndex * 100}ms`;
-                        entry.target.classList.add("is-visible");
-                        observer.unobserve(entry.target); // Stop watching this item once it's visible
-                    }
-                });
-            },
-            {
-                threshold: 0.1, // Trigger when 10% of the item is visible
-            }
-        );
+    let autoOpenTimer;
+    let hasChatBeenOpened = false;
 
-        portfolioItemsForAnimation.forEach((item) => {
-            observer.observe(item);
-        });
-    }
-    // ======================================================== //
-    // ISOLATED SCRIPT FOR PORTFOLIO POPUP                      //
-    // ======================================================== //
-    const portfolioItemsForPopup = document.querySelectorAll('.portfolio-item-stacked');
-    const popupOverlay = document.querySelector('.coverflow-popup-overlay');
-    const carousel = document.querySelector('.coverflow-carousel');
-    const popupTitle = document.getElementById('popup-title');
-    const popupCategory = document.getElementById('popup-category');
-    const closeBtn = document.querySelector('.popup-close-btn');
-    const prevBtn = document.querySelector('.popup-nav-btn.prev');
-    const nextBtn = document.querySelector('.popup-nav-btn.next');
+    const scrollToBottom = () => { if (messagesContainer) messagesContainer.scrollTop = messagesContainer.scrollHeight; };
+    
+    const addMessage = (text, sender) => {
+        if (!messagesContainer) return;
+        const messageDiv = document.createElement('div');
+        messageDiv.className = sender === 'bot' ? 'bot-message' : 'user-message';
+        messageDiv.textContent = text;
+        messagesContainer.appendChild(messageDiv);
+        scrollToBottom();
+    };
 
-    if (!portfolioItemsForPopup.length || !popupOverlay || !carousel) {
-        return; // Exit if popup elements aren't found
-    }
+    const showOptions = (element) => { if(element) element.classList.remove('hidden'); };
 
-    let slides = [];
-    let currentIndex = 0;
-    let scrollPosition = 0;
+    const hideAllOptions = () => {
+        if (firstOptions) firstOptions.classList.add('hidden');
+        if (devOptions) devOptions.classList.add('hidden');
+        if (dmOptions) dmOptions.classList.add('hidden');
+        if (formWrap) formWrap.classList.add('hidden');
+    };
+    
+    const openChatbox = () => {
+        if (hasChatBeenOpened && chatboxContainer.classList.contains('active')) return;
+        hasChatBeenOpened = true;
+        clearTimeout(autoOpenTimer);
+        
+        chatboxContainer.classList.add('active');
+        chatFab.classList.add('hidden');
+        messagesContainer.innerHTML = '';
+        hideAllOptions();
+        chatInputContainer.style.display = 'flex';
+        chatboxContainer.classList.remove('form-active');
+        addMessage("Hello! Welcome to Spaxios Innovation. How can I assist you today?", 'bot');
+        setTimeout(() => showOptions(firstOptions), 1000);
+    };
 
-    portfolioItemsForPopup.forEach(item => {
-        item.addEventListener('click', () => {
-            const imageCards = item.querySelectorAll('.stack-card');
-            if (imageCards.length === 0) return;
+    const closeChatbox = () => {
+        chatboxContainer.classList.remove('active');
+        chatFab.classList.remove('hidden');
+        clearTimeout(autoOpenTimer);
+    };
 
-            createCarousel(imageCards);
+    const showForm = (message) => {
+        hideAllOptions();
+        chatInputContainer.style.display = 'none';
+        chatboxContainer.classList.add('form-active');
+        setTimeout(() => {
+            addMessage(message, 'bot');
+            showOptions(formWrap);
+            scrollToBottom();
+        }, 1000);
+    };
 
-            scrollPosition = window.pageYOffset;
-            document.body.style.top = `-${scrollPosition}px`;
-            document.body.classList.add('popup-active');
+    const handleSubmit = () => {
+        const nameInput = document.getElementById('name');
+        const contactInput = document.getElementById('contact');
+        const emailInput = document.getElementById('email');
 
-            popupOverlay.classList.add('active');
-        });
-    });
-    function createCarousel(imageCards) {
-        carousel.innerHTML = '';
-        slides = [];
-        const reversedCards = Array.from(imageCards).reverse();
-        reversedCards.forEach(card => {
-            const img = card.querySelector('img');
-            if (img) {
-                const slide = document.createElement('div');
-                slide.className = 'carousel-slide';
-                // We will get the title and category from the main portfolio item's info, not the card
-                const projectInfo = card.closest('.portfolio-item-stacked').querySelector('.project-info');
-                const title = projectInfo ? projectInfo.querySelector('h3').textContent : 'Project Image';
-                const category = projectInfo ? projectInfo.querySelector('p').textContent : 'Website';
+        const name = nameInput ? nameInput.value : '';
+        const contact = contactInput ? contactInput.value : '';
+        const email = emailInput ? emailInput.value : '';
 
-                slide.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
-                slide.dataset.title = title;
-                slide.dataset.category = category;
-                
-                carousel.appendChild(slide);
-                slides.push(slide);
-            }
-        });
-        currentIndex = 0;
-        updateCarousel();
-    }
-    function updateCarousel() {
-        slides.forEach((slide, index) => {
-            slide.classList.remove('center', 'left', 'right', 'hide-left', 'hide-right');
-            if (index === currentIndex) {
-                slide.classList.add('center');
-                if (popupTitle) popupTitle.textContent = slide.dataset.title;
-                if (popupCategory) popupCategory.textContent = slide.dataset.category;
-            } else if (index === (currentIndex - 1 + slides.length) % slides.length) {
-                slide.classList.add('left');
-            } else if (index === (currentIndex + 1) % slides.length) {
-                slide.classList.add('right');
-            } else {
-                // This logic ensures items far away are hidden correctly
-                if (index < currentIndex) {
-                    slide.classList.add('hide-left');
-                } else {
-                    slide.classList.add('hide-right');
-                }
-            }
-        });
-    }
-    function showNext() { if (slides.length > 0) { currentIndex = (currentIndex + 1) % slides.length; updateCarousel(); } }
-    function showPrev() { if (slides.length > 0) { currentIndex = (currentIndex - 1 + slides.length) % slides.length; updateCarousel(); } }
-    function closePopup() {
-        popupOverlay.classList.remove('active');
-        document.body.classList.remove('popup-active');
-        document.body.style.top = '';
-        window.scrollTo(0, scrollPosition);
-    }
-    if (nextBtn) nextBtn.addEventListener('click', showNext);
-    if (prevBtn) prevBtn.addEventListener('click', showPrev);
-    if (closeBtn) closeBtn.addEventListener('click', closePopup);
-    popupOverlay.addEventListener('click', (e) => {
-        if (e.target === popupOverlay) {
-            closePopup();
+        if (!name || !contact || !email) {
+            addMessage("Please fill in all required fields (Name, Contact, Email).", 'bot');
+            return;
         }
-    });
-    let touchStartX = 0;
-    carousel.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-    carousel.addEventListener('touchend', (e) => {
-        const touchEndX = e.changedTouches[0].screenX;
-        if (touchStartX - touchEndX > 50) { showNext(); }
-        if (touchEndX - touchStartX > 50) { showPrev(); }
-    }, { passive: true });
-});
-// =============================================== //
-//  SCRIPT FOR PROMO CARD 3D MOUSE PARALLAX EFFECT //
-// =============================================== //
-document.addEventListener("DOMContentLoaded", function () {
-    const promoCard = document.querySelector(".promo-card");
-    const imageToAnimate = document.querySelector(".popup-img");
-    // Only run this script if the necessary elements exist
-    if (promoCard && imageToAnimate) {
-        const handleMouseMove = (e) => {
-            // Check if the screen is wide enough (not a mobile device)
-            if (window.innerWidth <= 900) {
-                // On mobile, ensure transform is reset and do nothing else
-                imageToAnimate.style.transform = 'none';
-                return;
+        const formData = `Name: ${name}\nContact: ${contact}\nEmail: ${email}`;
+        addMessage(formData, 'user');
+        hideAllOptions();
+        setTimeout(() => {
+            addMessage("Thank you for submitting. Our team will reach out to you soon!", 'bot');
+            setTimeout(closeChatbox, 3000);
+        }, 1000);
+    };
+
+    if (chatFab) chatFab.addEventListener('click', openChatbox);
+    if (chatboxCloseBtn) chatboxCloseBtn.addEventListener('click', closeChatbox);
+    
+    if (sendBtn) {
+        sendBtn.addEventListener('click', () => {
+            const text = chatInput.value.trim();
+            if (text) {
+                addMessage(text, 'user');
+                chatInput.value = '';
+                setTimeout(() => addMessage("Please select one of the options to proceed.", 'bot'), 1000);
             }
-            const rect = promoCard.getBoundingClientRect();
-            // Get mouse position relative to the card's center
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            // Define the intensity of the effect
-            const intensity = 15;
-            // Calculate rotation and translation values
-            const rotateY = (x / (rect.width / 2)) * intensity;
-            const rotateX = -(y / (rect.height / 2)) * intensity;
-            const translateX = (x / (rect.width / 2)) * (intensity * 1.5);
-            const translateY = (y / (rect.height / 2)) * (intensity * 1.5);
-            // Apply the 3D transform to the image
-            // Note: The base subtle-float animation still runs, and this JS transform is applied on top of it.
-            imageToAnimate.style.transform = `translate(${translateX}px, ${translateY}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;};
-        const handleMouseLeave = () => {
-             if (window.innerWidth > 900) {
-                // Smoothly reset the image to its default state
-                imageToAnimate.style.transform = 'translate(0,0) rotateX(0deg) rotateY(0deg)';}};
-        promoCard.addEventListener("mousemove", handleMouseMove);
-        promoCard.addEventListener("mouseleave", handleMouseLeave);}});
+        });
+    }
+
+    if (firstOptions) {
+        firstOptions.addEventListener('click', (e) => {
+            if (!e.target.matches('.option-btn')) return;
+            const choice = e.target.dataset.service;
+            addMessage(choice, 'user');
+            hideAllOptions();
+            if (choice === 'Website Development') {
+                setTimeout(() => {
+                    addMessage("Great! What would you like to know about our Website Development services?", 'bot');
+                    showOptions(devOptions);
+                }, 1000);
+            } else {
+                setTimeout(() => {
+                    addMessage("Excellent! Which area of Digital Marketing are you interested in?", 'bot');
+                    showOptions(dmOptions);
+                }, 1000);
+            }
+        });
+    }
+
+    const handleSubOptionClick = (e) => {
+        if (!e.target.matches('.choice-btn')) return;
+        const choice = e.target.dataset.sub;
+        addMessage(choice, 'user');
+        showForm("To discuss this further, please provide your details and our team will get in touch.");
+    };
+
+    if (devOptions) devOptions.addEventListener('click', handleSubOptionClick);
+    if (dmOptions) dmOptions.addEventListener('click', handleSubOptionClick);
+    if (formSubmitBtn) formSubmitBtn.addEventListener('click', handleSubmit);
+
+    // Auto-open timer after 10 seconds
+    if (chatboxContainer) { // Only set the timer if the chatbox exists on the page
+        autoOpenTimer = setTimeout(openChatbox, 10000);
+    }
+});

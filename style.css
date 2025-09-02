@@ -1,4 +1,5 @@
-/* Import Poppins font from Google Fonts */
+/* Import Poppins 
+ont from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap');
 
 /* =================================== */
@@ -11,7 +12,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif !important;
   background-color: #f4f4f4;
 }
 
@@ -103,6 +104,7 @@ main {
   width: auto;
   margin-left: -20px;
   transition: height 0.3s ease, margin-left 0.3s ease;
+  margin-bottom: -8px;
 }
 
 .desktop-nav-links {
@@ -185,6 +187,7 @@ main {
   cursor: pointer;
   color: #2c2c2c;
   padding: 5px;
+  margin-bottom: -8px;
 }
 
 /* MOBILE MENU STYLES */
@@ -224,293 +227,342 @@ main {
 .mobile-nav-links li a:hover { background-color: #f9f9f9; }
 .mobile-cta-button-container { padding: 25px 20px; background-color: #f7f7f7; }
 .mobile-cta-button-container .cta-button { display: block; width: 100%; }
-@media (max-width: 992px) {
-    /* Set mobile menu links to black */
-    .mobile-nav-links li a {
-        color: black;
+/* ======================================================== */
+/* MOBILE STYLES - FINAL CORRECTED ALIGNMENT                */
+/* ======================================================== */
+
+/* ---------------------------------- */
+/* Tab (<= 768px)                     */
+/* ---------------------------------- */
+@media (max-width: 768px) {
+    /* --- General Nav Rules (Unchanged) --- */
+    .desktop-nav-links,
+    .header-cta-right .cta-button {
+        display: none;
     }
-    
-    /* Set mobile CTA button text to white */
-    .mobile-cta-button-container .cta-button {
-        color: white;
+    .hamburger {
+        display: block;
     }
+    .main-nav {
+        height: 70px;
+        padding: 0 25px;
+    }
+
+    /* --- Base Top Bar Layout --- */
+    .top-bar {
+        padding: 15px 25px;
+    }
+    /* Creates the two-line structure */
+    .top-bar-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    /* Styles the first line (mail and phone) */
+    .contact-info {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+    /* Resets the social icons for centering */
+    .social-icons {
+        margin: 0;
+        gap: 15px;
+        
+    }
+      .social-icons{margin-top: 7px;}
 }
 
+/* ---------------------------------- */
+/* Large Mobile (<= 425px)            */
+/* ---------------------------------- */
+@media (max-width: 425px) {
+    /* The layout from above is correct, no changes needed */
+}
+
+/* ---------------------------------- */
+/* Medium Mobile (<= 375px)           */
+/* ---------------------------------- */
+@media (max-width: 375px) {
+    /* The layout is still correct. We can reduce side padding slightly. */
+    .top-bar, .main-nav {
+        padding: 15px 20px;
+    }
+  
+}
+
+/* ---------------------------------- */
+/* Small Mobile (<= 360px)            */
+/* ---------------------------------- */
+@media (max-width: 360px) {
+    /* FIX: Stacks the contact info ONLY on very small screens */
+    .contact-info {
+        flex-direction: column;
+        align-items: center; /* Center the stacked items */
+        gap: 10px;
+    }
+    .top-bar, .main-nav {
+        padding: 15px 15px;
+    }
+      .social-icons{margin-top: 20px;}
+    
+}
 /* =================================== */
 /* HERO SECTION STYLES (DESKTOP)       */
 /* =================================== */
 .hero-section {
-  width: 100%;
-  min-height: 100vh;
-  background-color: whitesmoke;
-  padding: 80px 5%; /* Increased padding for better spacing */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  margin-top: -70px;
-  margin-bottom: -150px;
+    width: 100%;
+    min-height: 100vh;
+    background-color: whitesmoke;
+    padding: 80px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 50px;
+    margin-bottom: -70px;
 }
 
 .hero-container {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "text image";
-  align-items: center;
-  gap: 40px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "text image";
+    align-items: center;
+    gap: 40px;
 }
 
 .hero-text {
-  grid-area: text;
-  text-align: left;
+    grid-area: text;
+    text-align: left;
 }
 
 .web-dev-vectors {
-  grid-area: image;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 450px;
-  position: relative;
+    grid-area: image;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 450px;
+    position: relative;
 }
 
 .hero-text h1 {
-  font-size: 38px;
-  font-weight: 900;
-  color: #0d2a81;
-  line-height: 1.3;
-  margin: 0 0 20px 0;
+    font-size: 38px;
+    font-weight: 900;
+    color: #0d2a81;
+    line-height: 1.4;
+    /* CHANGE 1: ஹெட்டிங்கிற்கு கீழே உள்ள இடைவெளியை 20px-லிருந்து 30px-ஆக அதிகரித்துள்ளேன். */
+    margin: 0 0 30px 0;
 }
 
 .hero-section-ColorChange { color: #1abec4; }
 
 .hero-text h1 .sub-heading {
-  font-size: 18px;
-  font-weight: 700;
-  color: #0d2a81;
-  display: block;
-  margin-top: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0d2a81;
+    display: block;
+    margin-top: 7px;
 }
 
 .hero-text p {
-  font-size: 16px;
-  color: #555e68;
-  line-height: 1.8;
-  margin-bottom: 30px;
-  max-width: 600px;
+    font-size: 16px;
+    color: #555e68;
+    line-height: 1.8;
+    /* CHANGE 2: பாராவிற்கு கீழே உள்ள இடைவெளியை 20px-லிருந்து 40px-ஆக அதிகரித்துள்ளேன். */
+    margin-bottom: 40px;
+    max-width: 600px;
 }
 
 .hero-para-bold {
-  color: #0d2a81;
-  font-weight: 850;
-  font-size: 17px;
+    color: #0d2a81;
+    font-weight: 650;
+    font-size: 17px;
 }
 
 .hero-buttons {
-  display: flex;
-  gap: 12px;
+    display: flex;
+    gap: 12px;
+    /* CHANGE 3: பட்டன்களுக்கு இருந்த தேவையற்ற negative margin-ஐ நீக்கியுள்ளேன். */
 }
 
 .hero-btn {
-  padding: 14px 28px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  color: #ffffff;
-  background-image: linear-gradient(to bottom, #24eef5, #1ba6b3);
-  border: none;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  white-space: nowrap;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    color: #ffffff;
+    background-image: linear-gradient(to bottom, #24eef5, #1ba6b3);
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
 .hero-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
-
-/* --- Animation & Vector Styles (Desktop) --- */
-.slide-left {
-  visibility: hidden; opacity: 0;
-  transform: translateX(-60px);
-  transition: opacity 0.6s, transform 0.8s, visibility 0s 1s;
-}
-.slide-left.visible {
-  visibility: visible; opacity: 1;
-  transform: translateX(0);
-  transition: opacity 0.7s, transform 0.95s;
-}
-.slide-left[data-index="1"].visible { transition-delay: 0.08s; }
-.slide-left[data-index="2"].visible { transition-delay: 0.23s; }
-.slide-left[data-index="3"].visible { transition-delay: 0.38s; }
-.main-website-vector {
-  width: 90%; max-width: 450px;
-  position: relative; z-index: 2;
-  animation: float-main 6s ease-in-out infinite;
-}
-.floating-element {
-  position: absolute;
-  animation: float-icons 5s ease-in-out infinite alternate;
-  z-index: 1;
-}
-#html-vector, #css-vector, #js-vector { width: 80px; height: 80px; }
-#html-vector { top: 10%; left: 5%; animation-delay: 0.5s; }
-#css-vector { bottom: 15%; right: 5%; animation-delay: 0.8s; }
-#js-vector { width: 70px; height: 70px; top: 20%; right: 10%; animation-delay: 1.2s; }
-
-@keyframes float-main {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-@keyframes float-icons {
-  0%, 100% { transform: translateY(0px) rotate(-3deg); }
-  100% { transform: translateY(-25px) rotate(3deg); }
-}
-
-
 /* ============================================= */
-/* RESPONSIVE STYLES (FOR TABLET & MOBILE)       */
+/* RESPONSIVE STYLES (FOR TABLET & MOBILE) */
 /* ============================================= */
 
-/* Medium Devices (Tablets, less than 992px) */
+/* Tablet (less than 992px) */
 @media (max-width: 992px) {
-  /* --- NAVBAR FIX --- */
-  .desktop-nav-links,
-  .header-cta-right .cta-button {
-      display: none;
-  }
-  .hamburger {
-      display: block;
-  }
-  .main-nav {
-      height: 70px;
-      padding: 0 25px;
-  }
-  .logo-img {
-      height: 100px;
-      margin-left: -15px;
-  }
-
-  /* --- HERO LAYOUT FIX --- */
   .hero-section {
-    min-height: auto; /* Allow height to be determined by content */
+    min-height: auto;
     padding: 60px 5%;
-    margin-top: 150px;
-    
+    margin-top: 120px;
+    margin-bottom: 40px;
   }
   .hero-container {
-    grid-template-columns: 1fr; /* Stack to a single column */
-    grid-template-areas:
-      "text"
-      "image";
-    text-align: center; /* Center align all text content */
-  }
-  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    gap: 20px;
   }
-  
+  .hero-text { text-align: center; }
+  .main-website-vector {
+    position: static;
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 260px;
+  }
   .hero-buttons {
-    justify-content: center; /* Center the buttons container */
-    }
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
 }
 
-/* Small Devices (Mobiles, less than 768px) */
+/* Mobile (less than 768px) */
 @media (max-width: 768px) {
-  /* --- TOP BAR FIX --- */
-  .top-bar-content {
-      flex-direction: column; /* Stack contact and social icons */
-      align-items: center;
-      gap: 15px;
+  .hero-section {
+    padding: 45px 5%;
+    margin-top: 100px;
+    margin-bottom: 40px;
   }
-  .contact-info {
-      justify-content: center;
-      margin-right: 0; /* Remove the auto margin */
-      gap: 15px;
-  }
-  .top-bar {
-      padding: 15px 5%;
-  }
-
-  /* --- HERO CONTENT REFINEMENT --- */
-  .hero-text h1 {
-    font-size: 34px; /* Adjust font size for mobile */
-    line-height: 1.2;
-  }
-  .hero-text h1 .sub-heading {
-    font-size: 16px;
-  }
-  .hero-text p {
-    font-size: 15px;
-    line-height: 1.6;
+  .hero-text h1 { font-size: 42px; line-height: 1.2; }
+  .hero-text h1 .sub-heading { font-size: 15px; margin-top: 9px; }
+  .hero-text p { font-size: 15px; line-height: 1.5; }
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
   }
   .main-website-vector {
-    max-width: 320px; /* Control image size */
+    display: block;
+    position: static;
+    max-width: 220px;
+    margin: 0 auto 18px auto; /* space below image */
   }
-  .floating-element {
-    display: none; /* Hide floating icons for cleaner look */
-  }
+  .floating-element { display: none; }
+  .main-website-vector, .floating-element { animation: none; }
+  .slide-left { visibility: visible; opacity: 1; transform: none; transition: none; }
 
-  /* --- DISABLE ANIMATIONS ON MOBILE --- */
-  .main-website-vector,
-  .floating-element {
-    animation: none;
+  .hero-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    gap: 12px;
+    flex-wrap: wrap;
   }
-  .slide-left {
-    visibility: visible;
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+  .hero-btn { padding: 10px 16px; font-size: 15px; }
 }
 
-/* Extra Small Devices (less than 480px) */
+/* Extra Small (less than 480px) */
 @media (max-width: 480px) {
-  /* --- TOP BAR: Hide phone for very small screens --- */
-  .top-bar .phone-number { margin-left: -25px;
-      
+  .hero-section { margin-top: 140px; margin-bottom: -330px; padding: 25px 5%; }
+  .hero-text h1 { font-size: 28px; margin-top: 30px; }
+  .hero-text p { font-size: 16px; }
+  .main-website-vector {
+    display: block;
+    position: static;
+    max-width: 180px;
+    margin: -500px auto 15px auto; /* space below image */
   }
-  .contact-info {
-      flex-direction: column;
-      gap: 10px;
-      margin-left: -187px;
-      margin-bottom: -40px;
-      
+  .hero-buttons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 11px;
+    margin-top: 172px;
+    margin-bottom: -120px;
+  }
+  .hero-btn { padding: 8px 10px; font-size: 13px; }
+}
+/* =================================== */
+/* ANIMATION EFFECTS FOR LAPTOP SCREENS */
+/* =================================== */
+@media (min-width: 993px) {
+  /* Keyframes for slide-in animations */
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
   
-  /* --- HERO: Further adjustments for small screens --- */
-  .hero-text h1 {
-    font-size: 28px;
-    margin-top: 40px;
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
-  .hero-text p {
-    font-size: 14px;
+  
+  /* Reset the hidden visibility */
+  .slide-left {
+    visibility: visible !important;
   }
-  .main-website-vector{
-    margin-top: -850px;
+  
+  /* Apply animations to elements */
+  .hero-text h1.slide-left {
+    animation: slideInLeft 1s ease-out forwards;
   }
-  .social-icons{margin-right: -180px;}
-
-  /* --- BUTTONS FIX: Changed to row to keep them side-by-side --- */
+  
+  .hero-text h1 .sub-heading.slide-left {
+    animation: slideInLeft 0.8s ease-out 0.1s forwards;
+    opacity: 0;
+  }
+  
+  .hero-text p.slide-left {
+    animation: slideInLeft 0.8s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+  
+  .hero-para-bold {
+    display: inline-block;
+    animation: slideInRight 0.8s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+  
   .hero-buttons {
-    flex-direction: row; /* This keeps buttons in the same line */
-    justify-content: center;
-    gap: 10px; /* Adjusted gap for side-by-side layout */
-  }
-  .hero-btn {
-    padding: 10px 14px; /* Slightly adjusted padding for smaller screens */
-    font-size: 14px;
-    margin-top: 210px;
-    /* Removed the width property so they fit naturally */
-  }
-  .hero-section{
-    margin-bottom: -500px;
-    margin-top: 100px;
+    opacity: 0;
+    animation: slideInLeft 0.5s ease-out 0.3s forwards;
   }
 }
 
@@ -532,13 +584,13 @@ main {
 .section-headliness h2 strong { font-weight: 700; }
 .about-content { display: flex; align-items: center; gap: 60px; width: 100%; }
 .about-text { flex: 1 1 60%; }
-.about-text p { font-size: 14px; color: #555e68; line-height: 1.8; margin-bottom: 20px; }
+.about-text p { font-size: 16px; color: #555e68; line-height: 1.8; margin-bottom: 20px; }
 .about-para-bold{
     color: #0d2a81;
-    font-weight: 750;
+    font-weight: 650;
     font-size: 16px;
 }
-.section-about-cta { text-align: left; margin-top: -40px; margin-left: 610px; }
+.section-about-cta { text-align: left; margin-top: 5px; margin-left: 520px; }
 .section-about-cta .btn-primary { 
     padding: 14px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; 
     color: white; background-image: linear-gradient(to bottom, #24eef5, #1ba6b3); 
@@ -559,19 +611,22 @@ main {
   display: inline-block;
   opacity: 0;
   transform: translateX(50px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .about-section .section-headliness h2 strong {
   display: inline-block;
   opacity: 0;
   transform: translateX(-50px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  color: #1abec4;
 }
 .about-section .about-text p {
   opacity: 0;
   transform: translateX(50px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
+.about-section .about-text .About-p3-bold{color: #0d2a81;}
+.About-p3-ctagreen{color: #0d2a81;}
 .about-section.is-visible .section-headliness h2 .normal-text,
 .about-section.is-visible .about-text p {
   opacity: 1;
@@ -639,7 +694,7 @@ main {
     animation-delay: var(--delay); z-index: 3;
 }
 .vector-circle:nth-child(2) { top: 80%; left: 68%; }
-.vector-circle:nth-child(3) { top: 8%; left: -1%; }
+.vector-circle:nth-child(3) { top: 18%; left: -1%; }
 .vector-icon { width: 70%; height: 70%; }
 @keyframes float {
     0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -650,7 +705,7 @@ main {
 .about-vectors,
 .about-text {
     opacity: 0;
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 .about-vectors {
     transform: translateX(-50px);
@@ -666,6 +721,7 @@ main {
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 992px) {
+    .about-section{margin-top: -50px;}
     .about-content {
         flex-direction: column;
     }
@@ -681,7 +737,7 @@ main {
         margin-top: 20px;
     }
     .about-vectors {
-      margin-top: -80px !important;
+      margin-top: -140px !important;
       margin-bottom: 20px !important;
       min-height: 250px !important;
     }
@@ -705,7 +761,9 @@ main {
         bottom: -50px;
         right: -50px;
     }
-
+.about-text {
+    margin-top: -100px;
+}
     /* === ANIMATIONS DISABLED FOR MOBILE SCREENS START HERE === */
 
     /* Turn off all floating animations */
@@ -732,12 +790,66 @@ main {
         transition: none;
     }
     
-
+@media (min-width: 993px) {
+    /* Keyframes for slide-in animations */
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    /* Initially hide animated elements */
+    .about-section .normal-text,
+    .about-section .section-headlines h2 strong,
+    .about-section .about-text p,
+    .about-section .about-para-bold {
+        opacity: 0;
+    }
+    
+    /* Animation classes to be added by JavaScript */
+    .animate-normal-text {
+        animation: slideInLeft 1s ease-out forwards;
+    }
+    
+    .animate-strong-text {
+        animation: slideInRight 1s ease-out 0.3s forwards;
+    }
+    
+    .animate-about-text {
+        animation: slideInLeft 1s ease-out 0.6s forwards;
+    }
+    
+    .animate-about-vectors {
+        animation: slideInRight 1s ease-out 0.6s forwards;
+    }
+    
+    .animate-blue-text {
+        display: inline-block;
+        animation: slideInRight 1s ease-out 0.9s forwards;
+    }
+}
     /* === ANIMATIONS DISABLED FOR MOBILE SCREENS END HERE === */
 }
 
+
 /* ======================================================== */
-/* FINAL ZIGZAG ABOUT SECTION (Corrected for Mobile Button) */
+/* FINAL ZIGZAG ABOUT SECTION                               */
 /* ======================================================== */
 
 /* --- Main Section Wrapper --- */
@@ -745,11 +857,14 @@ main {
     padding: 100px 5%;
     overflow: hidden;
     background-color: white;
+    position: relative;
 }
 
 .about-zigzag-container {
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 10;
 }
 
 /* --- Headline Banner --- */
@@ -757,9 +872,8 @@ main {
     margin: 0 auto 80px auto;
     padding: 0 15px;
 }
-
 .section-zigzag-headline h2 {
-    background: linear-gradient(135deg, #1a2a3d 0%, #2c3e50 50%, #34495e 100%);
+    background: linear-gradient(135deg, #1a2a3d, #34495e);
     padding: 40px 60px;
     border-radius: 120px 40px 120px 40px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
@@ -769,22 +883,21 @@ main {
     line-height: 1.1;
     letter-spacing: -1px;
 }
-
 .headline-part1 {
-    color: #ffffff;
+    color: whitesmoke;
     display: block;
     font-size: 2rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     font-weight: normal;
 }
-
+.zigzag-h2a{color: #0ce1e8;}
 .headline-part2 {
-    color: #24eef5;
+    color: whitesmoke;
     display: block;
     font-size: 2.8rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
-
+.zigzag-h2b{color: #24eef5;}
 
 /* --- Zigzag Content Rows --- */
 .zigzag-content {
@@ -792,7 +905,6 @@ main {
     flex-direction: column;
     gap: 100px;
 }
-
 .zigzag-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -804,36 +916,63 @@ main {
     color: #333;
     line-height: 1.8;
 }
-/* round shape uneven */
+.zigzag-p1a {color: #0d2a81;}
+.zigzag-p1b{color: #0d2a81;}
+.zigzag-p2a{color: #0d2a81;}
 
-.zigzag-image {
-    border-radius: 80px 18px 80px 18px; /* Top-left: big, others: normal */
-    overflow: hidden;
+/* --- UNIFIED STYLES FOR BOTH IMAGE CONTAINERS --- */
+.zigzag-image,
+.z2zigzag-image {
+    border-radius: 80px 18px 80px 18px;
+    overflow: hidden; /* This is important to contain the zoom effect */
     background: #fafafa;
     box-shadow: 0 7px 24px rgba(60,60,90,0.13);
     position: relative;
-    max-width: 420px;
+    max-width: 420px; /* Made the size consistent */
     margin: 0 auto;
 }
 
-.zigzag-image img {
+/* --- UNIFIED STYLES FOR BOTH IMAGES --- */
+.zigzag-image img,
+.z2zigzag-image img {
     display: block;
     width: 100%;
-    height: 260px;         
-    object-fit: cover;     
-    border-radius: 0;      
-    box-shadow: none;
-    background: #fff;
+    height: 260px;
+    object-fit: cover; /* 'cover' provides a better zoom effect */
+    
+    /* This makes the zoom animation smooth */
+    transition: transform 0.4s ease;
 }
 
+/* --- THE ZOOM EFFECT ON HOVER --- */
+.zigzag-image:hover img,
+.z2zigzag-image:hover img {
+    transform: scale(1.1); /* Zooms the image to 110% of its size */
+}
+/* ============================================= */
+/* RESPONSIVE STYLES (MOBILE LAYOUT FIX)         */
+/* ============================================= */
 
+@media (max-width: 768px) {
+    .zigzag-row {
+        /* This rule stacks the columns on mobile */
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* --- 3. FIX FOR MOBILE STACKING ORDER --- */
+    /* This moves the image above the text in the 1st and 3rd rows */
+    .zigzag-row:nth-child(1) .z1zigzag-image,
+    .zigzag-row:nth-child(3) .zigzag-image {
+        order: -1; /* This CSS command changes the display order */
+    }
+}
 
 /* --- CTA Button --- */
 .section-zigzag-cta {
     text-align: center;
-    margin-top: -5px;
+    margin-top: 35px;
 }
-
 .section-zigzag-cta .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -848,93 +987,55 @@ main {
     font-weight: 500;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
-    white-space: nowrap; /* Ensures text stays on one line */
+    white-space: nowrap;
     max-width: 100%; 
     margin-right: 750px;
 }
-
 .section-zigzag-cta .btn-primary:hover {
     transform: translateY(-3px);
 }
-
 .section-zigzag-cta .btn-icon {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-/* UnevenShapes */
-.about-zigzag-section {
-  position: relative;
-  overflow: visible; /* Allow shapes to overflow */
-}
 
-/* Top-left organic rounded shape */
+/* --- UnevenShapes --- */
 .about-zigzag-section::before {
-  content: "";
-  position: absolute;
-  top: 760px;
-  left: 160px;
-  width: 350px;
-  height: 310px;
-  background: rgb(234, 234, 245); /* soft pastel blue */
-  border-radius: 50%;/* uneven rounded shape */
-  filter: drop-shadow(0 3px 5px rgba(0,0,0,0.06));
-  z-index: 1;
-  animation: floatSlow 7s ease-in-out infinite;
+    content: "";
+    position: absolute;
+    top: 860px;
+    left: 20px;
+    width: 350px;
+    height: 310px;
+    background: rgb(234, 234, 245);
+    border-radius: 50%;
+    filter: drop-shadow(0 3px 5px rgba(0,0,0,0.06));
+    z-index: 1;
+    animation: floatSlow 7s ease-in-out infinite;
 }
-
-/* Bottom-right organic rounded shape */
 .about-zigzag-section::after {
-  content: "";
-  position: absolute;
-  bottom: 50px;
-  right: 160px;
-  width: 350px;
-  height: 310px;
-  background:  rgb(234, 234, 245); /* slightly deeper pastel blue */
-  border-radius: 50%; /* alternate uneven rounded shape */
-  filter: drop-shadow(0 4px 7px rgba(0,0,0,0.07));
-  z-index: 1;
-  animation: floatSlow 6s ease-in-out infinite;
-  animation-delay: 2s;
-  
+    content: "";
+    position: absolute;
+    bottom: 50px;
+    right: 160px;
+    width: 350px;
+    height: 310px;
+    background:  rgb(234, 234, 245);
+    border-radius: 50%;
+    filter: drop-shadow(0 4px 7px rgba(0,0,0,0.07));
+    z-index: 1;
+    animation: floatSlow 6s ease-in-out infinite;
+    animation-delay: 2s;
 }
-
-/* Keep content above the shapes */
-.about-zigzag-container {
-  position: relative;
-  z-index: 10;
-}
-
-/* Gentle floating animation */
 @keyframes floatSlow {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-12px) rotate(4deg);
-  }
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(4deg); }
 }
 
-/* Responsive adjustment for mobile */
-@media (max-width: 768px) {
-  .about-zigzag-section::before,
-  .about-zigzag-section::after {
-    width: 120px;
-    height: 120px;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.04));
-  }
-  .about-zigzag-section::before {
-    top: -50px;
-    left: -50px;
-  }
-  .about-zigzag-section::after {
-    bottom: -55px;
-    right: -50px;
-  }
-}
-
-/* --- INITIAL HIDDEN STATE --- */
+/* ============================================= */
+/* SCROLL ANIMATION STYLES (FOR DESKTOP)         */
+/* ============================================= */
 .zigzag-row .zigzag-text,
 .zigzag-row .zigzag-image {
     opacity: 0;
@@ -943,53 +1044,26 @@ main {
         transform 0.9s cubic-bezier(.4,.7,.4,1);
     will-change: transform, opacity;
 }
-
-/* --- Odd ROW: Text Left, Image Right --- */
 .zigzag-row:nth-child(odd) .zigzag-text {
     transform: translateX(-60px);
 }
 .zigzag-row:nth-child(odd) .zigzag-image {
     transform: translateX(60px);
 }
-/* --- Even ROW: Image Left, Text Right --- */
 .zigzag-row:nth-child(even) .zigzag-image {
     transform: translateX(-60px);
 }
 .zigzag-row:nth-child(even) .zigzag-text {
     transform: translateX(60px);
 }
-
-/* --- WHEN VISIBLE: Animate to Center --- */
 .zigzag-row.visible .zigzag-text,
 .zigzag-row.visible .zigzag-image {
     opacity: 1;
     transform: translateX(0);
 }
 
-/* --- RESPONSIVE ADJUSTMENTS --- */
-@media (max-width: 768px) {
-    .zigzag-row .zigzag-text,
-    .zigzag-row .zigzag-image {
-        /* Use a gentle upward reveal on mobile for better look */
-        transform: translateY(40px);
-    }
-    .zigzag-row.visible .zigzag-text,
-    .zigzag-row.visible .zigzag-image {
-        transform: translateY(0);
-    }
-    /* Remove any side-based offsets for stacked mobile layout */
-    .zigzag-row:nth-child(odd) .zigzag-text,
-    .zigzag-row:nth-child(odd) .zigzag-image,
-    .zigzag-row:nth-child(even) .zigzag-image,
-    .zigzag-row:nth-child(even) .zigzag-text {
-        transform: translateY(40px);
-    }
-}
-
-/* Smooth effect for all sizes, keeps layout unchanged */
-
 /* ============================================= */
-/* RESPONSIVE STYLES FOR ALL DEVICES           */
+/* RESPONSIVE STYLES FOR ALL DEVICES             */
 /* ============================================= */
 
 @media (max-width: 992px) {
@@ -1005,6 +1079,7 @@ main {
 }
 
 @media (max-width: 768px) {
+    /* Layout Adjustments */
     .zigzag-row {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -1022,20 +1097,50 @@ main {
     .headline-part2 {
         font-size: 2rem;
     }
-    .zigzag-row .zigzag-image {
+    .zigzag-row .zigzag-image,
+    .zigzag-row .z1zigzag-image,
+    .zigzag-row .z2zigzag-image {
         order: -1;
     }
-    
-    /* === CTA BUTTON FIX FOR TABLET === */
+    .z2zigzag-image{
+        margin-left: -19px;
+    }
     .section-zigzag-cta .btn-primary {
         font-size: 15px;
         padding: 15px 25px;
+    }
+    .about-zigzag-section::before,
+    .about-zigzag-section::after {
+        width: 120px;
+        height: 120px;
+    }
+    .about-zigzag-section::before {
+        top: -50px;
+        left: -50px;
+    }
+    .about-zigzag-section::after {
+        bottom: -55px;
+        right: -50px;
+    }
+    
+    /* === FIX: FORCEFULLY DISABLE ANIMATIONS ON MOBILE === */
+    .zigzag-row .zigzag-text,
+    .zigzag-row .z3zigzag-text,
+    .zigzag-row .zigzag-image,
+    .zigzag-row .z1zigzag-image,
+    .zigzag-row .z2zigzag-image
+    {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        will-change: auto !important;
     }
 }
 
 @media (max-width: 480px) {
     .about-zigzag-section {
-        padding: 60px 20px; /* Added side padding for more space */
+        padding: 60px 20px;
+        margin-bottom: -50px;
     }
     .section-zigzag-headline h2 {
         padding: 25px 20px;
@@ -1050,17 +1155,15 @@ main {
     .zigzag-text p {
         font-size: 16px;
     }
-    
-    /* === CTA BUTTON FIX FOR SMALL MOBILE === */
-    /* This makes the button smaller to fit on one line */
     .section-zigzag-cta .btn-primary {
-        font-size: 12px;       /* Smaller font */
-        padding: 12px 15px;    /* Less padding */
-        gap: 10px;             /* Less space between text and icon */
-        white-space: nowrap;   /* Force single line */
-        margin-top: 50px;
+        font-size: 12px;
+        padding: 12px 15px;
+        gap: 10px;
+        margin-top: -25px;
     }
-    .zigzag-image{
+    .zigzag-image,
+    .z1zigzag-image,
+    .z2zigzag-image {
         margin-top: -35px;
     }
 }
@@ -1073,6 +1176,8 @@ main {
 .identify-section {
     padding: 100px 5%;
     background: whitesmoke;
+    margin-top: -30px;
+    margin-bottom: -50px;
 }
 .identify-container {
     max-width: 1200px;
@@ -1090,7 +1195,7 @@ main {
     color: #0d2a81;
     font-weight: 700;
     line-height: 1.4;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 .identify-left-content p {
     font-size: 16px;
@@ -1104,6 +1209,8 @@ main {
   transition: opacity 0.7s ease, transform 0.7s ease;
   will-change: transform, opacity;
 }
+.identify-p1a{color: #0d2a81;}
+.identify-h2a{color: #1abec4;}
 
 .identify-left-content.visible h2,
 .identify-left-content.visible p {
@@ -1234,7 +1341,7 @@ main {
 }
 
 @media (max-width: 768px) {
-    .identify-left-content h2 { font-size: 28px; margin-top: -49px; }
+    .identify-left-content h2 { font-size: 28px; margin-top: -25px; }
 
     .identify-right-content {
         display: flex;
@@ -1333,8 +1440,8 @@ main {
 .showcase-heading {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
-    font-size: 32px;
-    font-weight: 700;
+    font-size: 30px;
+    font-weight: 800;
     line-height: 1.3;
 }
 .showcase-paragraph {
@@ -1344,6 +1451,7 @@ main {
     color: rgb(15, 9, 40);
     line-height: 1.8;
 }
+.frames-p-1a{color: #0d2a81;}
 .showcase-button {
     grid-column: 2 / 3;
     grid-row: 3 / 4;
@@ -1352,7 +1460,7 @@ main {
     padding: 14px 35px;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 8px;
+    border-radius: 82px;
     display: inline-block;
     transition: all 0.3s ease;
     justify-self: start; /* Align button to the left in its grid cell */
@@ -1429,7 +1537,7 @@ main {
     .showcase-button { order: 4; align-self: center; 
     margin-top: 50px;
       width: 190px;
-    margin-left: 70px; text-align: center;} /* Center the button itself */
+    margin-left: 86px; text-align: center;} /* Center the button itself */
 
     .showcase-heading { font-size: 28px; margin-top: -30px;}
     .showcase-paragraph { font-size: 15px; }
@@ -1487,7 +1595,7 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     position: relative;
     gap: 18px;
     height: 280px;
-    margin-top: -40px;
+    margin-top: -30px;
     /* overflow: hidden; has been removed to allow the image to pop out */
 }
 
@@ -1500,13 +1608,14 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 }
 
 .promo-content h2 { 
-    color: #0ce1e8; 
+    color: whitesmoke; 
     font-size: 2rem;
     line-height: 1.2;
+    margin-top: -30px;
 }
-
+.banner-h2-1a{color: #24eef5;}
 .highlighted { 
-    color: whitesmoke; 
+    color: #24eef5; 
 }
 
 .promo-content p { 
@@ -1532,7 +1641,7 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     gap: 10px;
     height: 45px;
     width: 250px; 
-    margin-top: -12px;
+    margin-top: 12px;
 }
 
 .contact-btn:hover {
@@ -1592,9 +1701,9 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 
     .promo-content { display: contents; }
     .promo-content h2, .promo-content p { width: 100%; text-align: center; }
-    .promo-content h2 { order: 1; font-size: 1.3rem; }
-    .promo-content p { order: 2; font-size: 0.8rem; }
-    .promo-visual { order: 3; width: 100%; margin: 15px 0; }
+    .promo-content h2 { order: 1; font-size: 1.2rem; margin-top: 10px;}
+    .promo-content p { order: 2; font-size: 1.0rem; }
+    .promo-visual { order: 3; width: 100%; margin: 5px 0; }
     .promo-content .contact-btn { order: 4; margin-top: -150px; width: 100%; max-width: 250px; }
 
     .popup-img {
@@ -1609,7 +1718,7 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 }
 
 /* ======================================================== */
-/* SOLUTION/SERVICES SECTION (FULLY RESPONSIVE)             */
+/* SOLUTION/SERVICES SECTION (FINAL & CORRECT)              */
 /* ======================================================== */
 
 .solution-section {
@@ -1617,7 +1726,7 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     background: white;
     position: relative;
     overflow-x: hidden;
-    margin-top: -70px;
+    margin-bottom: -170px;
 }
 
 .solution-container {
@@ -1637,6 +1746,7 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     line-height: 1.4;
     margin-bottom: 15px;
 }
+.service-h3-1a{color: #1abec4;}
 .section-service-headline p {
     font-size: 18px;
     color: #555;
@@ -1667,17 +1777,14 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     max-width: 700px;
     margin: 0 auto;
     font-size: 18px;
+    margin-top: -30px;
 }
-
-/* Visible state triggers animation */
 .section-service-headline.visible .heading-normal,
 .section-service-headline.visible .heading-strong,
 .section-service-headline.visible p {
     opacity: 1;
     transform: translateX(0) translateY(0);
 }
-
-/* Stagger delays */
 .section-service-headline.visible .heading-normal { transition-delay: 0.1s; }
 .section-service-headline.visible .heading-strong { transition-delay: 0.2s; }
 .section-service-headline.visible p { transition-delay: 0.3s; }
@@ -1693,28 +1800,14 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     opacity: 0;
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
-
-/* --- DESKTOP: Slide-in from sides animation --- */
 .service-item:nth-child(4n+1) { transform: translateX(-60px); }
 .service-item:nth-child(4n+4) { transform: translateX(60px); }
 .service-item:nth-child(4n+2) { transform: translateX(-30px); }
 .service-item:nth-child(4n+3) { transform: translateX(30px); }
-
-/* Final state when visible */
 .service-grid.is-visible .service-item {
     opacity: 1;
     transform: translateX(0);
 }
-
-/* Staggering the animation delay for each item in a row */
-.service-grid.is-visible .service-item:nth-child(n+1) { transition-delay: 0.1s; }
-.service-grid.is-visible .service-item:nth-child(n+2) { transition-delay: 0.2s; }
-.service-grid.is-visible .service-item:nth-child(n+3) { transition-delay: 0.3s; }
-.service-grid.is-visible .service-item:nth-child(n+4) { transition-delay: 0.4s; }
-.service-grid.is-visible .service-item:nth-child(n+5) { transition-delay: 0.1s; }
-.service-grid.is-visible .service-item:nth-child(n+6) { transition-delay: 0.2s; }
-.service-grid.is-visible .service-item:nth-child(n+7) { transition-delay: 0.3s; }
-.service-grid.is-visible .service-item:nth-child(n+8) { transition-delay: 0.4s; }
 
 /* --- Service Item Styling --- */
 .service-icon {
@@ -1739,6 +1832,7 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 .service-border-span:nth-child(2) { top: -100%; right: 0; width: 4px; height: 100%; }
 .service-border-span:nth-child(3) { bottom: 0; right: -100%; width: 100%; height: 4px; }
 .service-border-span:nth-child(4) { bottom: -100%; left: 0; width: 4px; height: 100%; }
+
 .service-item:hover .service-icon {
     transform: translateY(-5px);
     box-shadow: 0 12px 30px rgba(13, 42, 129, 0.15);
@@ -1748,51 +1842,27 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 .service-item:hover .service-icon .service-border-span:nth-child(3) { right: 0; }
 .service-item:hover .service-icon .service-border-span:nth-child(4) { bottom: 0; }
 
-/* --- CTA Button --- */
-.solution-section .section-cta { text-align: center; margin-top: 60px; }
-.solution-section .section-cta .btn-primary {
-    background: linear-gradient(to bottom, #24eef5, #1ba6b3);
-    color: white; padding: 14px 40px; text-decoration: none;
-    font-weight: bold; border-radius: 8px;
-    transition: all 0.3s ease;
-}
-.solution-section .section-cta .btn-primary:hover {
-    transform: translateY(-3px);
-    background: #1a2a3d;
-}
+.Service-cta {text-align: center;margin-top: 20px; margin-bottom: 25px;}
 
+.Service-cta .btn-primary {background: linear-gradient(to bottom, #24eef5, #1ba6b3);color: white;padding: 14px 40px;text-decoration: none;font-weight: bold;border-radius: 8px;transition: all 0.3s ease;display: inline-block;}
+
+.Service-cta .btn-primary:hover {
+transform: translateY(-3px);
+background: #1a2a3d;box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+
+}
 /* ============================================= */
 /* RESPONSIVE STYLES FOR ALL DEVICES             */
 /* ============================================= */
-
-/* --- For Tablets --- */
 @media (max-width: 992px) {
     .service-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 40px;
     }
-
-    /* Mobile animation: simple slide-up */
-    .service-item {
-        transform: translateY(40px);
-    }
-    .service-grid.is-visible .service-item {
-        transform: translateY(0);
-    }
 }
 
-/* --- For Mobile Phones (The Fix) --- */
 @media (max-width: 600px) {
-    .solution-section {
-        padding: 80px 20px;
-        margin-top: -40px;
-    }
-    .service-grid {
-        grid-template-columns: 1fr; /* Single column layout */
-        gap: 30px;
-    }
-    
-    /* CRITICAL FIX: Disables all animations and ensures visibility */
+    /* === MOBILE FIX: Disables all animations and ensures visibility === */
     .service-item,
     .heading-normal,
     .heading-strong,
@@ -1802,54 +1872,65 @@ Promotional Banner (With 3D Parallax Mouse Effect)
         transition: none !important;
         animation: none !important;
     }
-    
-    /* Disables hover effects that cause janky movement */
-    .service-icon,
-    .service-border-span,
-    .solution-section .section-cta .btn-primary {
-        transition: none !important;
-    }
 
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+    
     .section-service-headline h3 {
-        font-size: 28px;
+        font-size: 24px;
+        margin-top: -50px;
     }
     .section-service-headline p {
         font-size: 16px;
     }
 }
 /* =================================== */
-/* WORKFLOW TIMELINE SECTION             */
+/* WORKFLOW TIMELINE SECTION           */
 /* =================================== */
 .final-workflow-section {
     padding: 80px 5%;
-    background: linear-gradient(135deg, #f5f7fa, #e8ecf1);
+    background: white;
     overflow: hidden;
-    margin-top: -50px;
+    margin-top: -70px;
 }
 .section-workflow-headline {
-    text-align: center; margin-bottom: 80px; color: #0d2a81;
+    text-align: center; 
+    margin-bottom: 80px; 
+    color: #0d2a81;
 }
-.section-workflow-headline h2 { font-size: 32px; margin-bottom: 10px; }
-.section-workflow-headline p { font-size: 18px; color: #333; }
+/* CHANGED: h2-க்கான font-size-ஐ சரிசெய்துள்ளேன் */
+.section-workflow-headline h2 { 
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+.workflow-h2-1a{color: #1abec4;}
+/* CHANGED: p-க்கான font-size-ஐ சரிசெய்துள்ளேன் */
+.section-workflow-headline p { 
+    font-size: 16px; 
+    color: #333; 
+}
+.workflow-p-1a{color:#0ce1e8;}
+.workflow-p-1b{color:#0ce1e8;}
 
 /* -=======================================AnimatedFont=------------------------ */
 .section-workflow-headline h2,
 .section-workflow-headline p {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-  will-change: opacity, transform;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: opacity, transform;
 }
 .section-workflow-headline.visible h2,
 .section-workflow-headline.visible p {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 .section-workflow-headline.visible h2 {
-  transition-delay: 0.1s;
+    transition-delay: 0.1s;
 }
 .section-workflow-headline.visible p {
-  transition-delay: 0.3s;
+    transition-delay: 0.3s;
 }
 
 /* --- Animated Bullet Points (NEW) --- */
@@ -1942,7 +2023,6 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     border-radius: 83% 17% 83% 17% / 23% 73% 27% 77%;
     animation: morph-shape 10s ease-in-out infinite alternate;
 }
-/* This morphing animation is kept active on mobile */
 @keyframes morph-shape {
     from { border-radius: 83% 17% 83% 17% / 23% 73% 27% 77%; }
     to { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
@@ -1954,11 +2034,11 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 }
 
 /* Workflow section container alignment */
-.Workflow-cta { text-align: center; margin-top: 60px; }
+.Workflow-cta { text-align: center; margin-top: 30px; }
 .Workflow-cta .btn-primary {
     background: linear-gradient(to bottom, #24eef5, #1ba6b3);
     color: white; padding: 14px 40px; text-decoration: none;
-    font-weight: bold; border-radius: 8px;
+    font-weight: bold; border-radius: 8px;margin-bottom: -180px;
     transition: all 0.3s ease;
 }
 .Workflow-cta .btn-primary:hover {
@@ -1992,7 +2072,7 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     .timeline-item:nth-child(odd)::after,
     .timeline-item:nth-child(even)::after {
         left: 50%;
-        top: 24px;
+        top: 10px;
         transform: translateX(-50%);
     }
     .timeline-item:nth-child(odd) .timeline-item-content {
@@ -2007,8 +2087,16 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     .section-workflow-headline h2 { font-size: 28px; }
     .text-in-shape { padding: 40px 25px; }
     .text-in-shape h6 { font-size: 16px; }
+    /* --- MOBILE FIX: Make the text shape static --- */
+    .text-in-shape::before {
+        /* Stop the morphing animation on mobile */
+        animation: none;
+        
+        /* Set a fixed, stable shape that looks good and covers the text */
+        border-radius: 83% 17% 83% 17% / 23% 73% 27% 77%;
+    }
     
-    /* === ANIMATIONS DISABLED FOR MOBILE SCREENS START HERE === */
+    /* --- ANIMATIONS DISABLED FOR MOBILE SCREENS START HERE === */
 
     /* Turn off the bullet point pulse animation */
     .timeline-item-content li::before {
@@ -2038,8 +2126,8 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     /* === ANIMATIONS DISABLED FOR MOBILE SCREENS END HERE === */
 }
 @media (max-width: 480px) {
-    .section-workflow-headline h2 { font-size: 17px; font-weight: 600;}
-    .timeline-item-content h3 { font-size: 18px; }
+    .section-workflow-headline h2 { font-size: 20px; font-weight: 600;}
+    .timeline-item-content h3 { font-size: 16px; }
     .timeline-item-content li { font-size: 15px; }
 
     .timeline-item .timeline-item-content {
@@ -2066,9 +2154,9 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 .tech-section {
     padding: 80px 5%;
     background-color: linear-gradient(135deg, whitesmoke, #bcbfc6);
-    background: white;
-    margin-bottom: -50px;
-    margin-top: -50px;
+    background: whitesmoke;
+    margin-bottom: -80px;
+    margin-top: -25px;
 }
 .tech-container {
     max-width: 1200px;
@@ -2079,6 +2167,7 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     color: #0d2a81;
     margin-top: -120px;
     text-align: center;
+    margin-top: 40px;
 }
 .section-service-headline p{
     text-align: center;
@@ -2086,15 +2175,16 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 }
 /* =================================Animatedfont===================== */
 .tech-section-heading {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   color: #0d2a81;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.7s ease, transform 0.7s ease;
   will-change: opacity, transform;
+  margin-top: -40px;
 }
 
 .tech-section-strong {
@@ -2265,8 +2355,10 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 
 .portfolio-section {
     padding: 80px 5%;
-    background: whitesmoke;
+    background: white;
     overflow: hidden;
+    margin-top: 50px;
+    margin-bottom: -50px;
 }
 
 /* --- Section Headline (Responsive) --- */
@@ -2274,7 +2366,6 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     text-align: center;
     margin-bottom: 40px;
 }
-
 .portfolio-section .section-headline h2,
 .portfolio-section .section-headline p {
     opacity: 0;
@@ -2282,27 +2373,23 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     transition: opacity 0.7s ease, transform 0.7s ease;
     will-change: opacity, transform;
 }
-
 .portfolio-section .section-headline.visible h2,
 .portfolio-section .section-headline.visible p {
     opacity: 1;
     transform: translateY(0);
 }
-
 .portfolio-section .section-headline.visible h2 {
     transition-delay: 0.15s;
 }
-
 .portfolio-section .section-headline.visible p {
     transition-delay: 0.35s;
 }
-
 .portfolio-section .section-headline h2 {
-    font-size: 32px;
+    font-size: 40px;
     color: #0d2a81;
     margin-bottom: 10px;
+    margin-top: -50px;
 }
-
 .portfolio-section .section-headline p {
     font-size: 18px;
     color: #333;
@@ -2318,30 +2405,24 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     padding: 40px 0;
 }
 
-/* --- PERFORMANCE FIX 1: Staggered Loading --- */
-/* Items are hidden initially and will be faded in by JavaScript */
+/* --- Portfolio Items --- */
 .portfolio-item-stacked {
     text-align: center;
     cursor: pointer;
     position: relative;
     max-width: 380px;
     margin: 0 auto;
-    
-    /* Initial state for animation */
     opacity: 0;
     transform: translateY(50px);
-    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
 }
-
 .portfolio-item-stacked.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
-/* The hover effect is separated for clarity */
 .portfolio-item-stacked:hover {
     transform: translateY(-10px);
 }
-
 
 /* --- Card Stack Effect --- */
 .card-stack {
@@ -2352,7 +2433,6 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     transform-style: preserve-3d;
     perspective: 1500px;
 }
-
 .stack-card {
     position: absolute;
     top: 0;
@@ -2363,34 +2443,28 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     border: 3px solid #fff;
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    
-    /* --- PERFORMANCE FIX 2: GPU Acceleration --- */
-    /* This tells the browser to prepare this element for animation, making it much smoother */
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform;
 }
-
 .stack-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 .stack-card.card-1 { transform: rotate(8deg) translateX(15%); z-index: 3; }
 .stack-card.card-2 { transform: rotate(-1deg) translateZ(20px); z-index: 4; }
 .stack-card.card-3 { transform: rotate(-8deg) translateX(-15%); z-index: 2; }
-
 .portfolio-item-stacked:hover .card-stack .card-1 { transform: rotate(5deg) translateX(35%); }
 .portfolio-item-stacked:hover .card-stack .card-2 { transform: rotate(0deg) translateZ(30px) scale(1.03); }
 .portfolio-item-stacked:hover .card-stack .card-3 { transform: rotate(-5deg) translateX(-35%); }
-
-.project-info h3 { font-size: 22px; color: #1a2a3d; margin-bottom: 5px; }
+.project-info h3 { font-size: 22px; color: #1a2a3d; margin-bottom: -5px; }
 .project-info p { font-size: 16px; color: #555; }
 
 /* --- Explore Button --- */
 .explore-cta {
     text-align: center;
     padding: 20px 0;
+    margin-top: -20px;
 }
 .explore-cta .btn-primary {
     display: inline-block;
@@ -2412,35 +2486,26 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* ======================================================== */
-/* --- 3D COVER FLOW POPUP STYLES (NO CHANGES NEEDED HERE) --- */
-/* ======================================================== */
-
+/* --- 3D COVER FLOW POPUP STYLES --- */
 .coverflow-popup-overlay {
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
     background: rgba(12, 21, 38, 0.85);
     backdrop-filter: blur(8px);
-    z-index: 2000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.5s ease;
+    z-index: 1000;
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0; visibility: hidden;
+    transition: all 0.4s ease;
 }
 .coverflow-popup-overlay.active { opacity: 1; visibility: visible; }
 .coverflow-popup-container {
     position: relative;
-    width: 90%;
-    max-width: 1200px;
-    height: 75vh;
-    max-height: 700px;
+    width: 90%; max-width: 1200px;
+    height: 75vh; max-height: 700px;
 }
 .coverflow-carousel {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     transform-style: preserve-3d;
     perspective: 1200px;
 }
@@ -2448,14 +2513,11 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     position: absolute;
     top: 0; left: 0; right: 0;
     margin: auto;
-    width: 50%;
-    height: 100%;
+    width: 50%; height: 100%;
     transition: transform 0.6s ease, opacity 0.6s ease, filter 0.6s ease;
-    background: transparent;
 }
 .carousel-slide img {
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     object-fit: contain;
     border-radius: 10px;
     box-shadow: 0 10px 35px rgba(0,0,0,0.4);
@@ -2467,18 +2529,16 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 .carousel-slide.hide-right { transform: translateX(120%) translateZ(-400px) rotateY(-60deg); opacity: 0; z-index: 1; }
 .popup-project-info {
     position: absolute;
-    bottom: -80px;
-    left: 50%;
+    bottom: -50px; left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    text-align: center;
-    color: #fff;
+    text-align: center; color: #fff;
     transition: bottom 0.5s ease, opacity 0.5s ease;
     opacity: 0;
 }
 .coverflow-popup-overlay.active .popup-project-info { bottom: -70px; opacity: 1; }
-.popup-project-info h3 { margin-bottom: 5px; }
-.popup-project-info p { color: #bdbfc7; }
+.popup-project-info h3 { margin-bottom: -2px; }
+.popup-project-info p { color: #bdbfc7; margin-bottom: 4px;}
 .popup-close-btn {
     position: absolute; top: 20px; right: 20px;
     width: 40px; height: 40px;
@@ -2498,7 +2558,7 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 .popup-nav-btn.prev { left: 5%; }
 .popup-nav-btn.next { right: 5%; }
 
-/* --- Responsive Styles (NO CHANGES NEEDED HERE) --- */
+/* --- Responsive Styles --- */
 @media (max-width: 992px) {
     .portfolio-grid-stacked { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 80px 40px; }
     .carousel-slide { width: 65%; }
@@ -2521,21 +2581,48 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 }
 @media (max-width: 480px) {
     .portfolio-section { padding: 60px 5%; }
-    .portfolio-section .section-headline h2 { font-size: 24px; }
+    .portfolio-section .section-headline h2 { font-size: 32px; margin-top: -20px; }
     .portfolio-section .section-headline p { font-size: 15px; }
     .popup-nav-btn.prev { left: 5px; }
     .popup-nav-btn.next { right: 5px; }
     .popup-close-btn { width: 35px; height: 35px; top: 10px; right: 10px; }
 }
 
-/* ==================================================================choosesection================================= */
-/* =================================== */
-/* CHOOSE US SECTION STYLES            */
-/* =================================== */
+/* ======================================================== */
+/* --- SMOOTH & STAGGERED CARD ANIMATION (CORRECTED) --- */
+/* ======================================================== */
 
+.portfolio-item-stacked {
+    opacity: 0;
+    transform: translateY(40px);
+    /* FIX 1: Increased duration and used a smoother easing for a less "stuck" feel */
+    transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.portfolio-section.visible .portfolio-item-stacked {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* FIX 2: Incremented the delay for each item to create a true "one by one" effect */
+.portfolio-section.visible .portfolio-item-stacked:nth-child(1) { transition-delay: 0.1s; }
+.portfolio-section.visible .portfolio-item-stacked:nth-child(2) { transition-delay: 0.2s; }
+.portfolio-section.visible .portfolio-item-stacked:nth-child(3) { transition-delay: 0.3s; }
+.portfolio-section.visible .portfolio-item-stacked:nth-child(4) { transition-delay: 0.4s; }
+.portfolio-section.visible .portfolio-item-stacked:nth-child(5) { transition-delay: 0.5s; }
+.portfolio-section.visible .portfolio-item-stacked:nth-child(6) { transition-delay: 0.6s; }
+/* Add more lines if you have more portfolio items */
+
+.portfolio-item-stacked:hover {
+    transform: translateY(-10px);
+    transition: transform 0.3s ease;
+}
+
+/* ==================================================================choosesection================================= */
 .choose-us-section {
     padding: 80px 5%;
-    background: rgb(255, 255, 255);
+    background: whitesmoke;
 }
 
 .choose-us-container {
@@ -2545,25 +2632,28 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 
 /* --- Section Headline --- */
 .section-chooseus-headline {
-  color: #0d2a81 !important;
-  text-align: center;
-  margin-bottom: 60px !important;
+    color: #0d2a81;
+    text-align: center;
+    /* CHANGED: கார்டுகளுக்கு முன் இடைவெளி சேர்க்கப்பட்டுள்ளது */
+    margin-bottom: 40px; 
 }
-
 .section-chooseus-headline h2 {
-  font-size: 32px;
-  line-height: 1.4;
-  margin-bottom: 15px;
-  /* The animation properties that were hiding the text have been removed. */
+    font-size: 32px;
+    line-height: 1.4;
+    margin-bottom: 15px;
 }
+.choose-h2-1a{color: #1abec4;}
+.choose-p-1a{color: #1ba6b3;font-size: larger;}
+.choose-p-1b{color: #1ba6b3;font-size: larger;}
 
-.section-chooseus-headline p {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #555e68;
-  max-width: 800px;
-  margin: 0 auto;
-  /* The animation properties that were hiding the text have been removed. */
+/* --- NEW: Paragraph Below Cards --- */
+.choose-text-below-cards {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #0d2a81;
+    max-width: 800px;
+    margin: 60px auto 40px auto; /* கார்டுகளுக்கும் பட்டனுக்கும் இடையே இடைவெளி */
 }
 
 /* --- Responsive Card Grid --- */
@@ -2641,7 +2731,8 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 
 .choose-us-section .section-cta {
     text-align: center;
-    margin-top: 60px;
+    /* CHANGED: பட்டனுக்கு மேல் இடைவெளி சேர்க்கப்பட்டுள்ளது */
+    margin-top: 0;
 }
 
 .choose-us-section .btn-primary {
@@ -2662,29 +2753,45 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 
 /* Responsive styles */
 @media (max-width: 768px) {
-    /* === ANIMATIONS DISABLED FOR MOBILE SCREENS START HERE === */
-
-    /* Turn off the headline slide-in transitions */
-    .section-chooseus-headline h2,
-    .section-chooseus-headline p {
-        opacity: 1;
-        transform: none;
-        transition: none;
+    .choose-us-section {
+        padding: 60px 5%;
     }
-
-    /* Turn off card hover effects (lift, shadow, and underline) */
+    .section-chooseus-headline h2 {
+        font-size: 28px;
+    }
+    .choose-text-below-cards {
+        font-size: 16px;
+        margin: 40px auto 30px auto;
+    }
+    .cards-container {
+        gap: 25px;
+    }
     .feature-card,
-    .feature-chooseus-card,
-    .feature-card h3::after,
-    .feature-chooseus-card h3::after {
-        transition: none;
+    .feature-chooseus-card {
+        padding: 25px;
     }
-
-    /* Turn off the button hover transition */
-    .choose-us-section .btn-primary {
-        transition: none;
+    .feature-card h3,
+    .feature-chooseus-card h3 {
+        font-size: 20px;
     }
+}
 
+@media (max-width: 480px) {
+    .choose-us-section {
+        padding: 50px 20px;
+    }
+    .section-chooseus-headline h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+    .choose-text-below-cards {
+        font-size: 14px;
+    }
+    .feature-card p,
+    .feature-chooseus-card p {
+        font-size: 14px;
+    }
+}
     /* === ANIMATIONS DISABLED FOR MOBILE SCREENS END HERE === */
 
     .choose-us-section {
@@ -2707,7 +2814,7 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     .feature-chooseus-card h3 {
         font-size: 20px;
     }
-}
+
 
 @media (max-width: 480px) {
     .choose-us-section {
@@ -2884,29 +2991,8 @@ Promotional Banner (With 3D Parallax Mouse Effect)
     }
 }
 /* ======================================================== */
-/* FINAL PROFESSIONAL FAQ SECTION (CORRECT ICONS)           */
+/* FAQ SECTION - FINAL (STATIC HEADING)                     */
 /* ======================================================== */
-/* FAQ Heading Slide-in from left (initial hidden state) */
-.faq-section-final .section-headline {
-    opacity: 0;
-    transform: translateX(-800px);
-    transition: opacity 0.6s ease, transform 0.8s ease;
-    
-}
-.faq-heading-frequently {
-    color: #0d2a81; /* example: dark blue */
-}
-
-.faq-heading-asked {
-    color: #0ce1e8; /* example: accent blue */
-}
-
-
-/* When visible, slide to center */
-.faq-section-final.visible .section-headline {
-    opacity: 1;
-    transform: translateX(0);
-}
 
 .faq-section-final {
     padding: 100px 5%;
@@ -2921,6 +3007,14 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 .faq-container-final .section-headline {
     text-align: center;
     margin-bottom: 50px;
+}
+
+.faq-heading-frequently {
+    color: #0d2a81; /* example: dark blue */
+}
+
+.faq-heading-asked {
+    color: #0ce1e8; /* example: accent blue */
 }
 
 .faq-grid {
@@ -2997,220 +3091,232 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 @media (max-width: 768px) {
     .faq-grid {
         grid-template-columns: 1fr;
-        gap: 0;
+        gap: 0; 
     }
 }
 /* =================================== */
 /* 3D CHATBOX STYLES                   */
 /* =================================== */
-
-/* Prevent unwanted horizontal scroll */
-html, body {
-    overflow-x: hidden;
-    width: 100vw;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --dark-blue: #0d2a81;
+    --cyan-accent: #1abec4;
+    --light-gradient: linear-gradient(to right, #24eef5, #1ba6b3);
+    --text-dark: #2c3e50;
+    --text-light: #555e68;
+    --bg-light: #f5f7fa;
+    --white: #ffffff;
 }
 
-/* Floating Button to open the chat */
-.chat-toggle-button {
+/* ================================================= */
+/* CHATBOT CSS - FINAL VERSION (WITH FIXES)          */
+/* ================================================= */
+
+/* --- Global Fix --- */
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Floating Animation Keyframes (FOR LAPTOP) --- */
+@keyframes float-animation {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* --- Floating Button --- */
+.chat-fab {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 20px;
+    right: 20px;
     width: 60px;
     height: 60px;
-    background-color: #0d2a81;
+    background: var(--dark-blue, #0d2a81);
     color: white;
     border-radius: 50%;
     border: none;
-    font-size: 24px;
+    font-size: 1.8rem;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 0 5px 20px rgba(13, 42, 129, 0.4);
-    z-index: 1001;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    animation: pulse-and-float 3s infinite ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    /* FIX: Re-added the floating animation for laptops */
+    animation: float-animation 3s ease-in-out infinite;
+}
+.chat-fab.hidden {
+    transform: scale(0);
+    opacity: 0;
 }
 
-.chat-toggle-button:hover {
-    transform: scale(1.1);
-    background-color: #395dcb;
-}
-
-/* The main chatbox container */
+/* --- Chatbox Container --- */
 .chatbox-container {
     position: fixed;
-    bottom: 100px;
-    right: 30px;
-    width: 350px;
-    max-width: 90vw;
-    min-width: 0;
-    background-color: white;
+    z-index: 9998;
+    background: #f9f9f9;
     border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    z-index: 1000;
-    background: linear-gradient(135deg, whitesmoke, #bcbfc6);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(50px) scale(0.8) rotateX(45deg);
+    transition: all 0.3s ease-in-out;
+    bottom: 95px;
+    right: 20px;
+    width: 370px;
+    height: 70vh;
+    max-height: 550px;
+    transform: translateY(20px) scale(0.95);
     transform-origin: bottom right;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-/* Active state for the chatbox (add/remove class with JS to show/hide) */
 .chatbox-container.active {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0) scale(1) rotateX(0);
+    transform: translateY(0) scale(1);
 }
 
+/* --- Header --- */
 .chatbox-header {
-    background-color: #0d2a81;
+    background: var(--dark-blue, #0d2a81);
     color: white;
-    padding: 15px;
+    padding: 15px 20px;
+    flex-shrink: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+.chatbox-header h3 { margin: 0; font-size: 1.1rem; }
+.chatbox-close-btn { background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; }
 
-.chatbox-header h3 {
-    margin: 0;
-    font-size: 18px;
-}
-
-.chatbox-close-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-}
-
-.chatbox-close-btn:hover {
-    opacity: 1;
-}
-
+/* --- Messages Area --- */
 .chatbox-messages {
     flex-grow: 1;
     padding: 15px;
-    max-height: 240px;
     overflow-y: auto;
-    background: linear-gradient(135deg, whitesmoke, #bcbfc6);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
-
-.message {
-    margin-bottom: 15px;
-    max-width: 80%;
-}
-
-.message p {
+.bot-message, .user-message {
     padding: 10px 15px;
-    border-radius: 20px;
+    border-radius: 18px;
+    max-width: 85%;
     line-height: 1.5;
-    margin: 0;
+    white-space: pre-wrap;
 }
-
-.message.received {
+.bot-message {
+    background: #e9e9eb;
+    color: #333;
+    border-bottom-left-radius: 4px;
     align-self: flex-start;
 }
-
-.message.received p {
-    background-color: #e9eaf0;
-    color: #333;
-    border-bottom-left-radius: 5px;
-}
-
-.message.sent {
-    margin-left: auto;
-}
-
-.message.sent p {
-    background-color: #395dcb;
+.user-message {
+    background: var(--cyan-accent, #00BFA6);
     color: white;
-    border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
 }
 
-.chatbox-input {
+/* --- Options & Form Area --- */
+.chatbox-options-container {
+    padding: 0 15px 10px 15px;
+    border-top: 1px solid #eee;
+    flex-shrink: 0;
+}
+.options {
     display: flex;
-    padding: 10px;
-    border-top: 1px solid #ddd;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 10px;
 }
-
-.chatbox-input input {
-    flex-grow: 1;
-    border: 1px solid #ccc;
+.options.hidden, #form-wrap.hidden {
+    display: none;
+}
+.option-btn, .choice-btn {
+    background: var(--cyan-accent, #00BFA6);
+    border: none;
+    color: white;
+    padding: 8px 15px;
     border-radius: 20px;
-    padding: 10px 15px;
-    font-size: 14px;
-    margin-right: 10px;
+    cursor: pointer;
+    font-weight: 500;
 }
-
-.chatbox-input button {
-    background-color: #0d2a81;
+#form-wrap p { margin: 10px 0; font-size: 0.9rem; color: #555; }
+#form-wrap input, #form-wrap textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+#form-submit-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: -19px;
+    background: var(--dark-blue, #0d2a81);
     color: white;
     border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-.chatbox-input button:hover {
-    background-color: #395dcb;
+/* --- Input Area --- */
+.chatbox-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    flex-shrink: 0;
+}
+#chat-input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    background: transparent;
+    outline: none;
+}
+#send-btn {
+    background: none;
+    border: none;
+    color: var(--dark-blue, #0d2a81);
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0 10px;
 }
 
-/* Animation for the chat button */
-@keyframes pulse-and-float {
-    0% {
-        transform: translateY(0);
-        box-shadow: 0 5px 20px rgba(13, 42, 129, 0.4);
+/* =================================== */
+/* MOBILE RESPONSIVENESS               */
+/* =================================== */
+@media (max-width: 768px) {
+    .chat-fab {
+        /* FIX: Stop the floating animation on mobile devices */
+        animation: none;
     }
-    50% {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(13, 42, 129, 0.5);
-    }
-    100% {
-        transform: translateY(0);
-        box-shadow: 0 5px 20px rgba(13, 42, 129, 0.4);
-    }
-}
 
-/* Responsive Styles for Mobile */
-@media (max-width: 600px) {
     .chatbox-container {
-        width: 98vw;
-        max-width: 100vw;
-        min-width: 0;
-        right: 1vw;
-        left: 1vw;
-        bottom: 80px;
-        border-radius: 10px;
+        /* FIX: Reduced the height to look like a card, not a full page */
+        width: calc(100% - 30px);
+        right: 15px;
+        bottom: 85px; /* Positioned cleanly above the chat button */
+        height: 70vh;
+        max-height: 520px;
+        
+        /* Unset properties from previous centering method */
+        left: auto;
+        transform: translateY(20px) scale(0.95);
+        transform-origin: bottom right;
     }
-    .chatbox-header,
-    .chatbox-input,
-    .chatbox-messages {
-        padding-left: 8px;
-        padding-right: 8px;
-    }
-    .chat-toggle-button {
-        right: 10px;
-        bottom: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
+    
+    .chatbox-container.active {
+       transform: translateY(0) scale(1);
     }
 }
-
 
 /* =================================== */
 /* 3D WHATSAPP BUTTON STYLES           */
@@ -3221,8 +3327,8 @@ html, body {
     position: fixed;
     bottom: 20px;
     left: 30px; /* Positioned on the left */
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     background-color: #25D366; /* Official WhatsApp green color */
     color: white;
     border-radius: 50%;
@@ -3259,6 +3365,16 @@ html, body {
         box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
     }
 }
+/* =================================== */
+/* MOBILE STYLES                       */
+/* =================================== */
+@media (max-width: 768px) {
+    /* FIX: This stops the floating animation on mobile screens */
+    .whatsapp-toggle-button {
+        animation: none;margin-left: -5px;
+    }
+    
+}
 
 /* =================================== */
 /* FOOTER STYLES (CORRECTED STRUCTURE) */
@@ -3275,7 +3391,6 @@ html, body {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    /* Adjusted grid to handle the new structure */
     grid-template-columns: 1.5fr 1fr 1.5fr;
     grid-template-areas:
         "main-about links form"
@@ -3285,16 +3400,21 @@ html, body {
     padding-bottom: 40px;
 }
 .footer-about-main { grid-area: main-about; }
-.footer-about-contact { grid-area: contact; }
+.footer-about-contact { grid-area: contact; align-self: end; } /* Aligns contact to bottom */
 .footer-links { grid-area: links; }
 .footer-form { grid-area: form; }
-
+.footerits{font-size: 28px; font-weight: 700; margin-bottom: 20px; color: #ffffff; }
 .site-footer h3 { font-size: 20px; font-weight: 700; margin-bottom: 20px; color: #ffffff; }
 .footer-about-main p,
 .footer-about-contact p { line-height: 1.7; margin-bottom: 20px; }
-.footer-about-contact .social-icons a { color: #ffffff; }
+.footer-about-contact .social-icons a { color: #ffffff;}
 .footer-about-contact .social-icons a:hover { color: #bdbfc7; }
-.footer-links { display: flex; gap: 40px; justify-content: flex-start; }
+.footer-links { 
+    display: flex; 
+    gap: 40px; 
+    /* REVERTED: டெஸ்க்டாப்பில் பழைய அலைன்மென்ட் படியே வைக்கப்பட்டுள்ளது */
+    justify-content: flex-start; 
+}
 .footer-links ul { list-style: none; padding: 0; }
 .footer-links ul li { margin-bottom: 12px; }
 .footer-links ul li a { color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s; }
@@ -3336,12 +3456,7 @@ html, body {
         gap: 40px;
     }
     
-    /* This is the new, correct order for mobile screens */
-    .footer-about-main { order: 1; }
-    .footer-links { order: 2; }
-    .footer-form { order: 3; }
-    .footer-about-contact { order: 4; } /* The address and icons now appear last */
-
+    /* The HTML change automatically fixes the order. No special CSS order needed. */
     .footer-about-main,
     .footer-about-contact,
     .footer-links,
@@ -3352,15 +3467,18 @@ html, body {
     
     .footer-about-contact .social-icons {
         display: flex;
-        justify-content: center;
+        /* FIXED: மொபைலில் social icons-ஐ மையப்படுத்த */
+        justify-content: right;
         gap: 15px;
+        margin-right: 85px;
+        margin-top: 20px;
     }
 
     .footer-links {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        text-align: left;
+        text-align: center;
         gap: 20px;
         width: 100%;
     }
