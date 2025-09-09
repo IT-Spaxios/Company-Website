@@ -2240,6 +2240,41 @@ document.addEventListener('DOMContentLoaded', () => {
     // contactForm submission with backend API
     // ----------------------
     document.addEventListener('DOMContentLoaded', () => {
+
+        function showToast(message, duration = 4000, bgColor = "#4BB543") {
+        let toast = document.getElementById("toast");
+        if (!toast) {
+            // Create toast if it doesn't exist
+            toast = document.createElement("div");
+            toast.id = "toast";
+            toast.style.cssText = `
+                visibility: hidden;
+                min-width: 250px;
+                background-color: ${bgColor};
+                color: white;
+                text-align: center;
+                border-radius: 5px;
+                padding: 16px;
+                position: fixed;
+                z-index: 1000;
+                left: 50%;
+                bottom: 30px;
+                transform: translateX(-50%);
+                font-size: 17px;
+            `;
+            document.body.appendChild(toast);
+        }
+
+        toast.textContent = message;
+        toast.style.backgroundColor = bgColor;
+        toast.style.visibility = "visible";
+
+        setTimeout(() => {
+            toast.style.visibility = "hidden";
+        }, duration);
+    }
+
+   
    const form = document.getElementById("footer-form");
   if (form) {
     form.addEventListener("submit", async (e) => {
