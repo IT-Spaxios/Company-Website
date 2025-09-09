@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogs</title>
+   <link rel="icon" type="image/png" href="../Images/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Playfair Display Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+body{
+      font-family: poppins, sans-serif;
+    }
+     .header {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  width: 100vw;
+}
+ 
+.top-bar {
+  color: black;
+  padding: 8px 5%;
+  font-size: 13px;
+  background: linear-gradient(135deg, whitesmoke, #bcbfc6);
+  max-height: 100px;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+ 
+.top-bar--hidden {
+  max-height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  overflow: hidden;
+  border: none !important;
+}
+ 
+.top-bar-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+ 
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-right: auto;
+}
+ 
+.contact-info span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+ 
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+ 
+.social-icons a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+ 
+.social-icons a:hover {
+  transform: translateY(-3px);
+  color: #0d2a81;
+}
+ 
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  height: 80px;
+  position: relative;
+}
+ 
+.logo-img {
+  height: 120px;
+  width: auto;
+  margin-left: -20px;
+  transition: height 0.3s ease, margin-left 0.3s ease;
+  
+}
+ 
+.desktop-nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  flex-grow: 1;
+  gap: 15px;
+  height: 100%;
+  padding-right: 20px;
+  margin: 0;
+}
+ 
+.desktop-nav-links li {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+ 
+.desktop-nav-links > li > a {
+  text-decoration: none;
+  color: #2c2c2c;
+  font-weight: 500;
+  padding: 0 5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+ 
+.desktop-nav-links > li > a::after {
+  content: '';
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #0d2a81;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+ 
+.desktop-nav-links > li > a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+ 
+.header-cta-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+ 
+.cta-button {
+  background-color: #0d2a81;
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 22px;
+  white-space: nowrap;
+  display: inline-block;
+  transition: background-color 0.3s, transform 0.3s;
+  text-align: center;
+}
+ 
+.cta-button:hover {
+  transform: translateY(-2px);
+}
+ 
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #2c2c2c;
+  padding: 5px;
+  
+}
+ 
+/* MOBILE MENU STYLES */
+.mobile-menu-overlay {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+.mobile-menu-overlay.active { opacity: 1; visibility: visible; }
+.mobile-nav-links {
+  list-style: none; padding: 0; margin: 0;
+  position: fixed; top: 0; left: 0;
+  width: 85%; max-width: 350px; height: 100%;
+  background-color: white;
+  box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in-out;
+}
+.mobile-menu-overlay.active .mobile-nav-links { transform: translateX(0); }
+.mobile-menu-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px; border-bottom: 1px solid #eee;
+  position: sticky; top: 0; background: white; z-index: 1;
+}
+.mobile-menu-title { font-size: 1.2rem; font-weight: bold; }
+.close-btn { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: black; }
+.mobile-nav-links li a {
+  padding: 18px 20px; display: block;
+  border-bottom: 1px solid #f5f5f5;
+  font-weight: 500; color: gray; text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.mobile-nav-links li a:hover { background-color: #f9f9f9; }
+.mobile-cta-button-container { padding: 25px 20px; background-color: #f7f7f7; }
+.mobile-cta-button-container .cta-button { display: block; width: 100%; color: white; }
+/* ======================================================== */
+/* MOBILE STYLES - CORRECTED ALIGNMENT                      */
+/* ======================================================== */
+ 
+@media (max-width: 768px) {
+    /* --- General Nav Rules (Unchanged) --- */
+    .desktop-nav-links,
+    .header-cta-right .cta-button {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+    .main-nav {
+        height: 70px;
+        padding: 0 25px;
+    }
+ 
+    /* --- Base Top Bar Layout --- */
+    .top-bar {
+        padding: 15px 25px;
+    }
+    /* Creates the two-line structure */
+    .top-bar-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    /* Styles the first line (mail and phone) */
+    .contact-info {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+    /* Resets the social icons for centering */
+    .social-icons {
+        margin: 0;
+        gap: 15px;
+       
+    }
+      .social-icons{margin-top: 7px;}
+}
+ 
+/* ---------------------------------- */
+/* Large Mobile (<= 425px)            */
+/* ---------------------------------- */
+@media (max-width: 425px) {
+    /* The layout from above is correct, no changes needed */
+}
+ 
+/* ---------------------------------- */
+/* Medium Mobile (<= 375px)           */
+/* ---------------------------------- */
+@media (max-width: 375px) {
+    /* The layout is still correct. We can reduce side padding slightly. */
+    .top-bar, .main-nav {
+        padding: 15px 20px;
+    }
+ 
+}
+ 
+/* ---------------------------------- */
+/* Small Mobile (<= 360px)            */
+/* ---------------------------------- */
+@media (max-width: 360px) {
+    /* FIX: Stacks the contact info ONLY on very small screens */
+    .contact-info {
+        flex-direction: column;
+        align-items: center; /* Center the stacked items */
+        gap: 10px;
+    }
+    .top-bar, .main-nav {
+        padding: 15px 15px;
+    }
+      .social-icons{margin-top: 20px;}
+   
+}
+    /* Banner */
+    .banner {
+      background-color: #011d70;
+      text-align: center;
+      padding: 30px 20px;
+      margin-bottom: 30px;
+      color: #fff;
+      padding-top: 177px;
+    }
+    .banner h1 {
+      font-weight: bold;
+    }
+    .breadcrumb {
+      justify-content: center;
+      
+    }
+
+    /* Card Styles */
+    .card {
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      /* border: 2px solid #0d2a81; */
+    }
+    .card img {
+      height: 200px;
+      object-fit: cover;
+      /* transition: transform 0.4s ease; */
+    }
+    .card:hover img {
+      transform: scale(1.05);
+    }
+    ol.breadcrumb a {
+      color: #e3e6ee;
+      text-decoration: none;
+    }
+    .breadcrumb-item{
+      color: white !important;
+    }
+   .breadcrumb-item + .breadcrumb-item::before {
+  color: white;  /* example: yellow slash */
+}
+
+
+ .site-footer {
+    background-color: #0d2a81;
+    color: #e0e0e0;
+    padding: 60px 5% 25px 5%;
+    font-size: 15px;
+}
+ 
+/* --- DESKTOP GRID LAYOUT --- */
+.site-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    grid-template-areas:
+        "main-about links form"
+        "contact links form";
+    gap: 20px 40px;
+    align-items: start;
+    padding-bottom: 40px;
+}
+.footer-about-main { grid-area: main-about; }
+.footer-about-contact { grid-area: contact; align-self: end; } /* Aligns contact to bottom */
+.footer-links { grid-area: links; }
+.footer-form { grid-area: form; }
+.footerits{font-size: 28px; font-weight: 700; margin-bottom: 20px; color: #ffffff; }
+.site-footer h3 { font-size: 20px; font-weight: 700; margin-bottom: 20px; color: #ffffff; }
+.footer-about-main p,
+.footer-about-contact p { line-height: 1.7; margin-bottom: 20px; }
+.footer-about-contact .social-icons a { color: #ffffff;}
+.footer-about-contact .social-icons a:hover { color: #bdbfc7; }
+.footer-links {
+    display: flex;
+    gap: 40px;
+    /* REVERTED: டெஸ்க்டாப்பில் பழைய அலைன்மென்ட் படியே வைக்கப்பட்டுள்ளது */
+    justify-content: flex-start;
+}
+.footer-links ul { list-style: none; padding: 0; }
+.footer-links ul li { margin-bottom: 12px; }
+.footer-links ul li a { color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s; }
+.footer-links ul li a:hover { opacity: 1; }
+.footer-bold b{color: #24eef5;}
+ 
+/* --- FOOTER FORM STYLES --- */
+.footer-form form { display: flex; flex-direction: column; gap: 15px; }
+.footer-form input,
+.footer-form textarea,
+.footer-form button {
+    width: 100%; padding: 12px 15px; border-radius: 5px;
+    font-family: 'Poppins', sans-serif; transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #dcdcdc;
+}
+.footer-form button {
+    background-color: #395dcb; color: white; border: none;
+    font-weight: 700; cursor: pointer;
+}
+.footer-form input:hover,
+.footer-form textarea:hover,
+.footer-form button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.footer-form button:hover { background-color: #2c4280; }
+.footer-copyright { text-align: center; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.7); }
+ 
+/* =================================== */
+/* RESPONSIVE STYLES                   */
+/* =================================== */
+@media (max-width: 768px) {
+    /* --- MOBILE FLEXBOX LAYOUT --- */
+    .site-footer .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+   
+    /* The HTML change automatically fixes the order. No special CSS order needed. */
+    .footer-about-main,
+    .footer-about-contact,
+    .footer-links,
+    .footer-form {
+        width: 100%;
+        max-width: 400px;
+    }
+   
+    .footer-about-contact .social-icons {
+        display: flex;
+        /* FIXED: மொபைலில் social icons-ஐ மையப்படுத்த */
+        justify-content: right;
+        gap: 15px;
+        margin-right: 85px;
+        margin-top: 20px;
+    }
+ 
+    .footer-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: center;
+        gap: 20px;
+        width: 100%;
+    }
+    .footer-links > div {
+        flex: 1;
+    }
+    .footer-form { text-align: center; }
+    .footer-form form { text-align: left; }
+    .footer-copyright { padding-left: 15px; padding-right: 15px; }
+}
+/* =================================== */
+/* 3D WHATSAPP BUTTON STYLES           */
+/* =================================== */
+
+/* Floating Button for WhatsApp */
+.whatsapp-toggle-button {
+    position: fixed;
+    bottom: 20px;
+    left: 30px; /* Positioned on the left */
+    width: 60px;
+    height: 60px;
+    background-color: #25D366; /* Official WhatsApp green color */
+    color: white;
+    border-radius: 50%;
+    border: none;
+    font-size: 30px; /* Made icon slightly bigger */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); /* Green shadow */
+    z-index: 1001;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    /* Apply the new WhatsApp animation */
+    animation: pulse-and-float-whatsapp 3s infinite ease-in-out;
+}
+
+.whatsapp-toggle-button:hover {
+    transform: scale(1.1);
+    background-color: #1DA851; /* Darker green on hover */
+}
+
+/* New animation specifically for the WhatsApp button's green shadow */
+@keyframes pulse-and-float-whatsapp {
+    0% {
+        transform: translateY(0);
+        box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        transform: translateY(-10px); /* Moves the button up */
+        box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5); /* Makes the shadow bigger */
+    }
+    100% {
+        transform: translateY(0);
+        box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    }
+}
+/* =================================== */
+/* MOBILE STYLES                       */
+/* =================================== */
+@media (max-width: 768px) {
+    /* FIX: This stops the floating animation on mobile screens */
+    .whatsapp-toggle-button {
+        animation: none;margin-left: -5px;
+    }
+    
+}
+/* =================================== */
+/* 3D CHATBOX STYLES                   */
+/* =================================== */
+:root {
+    --dark-blue: #0d2a81;
+    --cyan-accent: #1abec4;
+    --light-gradient: linear-gradient(to right, #24eef5, #1ba6b3);
+    --text-dark: #2c3e50;
+    --text-light: #555e68;
+    --bg-light: #f5f7fa;
+    --white: #ffffff;
+}
+
+/* ================================================= */
+/* CHATBOT CSS - FINAL VERSION (WITH FIXES)          */
+/* ================================================= */
+
+/* --- Global Fix --- */
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Floating Animation Keyframes (FOR LAPTOP) --- */
+@keyframes float-animation {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* --- Floating Button --- */
+.chat-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: var(--dark-blue, #0d2a81);
+    color: white;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    /* FIX: Re-added the floating animation for laptops */
+    animation: float-animation 3s ease-in-out infinite;
+}
+.chat-fab.hidden {
+    transform: scale(0);
+    opacity: 0;
+}
+
+/* --- Chatbox Container --- */
+.chatbox-container {
+    position: fixed;
+    z-index: 9998;
+    background: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    bottom: 95px;
+    right: 20px;
+    width: 370px;
+    height: 70vh;
+    max-height: 550px;
+    transform: translateY(20px) scale(0.95);
+    transform-origin: bottom right;
+}
+.chatbox-container.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* --- Header --- */
+.chatbox-header {
+    background: var(--dark-blue, #0d2a81);
+    color: white;
+    padding: 15px 20px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.chatbox-header h3 { margin: 0; font-size: 1.1rem; }
+.chatbox-close-btn { background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; }
+
+/* --- Messages Area --- */
+.chatbox-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.bot-message, .user-message {
+    padding: 10px 15px;
+    border-radius: 18px;
+    max-width: 85%;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+.bot-message {
+    background: #e9e9eb;
+    color: #333;
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+}
+.user-message {
+    background: var(--cyan-accent, #00BFA6);
+    color: white;
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
+}
+
+/* --- Options & Form Area --- */
+.chatbox-options-container {
+    padding: 0 15px 10px 15px;
+    border-top: 1px solid #eee;
+    flex-shrink: 0;
+}
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 10px;
+}
+.options.hidden, #form-wrap.hidden {
+    display: none;
+}
+.option-btn, .choice-btn {
+    background: var(--cyan-accent, #00BFA6);
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+}
+#form-wrap p { margin: 10px 0; font-size: 0.9rem; color: #555; }
+#form-wrap input, #form-wrap textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+#form-submit-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: -19px;
+    background: var(--dark-blue, #0d2a81);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* --- Input Area --- */
+.chatbox-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    flex-shrink: 0;
+}
+#chat-input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    background: transparent;
+    outline: none;
+}
+#send-btn {
+    background: none;
+    border: none;
+    color: var(--dark-blue, #0d2a81);
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+/* =================================== */
+/* MOBILE RESPONSIVENESS               */
+/* =================================== */
+@media (max-width: 768px) {
+    .chat-fab {
+        /* FIX: Stop the floating animation on mobile devices */
+        animation: none;
+    }
+
+    .chatbox-container {
+        /* FIX: Reduced the height to look like a card, not a full page */
+        width: calc(100% - 30px);
+        right: 15px;
+        bottom: 85px; /* Positioned cleanly above the chat button */
+        height: 70vh;
+        max-height: 520px;
+        
+        /* Unset properties from previous centering method */
+        left: auto;
+        transform: translateY(20px) scale(0.95);
+        transform-origin: bottom right;
+    }
+    
+    .chatbox-container.active {
+       transform: translateY(0) scale(1);
+    }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header class="header">
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="top-bar-content">
+      <div class="contact-info">
+        <span><i class="fa-solid fa-envelope"></i>info@itspaxiosinnovation.in</span>
+        <span class="phone-number"><i class="fa-solid fa-phone"></i>+91 99622 14790</span>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61578271812457" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/company/it-spaxios-innovation/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/it_spaxios_innovation_/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+         <a href="https://x.com/ItSpaxios" target="_blank"rel="nofollow"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/919962214790" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://teams.live.com/l/invite/FEAUb-ZBopyUKkEDwE?v=g1" aria-label="Microsoft Teams" target="_blank"><i class="fa-brands fa-teamspeak"></i></a>
+      </div>
+    </div>
+  </div>
+  <!-- Main nav -->
+  <nav class="main-nav">
+    <img src="../images/IT spaxios innovation.webp" alt="Spaxios Innovation" class="logo-img" loading="lazy">
+    <ul class="desktop-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../digital-marketing-service.html">Digital Marketing</a></li>
+      <li><a href="../contactpage/contact-us.html">Contact Us</a></li>
+      <li><a href="../career.html">Career</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+    <div class="header-cta-right">
+      <a href="../contactpage/contact-us.html" class="cta-button">Get Start Now</a>
+      <button class="hamburger" id="hamburger-open" aria-label="Open Menu">
+        <i class="fa-solid fa-bars"></i></button></div></nav>
+</header>
+<!-- Mobile navigation overlay -->
+<div class="mobile-menu-overlay" id="mobile-menu">
+  <ul class="mobile-nav-links">
+    <li class="mobile-menu-header">
+      <span class="mobile-menu-title">Menu</span>
+      <button class="close-btn" id="hamburger-close" aria-label="Close Menu">
+        <i class="fa-solid fa-times"></i>
+      </button></li>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../digital-marketing-service.html">Digital Marketing</a></li>
+    <li><a href="../contactpage/contact-us.html">Contact Us</a></li>
+    <li><a href="../career.html">Career</a></li>
+    <li><a href="#">Blog</a></li>
+    <li class="mobile-cta-button-container">
+      <a href="../contactpage/contact-us.html" class="cta-button">Get Start Now</a></li></ul>
+</div>
+
+
+  <!-- Banner Section -->
+  <section class="banner">
+    <h1>BLOG </h1>
+    
+  </section>
+
+  <!-- Blog Cards Section -->
+  <div class="container my-5">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="../images/7-Common-SEO-Myths-You-Should-Ignore-In-2026.png" class="card-img-top" alt="Common-SEO-Myths" loading="lazy">
+          <div class="card-body">
+            <h5 class="card-title">10 On-Page SEO Factors You Can’t Ignore in 2025</h5>
+            <p class="card-text">Quick overview of critical on-page SEO optimizations for better ranking.</p>
+            <a href="#" class="stretched-link">Continue Reading…</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="../images/AI-content-creation-tools-1.webp" class="card-img-top" alt="AI-content-creation-tools" loading="lazy">
+          <div class="card-body">
+            <h5 class="card-title">How AI Tools Are Changing Content Writing Forever</h5>
+            <p class="card-text">Discover how AI is shaping the future of content marketing and SEO.</p>
+            <a href="#" class="stretched-link">Continue Reading…</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="../images/img_2023-09-28-094245-651582fc35c28-sej-1280x720.webp" class="card-img-top" alt=" Google Helpful Content" loading="lazy">
+          <div class="card-body">
+            <h5 class="card-title">Google’s Helpful Content Update: What You Need to Do</h5>
+            <p class="card-text">Understand the changes and strategies to align with Google's updates.</p>
+            <a href="#" class="stretched-link">Continue Reading…</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="../images/Google-Helpful-content-Update-1200x675.jpeg" class="card-img-top" alt="Top Linlk Building Strategies" loading="lazy">
+          <div class="card-body">
+            <h5 class="card-title">Top 15 Link Building Strategies for 2025</h5>
+            <p class="card-text">Learn new and effective link building methods to grow your rankings.</p>
+            <a href="#" class="stretched-link">Continue Reading…</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="../images/seo-vs-semwhich-is-better-for-your-business.jpeg" class="card-img-top" alt="seo-vs-sem" loading="lazy">
+          <div class="card-body">
+            <h5 class="card-title">SEO vs SEM: Which One Is Best for Your Business?</h5>
+            <p class="card-text">Clear explanation of SEO and SEM differences with examples.</p>
+            <a href="#" class="stretched-link">Continue Reading…</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="../images/Core-Web-Vitals-1.png" class="card-img-top" alt="Core-Web-Vitals" loading="lazy">
+          <div class="card-body">
+            <h5 class="card-title">Why Core Web Vitals Are Crucial in 2025</h5>
+            <p class="card-text">Google’s ranking factors explained with practical optimization tips.</p>
+            <a href="#" class="stretched-link">Continue Reading…</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="../images/How-to-get-the-most-out-of-your-existing-content.webp" class="card-img-top" alt="Content-Repurposing" loading="lazy">
+          <div class="card-body">
+            <h5 class="card-title">Content Repurposing Ideas to Boost Traffic</h5>
+            <p class="card-text">Maximize value by turning one piece of content into many assets.</p>
+            <a href="#" class="stretched-link">Continue Reading…</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="../images/mobile-first.jpeg" class="card-img-top" alt="Mobile-First Indexing" loading="lazy">
+          <div class="card-body">
+            <h5 class="card-title">Mobile-First Indexing: How to Prepare</h5>
+            <p class="card-text">Steps to ensure your site is ready for Google’s mobile-first crawling.</p>
+            <a href="#" class="stretched-link">Continue Reading…</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="../images/voice-search-different-from-text-search.jpeg" class="card-img-top" alt="Voice-Search-Optimization" loading="lazy">
+          <div class="card-body">
+            <h5 class="card-title">Voice Search Optimization: The Future of SEO</h5>
+            <p class="card-text">Tips for optimizing your website content for voice search users.</p>
+            <a href="#" class="stretched-link">Continue Reading…</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <nav aria-label="Page navigation" class="mt-5">
+  <ul class="pagination justify-content-center">
+    <li class="page-item"><a class="page-link" href="blog1.html">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="blog1.html">1</a></li>
+    <li class="page-item active"><a class="page-link" href="blog2.html">2</a></li>
+    <li class="page-item"><a class="page-link" href="blog3.html">Next</a></li>
+  </ul>
+</nav>
+
+  </div>
+  <!------------------------------------------Watsapp----------------------------------->
+<a href="https://wa.me/919962214790" target="_blank" class="whatsapp-toggle-button" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+<footer class="site-footer">
+    <div class="container">
+ 
+        <div class="footer-about-main">
+            <h3><span class="footerits">IT Spaxios Innovation</span></h3>
+            <p class="footer-bold"><b>Collaborate With Us !! Grow Your Business !!</b></p>
+            <p>We are a renowned website development company in Chennai,India. Our talented team builds a responsive website with SEO and user friendly for your business. Along with this we are expertise in Digital Marketing. We provide result driven digital marketing strategies which make high ROI, build brand awareness, credibility, increase sales and leads.</p>
+        </div>
+ 
+        <div class="footer-links">
+            <div>
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Digital Marketing</a></li>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">SEO</a></li>
+                    <li><a href="#">Social Media Marketing</a></li>
+                    <li><a href="#">Search Engine Marketing</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Quickie</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../digital-marketing-service.html">Digital Marketing</a></li>
+                    <li><a href="../contactpage/contact-us.html">Contact Us</a></li>
+                    <li><a href="career.html">Career</a></li>
+                    <li><a href="../BlogPage/blog1.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+       
+        <div class="footer-form">
+            <h3>Touch With Us</h3>
+            <form>
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="3" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+ 
+        <div class="footer-about-contact">
+            <p>National Flag, 15, Gopalakrishnan Street, Lane Of Vandikaran Street, Guindy, Chennai-88</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61578271812457" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/company/it-spaxios-innovation/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/it_spaxios_innovation_/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/919962214790" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="mailto:info@itspaxiosinnovation.in" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://teams.live.com/l/invite/FEAUb-ZBopyUKkEDwE?v=g1" target="_blank" aria-label="Microsoft Teams"><i class="fa-brands fa-teamspeak"></i></a>
+            </div>
+        </div>
+ 
+    </div>
+    <div class="footer-copyright">
+        <p>&copy; 2025 IT Spaxios Innovation. All rights reserved.</p>
+    </div>
+</footer>
+<!---------------------chatbox--------------------------------------------------------------------------------------->
+    <button class="chat-fab" id="chat-fab" aria-label="Open Chat">
+    <i class="fa-solid fa-comments"></i>
+</button>
+<div class="chatbox-container" id="chatbox-container">
+    <div class="chatbox-header">
+        <h3>Chat with Us!</h3>
+        <button class="chatbox-close-btn" id="chatbox-close-btn" aria-label="Close Chat">
+            <i class="fa-solid fa-times"></i>
+        </button>
+    </div>
+    <div class="chatbox-messages" id="chatbox-messages">
+        </div>
+    <div class="chatbox-options-container">
+        <div class="options hidden" id="first-options">
+            <button class="option-btn" data-service="Website Development">Website Development</button>
+            <button class="option-btn" data-service="Digital Marketing">Digital Marketing</button>
+        </div>
+        <div class="options hidden" id="dev-options">
+            <button class="choice-btn" data-sub="Website Types">Website Types</button>
+            <button class="choice-btn" data-sub="Website Cost">Website Cost</button>
+        </div>
+        <div class="options hidden" id="dm-options">
+            <button class="choice-btn" data-sub="SEO">SEO</button>
+            <button class="choice-btn" data-sub="SEM">SEM</button>
+            <button class="choice-btn" data-sub="SMM">SMM</button>
+        </div>
+        <div id="form-wrap" class="hidden">
+            <p><strong>Please enter your details to proceed.</strong></p>
+            <input id="name" type="text" placeholder="Name*" required>
+            <input id="contact" type="tel" placeholder="Contact Number*" required>
+            <input id="email" type="email" placeholder="Email Address*" required>
+            <textarea id="message" placeholder="Message (optional)"></textarea>
+            <button type="button" id="form-submit-btn">Send Details</button>
+        </div>
+    </div>
+    <div class="chatbox-input">
+        <input id="chat-input" type="text" placeholder="Type your message...">
+        <button id="send-btn" aria-label="Send Message"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+</div>
+<script>
+  // ===================================================================
+    // 8. (CHATBOX)
+    // ===================================================================
+    const chatFab = document.getElementById('chat-fab');
+    const chatboxContainer = document.getElementById('chatbox-container');
+    const chatboxCloseBtn = document.getElementById('chatbox-close-btn');
+    const messagesContainer = document.getElementById('chatbox-messages');
+    const chatInputContainer = document.querySelector('.chatbox-input');
+    const chatInput = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('send-btn');
+    const firstOptions = document.getElementById('first-options');
+    const devOptions = document.getElementById('dev-options');
+    const dmOptions = document.getElementById('dm-options');
+    const formWrap = document.getElementById('form-wrap');
+    const formSubmitBtn = document.getElementById('form-submit-btn');
+
+    let autoOpenTimer;
+    let hasChatBeenOpened = false;
+
+    const scrollToBottom = () => { if (messagesContainer) messagesContainer.scrollTop = messagesContainer.scrollHeight; };
+    
+    const addMessage = (text, sender) => {
+        if (!messagesContainer) return;
+        const messageDiv = document.createElement('div');
+        messageDiv.className = sender === 'bot' ? 'bot-message' : 'user-message';
+        messageDiv.textContent = text;
+        messagesContainer.appendChild(messageDiv);
+        scrollToBottom();
+    };
+
+    const showOptions = (element) => { if(element) element.classList.remove('hidden'); };
+
+    const hideAllOptions = () => {
+        if (firstOptions) firstOptions.classList.add('hidden');
+        if (devOptions) devOptions.classList.add('hidden');
+        if (dmOptions) dmOptions.classList.add('hidden');
+        if (formWrap) formWrap.classList.add('hidden');
+    };
+    
+    const openChatbox = () => {
+        if (hasChatBeenOpened && chatboxContainer.classList.contains('active')) return;
+        hasChatBeenOpened = true;
+        clearTimeout(autoOpenTimer);
+        
+        chatboxContainer.classList.add('active');
+        chatFab.classList.add('hidden');
+        messagesContainer.innerHTML = '';
+        hideAllOptions();
+        chatInputContainer.style.display = 'flex';
+        chatboxContainer.classList.remove('form-active');
+        addMessage("Hello! Welcome to Spaxios Innovation. How can I assist you today?", 'bot');
+        setTimeout(() => showOptions(firstOptions), 1000);
+    };
+
+    const closeChatbox = () => {
+        chatboxContainer.classList.remove('active');
+        chatFab.classList.remove('hidden');
+        clearTimeout(autoOpenTimer);
+    };
+
+    const showForm = (message) => {
+        hideAllOptions();
+        chatInputContainer.style.display = 'none';
+        chatboxContainer.classList.add('form-active');
+        setTimeout(() => {
+            addMessage(message, 'bot');
+            showOptions(formWrap);
+            scrollToBottom();
+        }, 1000);
+    };
+
+    const handleSubmit = async () => {
+    const nameInput = document.getElementById('name');
+    const contactInput = document.getElementById('contact');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+
+    const name = nameInput ? nameInput.value.trim() : '';
+    const contact = contactInput ? contactInput.value.trim() : '';
+    const email = emailInput ? emailInput.value.trim() : '';
+    const message = messageInput ? messageInput.value.trim() : '';
+
+    // ✅ Check all fields including message
+    if (!name || !contact || !email || !message) {
+        addMessage("Please fill in all required fields (Name, Contact, Email, Message).", 'bot');
+        return;
+    }
+
+    // ✅ Show user submission in chat
+    const formData = `Name: ${name}\nContact: ${contact}\nEmail: ${email}\nMessage: ${message}`;
+    addMessage(formData, 'user');
+    hideAllOptions();
+
+    try {
+        const res = await fetch("https://company-website-beta-six.vercel.app/api/chat/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                serviceCategory: chosenService || "General", // ✅ added
+                subCategory: chosenSub || "",                // ✅ added
+                name,
+                contact,
+                email,
+                message
+            })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+            addMessage("✅ Thank you for submitting. Our team will reach out to you soon!", 'bot');
+            setTimeout(closeChatbox, 3000);
+        } else {
+            addMessage("❌ Oops! Something went wrong. Please try again later.", 'bot');
+            console.error("API Error:", data);
+        }
+    } catch (err) {
+        addMessage("⚠️ Network error. Please try again later.", 'bot');
+        console.error("Network error:", err);
+    }
+};
+
+    if (chatFab) chatFab.addEventListener('click', openChatbox);
+    if (chatboxCloseBtn) chatboxCloseBtn.addEventListener('click', closeChatbox);
+    
+    if (sendBtn) {
+        sendBtn.addEventListener('click', () => {
+            const text = chatInput.value.trim();
+            if (text) {
+                addMessage(text, 'user');
+                chatInput.value = '';
+                setTimeout(() => addMessage("Please select one of the options to proceed.", 'bot'), 1000);
+            }
+        });
+    }
+
+    if (firstOptions) {
+        firstOptions.addEventListener('click', (e) => {
+            if (!e.target.matches('.option-btn')) return;
+            const choice = e.target.dataset.service;
+             chosenService = choice; // ✅ save it
+            addMessage(choice, 'user');
+            hideAllOptions();
+            if (choice === 'Website Development') {
+                setTimeout(() => {
+                    addMessage("Great! What would you like to know about our Website Development services?", 'bot');
+                    showOptions(devOptions);
+                }, 1000);
+            } else {
+                setTimeout(() => {
+                    addMessage("Excellent! Which area of Digital Marketing are you interested in?", 'bot');
+                    showOptions(dmOptions);
+                }, 1000);
+            }
+        });
+    }
+
+    const handleSubOptionClick = (e) => {
+        if (!e.target.matches('.choice-btn')) return;
+        const choice = e.target.dataset.sub;
+        chosenSub = choice; // ✅ save it
+        addMessage(choice, 'user');
+        showForm("To discuss this further, please provide your details and our team will get in touch.");
+    };
+
+    if (devOptions) devOptions.addEventListener('click', handleSubOptionClick);
+    if (dmOptions) dmOptions.addEventListener('click', handleSubOptionClick);
+    if (formSubmitBtn) formSubmitBtn.addEventListener('click', handleSubmit);
+
+    // Auto-open timer after 10 seconds
+    if (chatboxContainer) { // Only set the timer if the chatbox exists on the page
+        autoOpenTimer = setTimeout(openChatbox, 10000);
+    }
+
+
+
+    // ----------------------
+    // Toast function
+    // ----------------------
+    function showToast(message, duration = 4000, bgColor = "#4BB543") {
+        let toast = document.getElementById("toast");
+        if (!toast) {
+            // Create toast if it doesn't exist
+            toast = document.createElement("div");
+            toast.id = "toast";
+            toast.style.cssText = `
+                visibility: hidden;
+                min-width: 250px;
+                background-color: ${bgColor};
+                color: white;
+                text-align: center;
+                border-radius: 5px;
+                padding: 16px;
+                position: fixed;
+                z-index: 1000;
+                left: 50%;
+                bottom: 30px;
+                transform: translateX(-50%);
+                font-size: 17px;
+            `;
+            document.body.appendChild(toast);
+        }
+
+        toast.textContent = message;
+        toast.style.backgroundColor = bgColor;
+        toast.style.visibility = "visible";
+
+        setTimeout(() => {
+            toast.style.visibility = "hidden";
+        }, duration);
+    }
+
+   
+    // ----------------------
+    // contactForm submission with backend API
+    // ----------------------
+   const form = document.getElementById("footer-form");
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = {
+            name: form.name.value,
+            email: form.email.value,
+            message: form.message.value
+        };
+
+        try {
+            const res = await fetch("https://company-website-beta-six.vercel.app/api/contact/addcontact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            });
+
+            console.log("Response:", res);
+            const data = await res.json();
+            console.log("Data:", data);
+
+            if (res.ok) {
+                showToast("Thank you! Your query has been received. We will get back to you soon.");
+
+                form.reset();
+
+                // Remove focused class if using focus animation
+                document.querySelectorAll('.form-group1').forEach(group => group.classList.remove('focused'));
+            } else {
+                showToast("Something went wrong. Please try again!", 4000, "#FF4C4C");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            showToast("Server not reachable!", 4000, "#FF4C4C");
+        }
+    });
+  }
+    const header = document.querySelector('.header');
+    const topBar = document.querySelector('.top-bar');
+    const hamburgerOpen = document.getElementById('hamburger-open');
+    const hamburgerClose = document.getElementById('hamburger-close');
+    const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+    const body = document.body;
+ 
+    if (topBar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                topBar.classList.add('top-bar--hidden');
+            } else {
+                topBar.classList.remove('top-bar--hidden');
+            }
+        });
+    }
+ 
+    const toggleMenu = (show) => {
+        if (mobileMenuOverlay) mobileMenuOverlay.classList.toggle('active', show);
+        if (body) body.classList.toggle('no-scroll', show);
+    };
+ 
+    if (hamburgerOpen) {
+        hamburgerOpen.addEventListener('click', () => toggleMenu(true));
+    }
+    if (hamburgerClose) {
+        hamburgerClose.addEventListener('click', () => toggleMenu(false));
+    }
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileMenuOverlay) {
+                toggleMenu(false);
+            }
+        });
+   }
+</script>
+   
+</body>
+</html>
