@@ -1644,7 +1644,6 @@ html, body {
     <button class="chat-fab" id="chat-fab" aria-label="Open Chat">
     <i class="fa-solid fa-comments"></i>
 </button>
-
 <div class="chatbox-container" id="chatbox-container">
     <div class="chatbox-header">
         <h3>Chat with Us!</h3>
@@ -1654,34 +1653,30 @@ html, body {
     </div>
     <div class="chatbox-messages" id="chatbox-messages">
         </div>
-
     <div class="chatbox-options-container">
         <div class="options hidden" id="first-options">
             <button class="option-btn" data-service="Website Development">Website Development</button>
             <button class="option-btn" data-service="Digital Marketing">Digital Marketing</button>
         </div>
-
         <div class="options hidden" id="dev-options">
             <button class="choice-btn" data-sub="Website Types">Website Types</button>
             <button class="choice-btn" data-sub="Website Cost">Website Cost</button>
         </div>
-        
         <div class="options hidden" id="dm-options">
             <button class="choice-btn" data-sub="SEO">SEO</button>
             <button class="choice-btn" data-sub="SEM">SEM</button>
             <button class="choice-btn" data-sub="SMM">SMM</button>
         </div>
-
         <div id="form-wrap" class="hidden">
             <p><strong>Please enter your details to proceed.</strong></p>
-            <input id="name" type="text" placeholder="Name*" required>
-            <input id="contact" type="tel" placeholder="Contact Number*" required>
-            <input id="email" type="email" placeholder="Email Address*" required>
-            <textarea id="message" placeholder="Message (optional)"></textarea>
-            <button type="button" id="form-submit-btn">Send Details</button>
+            <input id="chat-name" type="text" placeholder="Name*" required>
+<input id="chat-contact" type="tel" placeholder="Contact Number*" required>
+<input id="chat-email" type="email" placeholder="Email Address*" required>
+<textarea id="chat-message" placeholder="Message (optional)"></textarea>
+<button type="button" id="form-submit-btn">Send Details</button>
+
         </div>
     </div>
-    
     <div class="chatbox-input">
         <input id="chat-input" type="text" placeholder="Type your message...">
         <button id="send-btn" aria-label="Send Message"><i class="fa-solid fa-paper-plane"></i></button>
@@ -1912,112 +1907,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-// Chatbox
-document.addEventListener('DOMContentLoaded', () => {
-    // --- Element Selections ---
+ // ===================================================================
+    // 8. (CHATBOX)
+    // ===================================================================
+    document.addEventListener('DOMContentLoaded', () => {
     const chatFab = document.getElementById('chat-fab');
     const chatboxContainer = document.getElementById('chatbox-container');
-    const closeBtn = document.getElementById('chatbox-close-btn');
-    const messagesContainer = document.getElementById('chatbox-messages');
-    const chatInputContainer = document.querySelector('.chatbox-input');
-    const chatInput = document.getElementById('chat-input');
-    const sendBtn = document.getElementById('send-btn');
-    
-    // Step containers
-    const firstOptions = document.getElementById('first-options');
-    const devOptions = document.getElementById('dev-options');
-    const dmOptions = document.getElementById('dm-options');
-    const formWrap = document.getElementById('form-wrap');
-    const formSubmitBtn = document.getElementById('form-submit-btn');
-
-    // --- State Management for Auto-Open ---
-    let autoOpenTimer;
-    let hasChatBeenOpened = false;
-
-    // --- Helper Functions ---
-    const scrollToBottom = () => { messagesContainer.scrollTop = messagesContainer.scrollHeight; };
-    const addMessage = (text, sender) => {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = sender === 'bot' ? 'bot-message' : 'user-message';
-        messageDiv.textContent = text;
-        messagesContainer.appendChild(messageDiv);
-        scrollToBottom();
-    };
-    const showOptions = (element) => { element.classList.remove('hidden'); };
-    const hideAllOptions = () => {
-        firstOptions.classList.add('hidden');
-        devOptions.classList.add('hidden');
-        dmOptions.classList.add('hidden');
-        formWrap.classList.add('hidden');
-    };
-    
-    // --- Chat Flow & UI Management ---
-    const openChatbox = () => {
-        if (hasChatBeenOpened) return; // Don't auto-open if it was already opened
-        hasChatBeenOpened = true;
-        clearTimeout(autoOpenTimer); // Stop the timer if opened manually
-        
-        chatboxContainer.classList.add('active');
-        chatFab.classList.add('hidden');
-        messagesContainer.innerHTML = '';
-        hideAllOptions();
-        chatInputContainer.style.display = 'flex';
-        chatboxContainer.classList.remove('form-active');
-        addMessage("Hello! Welcome to Spaxios Innovation. How can I assist you today?", 'bot');
-        setTimeout(() => showOptions(firstOptions), 1000);
-    };
-
-    const closeChatbox = () => {
-        chatboxContainer.classList.remove('active');
-        chatFab.classList.remove('hidden');
-        clearTimeout(autoOpenTimer); // Stop timer if user closes chat
-    };
-
-    const showForm = (message) => {
-        hideAllOptions();
-        chatInputContainer.style.display = 'none';
-        chatboxContainer.classList.add('form-active'); // Add class to shrink messages
-        setTimeout(() => {
-            addMessage(message, 'bot');
-            showOptions(formWrap);
-            scrollToBottom();
-        }, 1000);
-    };
-
-    const handleSubmit = () => {
-        const name = document.getElementById('name').value;
-        const contact = document.getElementById('contact').value;
-        const email = document.getElementById('email').value;
-        if (!name || !contact || !email) {
-            addMessage("Please fill in all required fields (Name, Contact, Email).", 'bot');
-            return;
-        }
-        const formData = `Name: ${name}\nContact: ${contact}\nEmail: ${email}`;
-        addMessage(formData, 'user');
-        hideAllOptions();
-        setTimeout(() => {
-            addMessage("Thank you for submitting. Our team will reach out to you soon!", 'bot');
-            setTimeout(closeChatbox, 3000);
-        }, 1000);
-    };
-
-    // --- Event Listeners ---
-    chatFab.addEventListener('click', openChatbox);
-    closeBtn.addEventListener('click', closeChatbox);
-    sendBtn.addEventListener('click', () => { /* ... existing logic ... */ });
-    firstOptions.addEventListener('click', (e) => { /* ... existing logic ... */ });
-    const handleSubOptionClick = (e) => { /* ... existing logic ... */ };
-    devOptions.addEventListener('click', handleSubOptionClick);
-    dmOptions.addEventListener('click', handleSubOptionClick);
-    formSubmitBtn.addEventListener('click', handleSubmit);
-
-    // FIX: Start the 10-second timer to auto-open the chat
-    autoOpenTimer = setTimeout(openChatbox, 10000);
-});
-document.addEventListener('DOMContentLoaded', () => {
-    const chatFab = document.getElementById('chat-fab');
-    const chatboxContainer = document.getElementById('chatbox-container');
-    const closeBtn = document.getElementById('chatbox-close-btn');
+    const chatboxCloseBtn = document.getElementById('chatbox-close-btn');
     const messagesContainer = document.getElementById('chatbox-messages');
     const chatInputContainer = document.querySelector('.chatbox-input');
     const chatInput = document.getElementById('chat-input');
@@ -2031,20 +1927,24 @@ document.addEventListener('DOMContentLoaded', () => {
     let autoOpenTimer;
     let hasChatBeenOpened = false;
 
-    const scrollToBottom = () => { messagesContainer.scrollTop = messagesContainer.scrollHeight; };
+    const scrollToBottom = () => { if (messagesContainer) messagesContainer.scrollTop = messagesContainer.scrollHeight; };
+    
     const addMessage = (text, sender) => {
+        if (!messagesContainer) return;
         const messageDiv = document.createElement('div');
         messageDiv.className = sender === 'bot' ? 'bot-message' : 'user-message';
         messageDiv.textContent = text;
         messagesContainer.appendChild(messageDiv);
         scrollToBottom();
     };
-    const showOptions = (element) => { element.classList.remove('hidden'); };
+
+    const showOptions = (element) => { if(element) element.classList.remove('hidden'); };
+
     const hideAllOptions = () => {
-        firstOptions.classList.add('hidden');
-        devOptions.classList.add('hidden');
-        dmOptions.classList.add('hidden');
-        formWrap.classList.add('hidden');
+        if (firstOptions) firstOptions.classList.add('hidden');
+        if (devOptions) devOptions.classList.add('hidden');
+        if (dmOptions) dmOptions.classList.add('hidden');
+        if (formWrap) formWrap.classList.add('hidden');
     };
     
     const openChatbox = () => {
@@ -2079,67 +1979,121 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     };
 
-    const handleSubmit = () => {
-        const name = document.getElementById('name').value;
-        const contact = document.getElementById('contact').value;
-        const email = document.getElementById('email').value;
-        if (!name || !contact || !email) {
-            addMessage("Please fill in all required fields (Name, Contact, Email).", 'bot');
-            return;
-        }
-        const formData = `Name: ${name}\nContact: ${contact}\nEmail: ${email}`;
-        addMessage(formData, 'user');
-        hideAllOptions();
-        setTimeout(() => {
-            addMessage("Thank you for submitting. Our team will reach out to you soon!", 'bot');
+    const handleSubmit = async () => {
+        console.log("✅ handleSubmit triggered");  // add this
+    const nameInput = document.getElementById('chat-name');
+const contactInput = document.getElementById('chat-contact');
+const emailInput = document.getElementById('chat-email');
+const messageInput = document.getElementById('chat-message');
+
+
+    const name = nameInput ? nameInput.value.trim() : '';
+    const contact = contactInput ? contactInput.value.trim() : '';
+    const email = emailInput ? emailInput.value.trim() : '';
+    const message = messageInput ? messageInput.value.trim() : '';
+
+ 
+
+    // ✅ Check all fields including message
+    if (!name || !contact || !email ) {
+        addMessage("Please fill in all required fields (Name, Contact, Email).", 'bot');
+        return;
+    }
+
+    // ✅ Show user submission in chat
+    const formData = `Name: ${name}\nContact: ${contact}\nEmail: ${email}\nMessage: ${message}`;
+    addMessage(formData, 'user');
+    hideAllOptions();
+    console.log("Submitting chat form:", {
+    serviceCategory: chosenService,
+    subCategory: chosenSub,
+    name, contact, email, message
+});
+
+
+    try {
+        const res = await fetch("https://company-website-beta-six.vercel.app/api/chat/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                serviceCategory: chosenService || "General", // ✅ added
+                subCategory: chosenSub || "",                // ✅ added
+                name,
+                contact,
+                email,
+                message
+            })
+        });
+
+        const data = await res.json();
+        console.log("Collected values:", data);
+
+
+        if (res.ok) {
+            addMessage("✅ Thank you for submitting. Our team will reach out to you soon!", 'bot');
             setTimeout(closeChatbox, 3000);
-        }, 1000);
-    };
-
-    chatFab.addEventListener('click', openChatbox);
-    closeBtn.addEventListener('click', closeChatbox);
-    
-    sendBtn.addEventListener('click', () => {
-        const text = chatInput.value.trim();
-        if (text) {
-            addMessage(text, 'user');
-            chatInput.value = '';
-            setTimeout(() => addMessage("Please select one of the options to proceed.", 'bot'), 1000);
-        }
-    });
-
-    firstOptions.addEventListener('click', (e) => {
-        if (!e.target.matches('.option-btn')) return;
-        const choice = e.target.dataset.service;
-        addMessage(choice, 'user');
-        hideAllOptions();
-        if (choice === 'Website Development') {
-            setTimeout(() => {
-                addMessage("Great! What would you like to know about our Website Development services?", 'bot');
-                showOptions(devOptions);
-            }, 1000);
         } else {
-            setTimeout(() => {
-                addMessage("Excellent! Which area of Digital Marketing are you interested in?", 'bot');
-                showOptions(dmOptions);
-            }, 1000);
+            addMessage("❌ Oops! Something went wrong. Please try again later.", 'bot');
+            console.error("API Error:", data);
         }
-    });
+    } catch (err) {
+        addMessage("⚠️ Network error. Please try again later.", 'bot');
+        console.error("Network error:", err);
+    }
+};
+
+    if (chatFab) chatFab.addEventListener('click', openChatbox);
+    if (chatboxCloseBtn) chatboxCloseBtn.addEventListener('click', closeChatbox);
+    
+    // if (sendBtn) {
+    //     sendBtn.addEventListener('click', () => {
+    //         const text = chatInput.value.trim();
+    //         if (text) {
+    //             addMessage(text, 'user');
+    //             chatInput.value = '';
+    //             setTimeout(() => addMessage("Please select one of the options to proceed.", 'bot'), 1000);
+    //         }
+    //     });
+    // }
+
+    if (firstOptions) {
+        firstOptions.addEventListener('click', (e) => {
+            if (!e.target.matches('.option-btn')) return;
+            const choice = e.target.dataset.service;
+             chosenService = choice; // ✅ save it
+            addMessage(choice, 'user');
+            hideAllOptions();
+            if (choice === 'Website Development') {
+                setTimeout(() => {
+                    addMessage("Great! What would you like to know about our Website Development services?", 'bot');
+                    showOptions(devOptions);
+                }, 1000);
+            } else {
+                setTimeout(() => {
+                    addMessage("Excellent! Which area of Digital Marketing are you interested in?", 'bot');
+                    showOptions(dmOptions);
+                }, 1000);
+            }
+        });
+    }
 
     const handleSubOptionClick = (e) => {
         if (!e.target.matches('.choice-btn')) return;
         const choice = e.target.dataset.sub;
+        chosenSub = choice; // ✅ save it
         addMessage(choice, 'user');
         showForm("To discuss this further, please provide your details and our team will get in touch.");
     };
 
-    devOptions.addEventListener('click', handleSubOptionClick);
-    dmOptions.addEventListener('click', handleSubOptionClick);
-    
-    formSubmitBtn.addEventListener('click', handleSubmit);
+    if (devOptions) devOptions.addEventListener('click', handleSubOptionClick);
+    if (dmOptions) dmOptions.addEventListener('click', handleSubOptionClick);
+    if (formSubmitBtn) formSubmitBtn.addEventListener('click', handleSubmit);
 
-    autoOpenTimer = setTimeout(openChatbox, 10000);
-});
+    // Auto-open timer after 10 seconds
+    if (chatboxContainer) { // Only set the timer if the chatbox exists on the page
+        autoOpenTimer = setTimeout(openChatbox, 10000);
+    }
+    });
 //perksectionfontstyle
 document.addEventListener('DOMContentLoaded', () => {
     // Select ALL elements that need the scroll animation
