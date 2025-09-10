@@ -1,0 +1,11 @@
+# Turn on the rewrite engine
+RewriteEngine On
+
+# Rule 1: Redirect URLs that end in .html to the version without .html
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.+)\.html [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Rule 2: Internally map the clean URL to the .html file
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [L]

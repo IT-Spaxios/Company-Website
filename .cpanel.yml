@@ -1,0 +1,10 @@
+deployment:
+  tasks:
+    # Deployment path for frontend
+    - export DEPLOYPATH=/home/hpcbve8kpi3w/public_html/
+ 
+    # Copy frontend files into public_html
+    - /bin/rsync -av --delete ./Frontend/ $DEPLOYPATH
+ 
+    # Install backend dependencies
+    - cd Backend && /bin/npm install --production

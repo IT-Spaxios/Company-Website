@@ -143,7 +143,11 @@ loadJobs();
     let hasChatBeenOpened = false;
     let chosenService = '';
     let chosenSub = '';
+    let chosenService = '';
+    let chosenSub = '';
 
+    if(chatboxContainer) { // Run chatbox logic only if it exists
+        const scrollToBottom = () => { if (messagesContainer) messagesContainer.scrollTop = messagesContainer.scrollHeight; };
     if(chatboxContainer) { // Run chatbox logic only if it exists
         const scrollToBottom = () => { if (messagesContainer) messagesContainer.scrollTop = messagesContainer.scrollHeight; };
     
@@ -155,9 +159,38 @@ loadJobs();
             messagesContainer.appendChild(messageDiv);
             scrollToBottom();
         };
+        const addMessage = (text, sender) => {
+            if (!messagesContainer) return;
+            const messageDiv = document.createElement('div');
+            messageDiv.className = sender === 'bot' ? 'bot-message' : 'user-message';
+            messageDiv.textContent = text;
+            messagesContainer.appendChild(messageDiv);
+            scrollToBottom();
+        };
 
         const showOptions = (element) => { if(element) element.classList.remove('hidden'); };
+        const showOptions = (element) => { if(element) element.classList.remove('hidden'); };
 
+        const hideAllOptions = () => {
+            if (firstOptions) firstOptions.classList.add('hidden');
+            if (devOptions) devOptions.classList.add('hidden');
+            if (dmOptions) dmOptions.classList.add('hidden');
+            if (formWrap) formWrap.classList.add('hidden');
+        };
+        
+        const openChatbox = () => {
+            if (hasChatBeenOpened && chatboxContainer.classList.contains('active')) return;
+            hasChatBeenOpened = true;
+            clearTimeout(autoOpenTimer);
+            chatboxContainer.classList.add('active');
+            chatFab.classList.add('hidden');
+            messagesContainer.innerHTML = '';
+            hideAllOptions();
+            chatInputContainer.style.display = 'flex';
+            chatboxContainer.classList.remove('form-active');
+            addMessage("Hello! Welcome to Spaxios Innovation. How can I assist you today?", 'bot');
+            setTimeout(() => showOptions(firstOptions), 1000);
+        };
         const hideAllOptions = () => {
             if (firstOptions) firstOptions.classList.add('hidden');
             if (devOptions) devOptions.classList.add('hidden');
@@ -184,7 +217,22 @@ loadJobs();
             chatFab.classList.remove('hidden');
             clearTimeout(autoOpenTimer);
         };
+        const closeChatbox = () => {
+            chatboxContainer.classList.remove('active');
+            chatFab.classList.remove('hidden');
+            clearTimeout(autoOpenTimer);
+        };
 
+        const showForm = (message) => {
+            hideAllOptions();
+            chatInputContainer.style.display = 'none';
+            chatboxContainer.classList.add('form-active');
+            setTimeout(() => {
+                addMessage(message, 'bot');
+                showOptions(formWrap);
+                scrollToBottom();
+            }, 1000);
+        };
         const showForm = (message) => {
             hideAllOptions();
             chatInputContainer.style.display = 'none';
@@ -201,7 +249,16 @@ loadJobs();
             const contactInput = document.getElementById('chat-contact');
             const emailInput = document.getElementById('chat-email');
             const messageInput = document.getElementById('chat-message');
+        const handleSubmit = async () => {
+            const nameInput = document.getElementById('chat-name');
+            const contactInput = document.getElementById('chat-contact');
+            const emailInput = document.getElementById('chat-email');
+            const messageInput = document.getElementById('chat-message');
 
+            const name = nameInput ? nameInput.value.trim() : '';
+            const contact = contactInput ? contactInput.value.trim() : '';
+            const email = emailInput ? emailInput.value.trim() : '';
+            const message = messageInput ? messageInput.value.trim() : '';
             const name = nameInput ? nameInput.value.trim() : '';
             const contact = contactInput ? contactInput.value.trim() : '';
             const email = emailInput ? emailInput.value.trim() : '';
@@ -211,11 +268,39 @@ loadJobs();
                 addMessage("Please fill in all required fields (Name, Contact, Email).", 'bot');
                 return;
             }
+            if (!name || !contact || !email) {
+                addMessage("Please fill in all required fields (Name, Contact, Email).", 'bot');
+                return;
+            }
 
             const formDataText = `Name: ${name}\nContact: ${contact}\nEmail: ${email}\nMessage: ${message}`;
             addMessage(formDataText, 'user');
             hideAllOptions();
+            const formDataText = `Name: ${name}\nContact: ${contact}\nEmail: ${email}\nMessage: ${message}`;
+            addMessage(formDataText, 'user');
+            hideAllOptions();
 
+            try {
+                const res = await fetch("https://company-website-beta-six.vercel.app/api/chat/submit", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        serviceCategory: chosenService || "General",
+                        subCategory: chosenSub || "",
+                        name, contact, email, message
+                    })
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    addMessage("✅ Thank you for submitting. Our team will reach out to you soon!", 'bot');
+                    setTimeout(closeChatbox, 3000);
+                } else {
+                    addMessage("❌ Oops! Something went wrong. Please try again later.", 'bot');
+                }
+            } catch (err) {
+                addMessage("⚠️ Network error. Please try again later.", 'bot');
+            }
+        };
             try {
                 const res = await fetch("https://company-website-beta-six.vercel.app/api/chat/submit", {
                     method: "POST",
@@ -262,6 +347,30 @@ loadJobs();
                 }
             });
         }
+        if (chatFab) chatFab.addEventListener('click', openChatbox);
+        if (chatboxCloseBtn) chatboxCloseBtn.addEventListener('click', closeChatbox);
+        if (formSubmitBtn) formSubmitBtn.addEventListener('click', handleSubmit);
+        
+        if (firstOptions) {
+            firstOptions.addEventListener('click', (e) => {
+                if (!e.target.matches('.option-btn')) return;
+                const choice = e.target.dataset.service;
+                chosenService = choice;
+                addMessage(choice, 'user');
+                hideAllOptions();
+                if (choice === 'Website Development') {
+                    setTimeout(() => {
+                        addMessage("Great! What would you like to know about our Website Development services?", 'bot');
+                        showOptions(devOptions);
+                    }, 1000);
+                } else {
+                    setTimeout(() => {
+                        addMessage("Excellent! Which area of Digital Marketing are you interested in?", 'bot');
+                        showOptions(dmOptions);
+                    }, 1000);
+                }
+            });
+        }
 
         const handleSubOptionClick = (e) => {
             if (!e.target.matches('.choice-btn')) return;
@@ -270,7 +379,16 @@ loadJobs();
             addMessage(choice, 'user');
             showForm("To discuss this further, please provide your details and our team will get in touch.");
         };
+        const handleSubOptionClick = (e) => {
+            if (!e.target.matches('.choice-btn')) return;
+            const choice = e.target.dataset.sub;
+            chosenSub = choice;
+            addMessage(choice, 'user');
+            showForm("To discuss this further, please provide your details and our team will get in touch.");
+        };
 
+        if (devOptions) devOptions.addEventListener('click', handleSubOptionClick);
+        if (dmOptions) dmOptions.addEventListener('click', handleSubOptionClick);
         if (devOptions) devOptions.addEventListener('click', handleSubOptionClick);
         if (dmOptions) dmOptions.addEventListener('click', handleSubOptionClick);
 
