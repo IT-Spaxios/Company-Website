@@ -292,7 +292,7 @@ body.no-scroll {
 @media (max-width: 375px) {
     /* The layout is still correct. We can reduce side padding slightly. */
     .top-bar, .main-nav {
-        padding: 15px 20px;
+        padding: 25px 20px;
     }
   
 }
@@ -1157,12 +1157,14 @@ body.no-scroll {
     .zigzag-text p {
         font-size: 16px;
     }
+    .z1zigzag-text p{text-align: left;font-size: 16px;margin: 0;line-height: 1.8;}
     .section-zigzag-cta .btn-primary {
         font-size: 12px;
         padding: 12px 15px;
         gap: 10px;
         margin-top: -25px;
     }
+    .z1zigzag-image{margin-left: -30px;width: 280px;}
     .zigzag-image,
     .z1zigzag-image,
     .z2zigzag-image {
@@ -1720,6 +1722,7 @@ Promotional Banner (With 3D Parallax Mouse Effect)
 }
 @media (max-width: 480px){.promo-content .contact-btn{margin-top: 459px;}
 .promo-content h2{margin-top: -499px;}
+.promo-card{margin-bottom: -39px;}
 }
 
 
