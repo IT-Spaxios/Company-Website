@@ -25,6 +25,7 @@ const allowedOrigins = [
    "http://localhost:5501",
   "http://localhost:5500",
   "http://localhost:3000",
+  "https://itspaxiosinnovation.in/",
   /\.vercel\.app$/   // ✅ allow any subdomain of vercel.app
 ];
 
