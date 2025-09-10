@@ -21,34 +21,29 @@ const app = express();
 // ✅ global cors setup
 const allowedOrigins = [
   "http://127.0.0.1:5500",
-   "http://127.0.0.1:5501",
-   "http://localhost:5501",
   "http://localhost:5500",
   "http://localhost:3000",
   "https://itspaxiosinnovation.in",
-  /\.vercel\.app$/   // ✅ allow any subdomain of vercel.app
+  /\.vercel\.app$/   // allow any subdomain of vercel.app
 ];
-app.options('*', cors()); // enable pre-flight for all routes
 
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true); // allow Postman / curl
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true); // allow Postman/cURL
     if (allowedOrigins.some(o => o instanceof RegExp ? o.test(origin) : o === origin)) {
       return callback(null, true);
-    }
+    } 
     console.log("❌ Blocked by CORS:", origin);
     return callback(new Error("Not allowed by CORS"));
   },
   credentials: true,
-  methods: ["GET", "POST", "OPTIONS","PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  allowedHeaders: ["Content-Type","Authorization"],
 }));
 
+// ✅ Make sure OPTIONS requests are handled
+app.options("*", cors());
 
-app.use((req, res, next) => {
-  console.log("Request origin:", req.headers.origin);
-  next();
-});
 
 app.use(express.json());
 
