@@ -25,9 +25,10 @@ const allowedOrigins = [
    "http://localhost:5501",
   "http://localhost:5500",
   "http://localhost:3000",
-  "https://itspaxiosinnovation.in/",
+  "https://itspaxiosinnovation.in",
   /\.vercel\.app$/   // ✅ allow any subdomain of vercel.app
 ];
+app.options('*', cors()); // enable pre-flight for all routes
 
 app.use(cors({
   origin: function (origin, callback) {
