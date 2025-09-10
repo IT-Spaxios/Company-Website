@@ -802,8 +802,8 @@ body {
     border-left: 5px solid var(--cyan-accent);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     /* Initial state for scroll animation */
-    opacity: 0;
-    transform: translateX(-30px);
+   opacity: 1 !important; transform: none !important; 
+
 }
 
 .job-listing.is-visible {
