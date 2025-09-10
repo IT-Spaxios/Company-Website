@@ -1718,6 +1718,10 @@ Promotional Banner (With 3D Parallax Mouse Effect)
         transition: none;
     }
 }
+@media (max-width: 480px){.promo-content .contact-btn{margin-top: 459px;}
+.promo-content h2{margin-top: -499px;}
+}
+
 
 /* ======================================================== */
 /* SOLUTION/SERVICES SECTION (FINAL & CORRECT)              */
