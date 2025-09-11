@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
+    
 
     // ============================================================
     // 1. HERO PARALLAX EFFECT
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    
 
     // ============================================================
     // 2. HEADER + MOBILE MENU
