@@ -25,6 +25,7 @@ const allowedOrigins = [
   "http://localhost:3000",
   "https://itspaxiosinnovation.in",
   "https://company-website-8ib6.vercel.app",
+  "http://127.0.0.1:50683",
   /\.vercel\.app$/   // allow any subdomain of vercel.app
 ];
 
