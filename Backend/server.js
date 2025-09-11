@@ -16,7 +16,13 @@ import careerRoutes from "./routes/careerRoutes.js";
 
 
 const app = express();
+
+
+// Connect to MongoDB
+dotenv.config();
+connectDatabase()
 // ✅ Global CORS setup
+
 
 const allowedOrigins = [
   "http://127.0.0.1:5500",
@@ -52,10 +58,7 @@ app.options("*", cors());
 
 
 app.use(express.json());
-
-// Connect to MongoDB
-dotenv.config();
-connectDatabase();
+;
 
 // Routes
 app.use("/api/contact", contactRoutes);

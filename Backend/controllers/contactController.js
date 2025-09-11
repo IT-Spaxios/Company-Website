@@ -4,6 +4,7 @@ import transporter from "../config/mailer.js";
 
 export const sendContactMessage = async (req, res) => {
   try {
+     console.log("Incoming body:", req.body);
     const { name, email, message,phone} = req.body;
 
     // Basic validation
@@ -24,8 +25,8 @@ export const sendContactMessage = async (req, res) => {
 
     // Send email notification
     const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.RECEIVER_EMAIL || process.env.EMAIL_USER,
+      from: process.env.EMAIL_USERNAME,
+      to: process.env.RECEIVER_EMAIL || process.env.EMAIL_USERNAME,
       subject: `New Contact Message from ${name}`,
       text:
         `You have a new contact message:\n\n` +
