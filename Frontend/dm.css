@@ -364,7 +364,7 @@
         .hero-image-container {
             width: 100%;
             min-height: 350px !important;
-            background-image: url('/company-website/Frontend/Images/Result-driven digital marketing Company.webp');
+            background-image: url('./Images/Result-driven digital marketing Company.webp');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -673,7 +673,7 @@
             width: 90%;
             height: 90%;
             margin-top: 20px;
-            background-image: url('/company-website/Frontend/Images/Digital Marketing service is a perfect solution.webp');
+            background-image: url('./Images/Digital Marketing service is a perfect solution.webp');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;

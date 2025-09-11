@@ -1,14 +1,9 @@
-# mod_rewrite starts here
-
-RewriteEngine on
-# Redirect /index.html to /
-RewriteCond %{THE_REQUEST} /index\.html [NC]
-RewriteRule ^index\.html$ / [R=301,L]
-# does not apply to existing directories, meaning that if the folder exists on the server then don't change anything and don't run the Rule!
+#example.com/page will display the contents of example.com/page.html
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L,QSA]
 
-# Check for file in directory with .html extension
-RewriteCond %{REQUEST_FILENAME}\.html -f
-
-# Here we actually show the page that has the .html extension
-RewriteRule ^(.*)$ $1.html [NC,L]
+#301 from example.com/page.html to example.com/page
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*\.html\ HTTP/
+RewriteRule ^(.*)\.html$ /$1 [R=301,L]
