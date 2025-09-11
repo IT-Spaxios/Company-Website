@@ -18,33 +18,37 @@ import careerRoutes from "./routes/careerRoutes.js";
 const app = express();
 // ✅ Global CORS setup
 
-// ✅ global cors setup
 const allowedOrigins = [
   "http://127.0.0.1:5500",
   "http://localhost:5500",
   "http://localhost:3000",
+  "http://127.0.0.1:50683",
   "https://itspaxiosinnovation.in",
   "https://company-website-8ib6.vercel.app",
-  "http://127.0.0.1:50683",
   /\.vercel\.app$/   // allow any subdomain of vercel.app
 ];
 
 app.use(cors({
-  origin: function(origin, callback) {
+  origin: (origin, callback) => {
     if (!origin) return callback(null, true); // allow Postman/cURL
-    if (allowedOrigins.some(o => o instanceof RegExp ? o.test(origin) : o === origin)) {
+    const isAllowed = allowedOrigins.some(o =>
+      o instanceof RegExp ? o.test(origin) : o === origin
+    );
+    if (isAllowed) {
       return callback(null, true);
-    } 
-    console.log("❌ Blocked by CORS:", origin);
-    return callback(new Error("Not allowed by CORS"));
+    } else {
+      console.log("❌ Blocked by CORS:", origin);
+      return callback(new Error("Not allowed by CORS"), false);
+    }
   },
   credentials: true,
-  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
-  allowedHeaders: ["Content-Type","Authorization"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
-// ✅ Make sure OPTIONS requests are handled
+// Handle OPTIONS requests globally
 app.options("*", cors());
+
 
 
 app.use(express.json());
