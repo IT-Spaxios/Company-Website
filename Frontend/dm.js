@@ -549,7 +549,7 @@
             GOOGLE_MY_BUSINESS: {
                 title: "Why Google My Business Page?",
                 desc: `Many businesses want to pull customers to their doorstep. For those, Google My Business profile is key to their business. If someone searches for services and products that you provide in your area, <span class="highlight-themes">your business profile appears on maps</span> with accurate business details, reviews, updates, directions, your location, working hours, and photos. so they can choose your business with confidence.`,
-                img: "/company-website/Frontend/Images/googlemybusiness service in chennai.webp",
+                img: "./Images/googlemybusiness service in chennai.webp",
                 alt:"googlemybusiness service in chennai, gmb service in chennai",
                 benefits: [
                     "More visibility in local Google searches & Maps results",
@@ -565,7 +565,7 @@
             EMAIL_MARKETING_SERVICE: {
                 title: "Why Email Marketing Service?",
                 desc: `Email marketing is more than newsletters. It’s cost-effective, measurable, and one of the best ways to drive repeat sales. You can <span class="highlight-themes">reach your customers with personalized email marketing campaigns, automation, updates and offers</span>, and you can turn customers into one-time buyers to loyal customers.`,
-                img: "/company-website/Frontend/Images/emailmarketing service in chennai.webp",
+                img: "./Images/emailmarketing service in chennai.webp",
                 alt: "emailmarketing service in chennai, EM service in chennai",
                 benefits: [
                     "Directly reach your customers in their inbox",
@@ -581,7 +581,7 @@
             LOCAl_SEO_SERVICE: {
                 title: "Why Local SEO Service?",
                 desc: `Show your business in front of nearby people who are searching for services/products that you provide. Whether it’s “best salon in Chennai” or “electronic spare parts in Chennai”, <span class="highlight-themes">Local SEO ensures your business is at the top position.</span> It’s a perfect strategy for small and medium businesses that want to focus on location-based lead generation and increase visibility and traffic.`,
-                img: "/company-website/Frontend/Images/localseo service in chennai.webp",
+                img: "./Images/localseo service in chennai.webp",
                 alt:"localseo service in chennai, LS service in chennai",
                 benefits: [
                     "Top rank in location-based searches",
