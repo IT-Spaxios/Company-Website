@@ -16,44 +16,49 @@ import careerRoutes from "./routes/careerRoutes.js";
 
 
 const app = express();
-// ✅ Global CORS setup
 
-// ✅ global cors setup
-const allowedOrigins = [
-  "http://127.0.0.1:5500",
-   "http://127.0.0.1:5501",
-   "http://localhost:5501",
-  "http://localhost:5500",
-  "http://localhost:3000",
-  "https://itspaxiosinnovation.in/",
-  /\.vercel\.app$/   // ✅ allow any subdomain of vercel.app
-];
-
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true); // allow Postman / curl
-    if (allowedOrigins.some(o => o instanceof RegExp ? o.test(origin) : o === origin)) {
-      return callback(null, true);
-    }
-    console.log("❌ Blocked by CORS:", origin);
-    return callback(new Error("Not allowed by CORS"));
-  },
-  credentials: true,
-  methods: ["GET", "POST", "OPTIONS","PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-}));
-
-
-app.use((req, res, next) => {
-  console.log("Request origin:", req.headers.origin);
-  next();
-});
-
-app.use(express.json());
 
 // Connect to MongoDB
 dotenv.config();
-connectDatabase();
+connectDatabase()
+// ✅ Global CORS setup
+
+
+const allowedOrigins = [
+  "http://127.0.0.1:5500",
+  "http://localhost:5500",
+  "http://localhost:3000",
+  "http://127.0.0.1:50683",
+  "https://itspaxiosinnovation.in",
+  "https://company-website-8ib6.vercel.app",
+  /\.vercel\.app$/   // allow any subdomain of vercel.app
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true); // allow Postman/cURL
+    const isAllowed = allowedOrigins.some(o =>
+      o instanceof RegExp ? o.test(origin) : o === origin
+    );
+    if (isAllowed) {
+      return callback(null, true);
+    } else {
+      console.log("❌ Blocked by CORS:", origin);
+      return callback(new Error("Not allowed by CORS"), false);
+    }
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
+
+// Handle OPTIONS requests globally
+app.options("*", cors());
+
+
+
+app.use(express.json());
+;
 
 // Routes
 app.use("/api/contact", contactRoutes);

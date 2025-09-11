@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!jobListingsContainer) return;
 
         try {
-            const res = await fetch('https://company-website-beta-six.vercel.app/api/careers');
+            const res = await fetch('https://company-website-8ib6.vercel.app/api/careers');
             const jobs = await res.json();
 
             if (Array.isArray(jobs) && jobs.length > 0) {
@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hideAllOptions();
 
             try {
-                const res = await fetch("https://company-website-beta-six.vercel.app/api/chat/submit", {
+                const res = await fetch("https://company-website-8ib6.vercel.app/api/chat/submit", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ serviceCategory: chosenService || "General", subCategory: chosenSub || "", name, contact, email, message })
@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const formData = { name: form.name.value, email: form.email.value, message: form.message.value };
         try {
-            const res = await fetch("https://company-website-beta-six.vercel.app/api/contact/addcontact", {
+            const res = await fetch("https://company-website-8ib6.vercel.app/api/contact/addcontact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData)

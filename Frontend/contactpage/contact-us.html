@@ -2035,7 +2035,7 @@ let chosenSub = "";
     };
 
     try {
-      const res = await fetch('https://company-website-beta-six.vercel.app/api/main/maincontact', { // if your backend is on another origin, use full URL
+      const res = await fetch('https://company-website-8ib6.vercel.app/api/main/maincontact', { // if your backend is on another origin, use full URL
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -2084,7 +2084,7 @@ let chosenSub = "";
         };
 
         try {
-            const res = await fetch("https://company-website-beta-six.vercel.app/api/contact/addcontact", {
+            const res = await fetch("https://company-website-8ib6.vercel.app/api/contact/addcontact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData)
@@ -2253,7 +2253,7 @@ const messageInput = document.getElementById('chat-message');
 
 
     try {
-        const res = await fetch("https://company-website-beta-six.vercel.app/api/chat/submit", {
+        const res = await fetch("https://company-website-8ib6.vercel.app/api/chat/submit", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
