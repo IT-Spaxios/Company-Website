@@ -1,6 +1,10 @@
 # mod_rewrite starts here
 
 RewriteEngine on
+# Redirect /index.html to /
+RewriteCond %{THE_REQUEST} /index\.html [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+
 
 # does not apply to existing directories, meaning that if the folder exists on the server then don't change anything and don't run the Rule!
 RewriteCond %{REQUEST_FILENAME} !-d
