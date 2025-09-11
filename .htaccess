@@ -1,11 +1,12 @@
-# Turn on the rewrite engine
-RewriteEngine On
+# mod_rewrite starts here
 
-# Rule 1: Redirect URLs that end in .html to the version without .html
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.+)\.html [NC]
-RewriteRule ^ /%1 [R=301,L]
+RewriteEngine on
 
-# Rule 2: Internally map the clean URL to the .html file
+# does not apply to existing directories, meaning that if the folder exists on the server then don't change anything and don't run the Rule!
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.html [L]
+
+# Check for file in directory with .html extension
+RewriteCond %{REQUEST_FILENAME}\.html -f
+
+# Here we actually show the page that has the .html extension
+RewriteRule ^(.*)$ $1.html [NC,L]
