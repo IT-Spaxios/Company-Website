@@ -427,7 +427,7 @@ counters.forEach(counter => counterObserver.observe(counter));
     hideAllOptions();
 
     try {
-        const res = await fetch("https://company-website-beta-six.vercel.app/api/chat/submit", {
+        const res = await fetch("https://company-website-8ib6.vercel.app/api/chat/submit", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -561,7 +561,7 @@ counters.forEach(counter => counterObserver.observe(counter));
         };
 
         try {
-            const res = await fetch("https://company-website-beta-six.vercel.app/api/contact/addcontact", {
+            const res = await fetch("https://company-website-8ib6.vercel.app/api/contact/addcontact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData)
