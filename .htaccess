@@ -11,16 +11,16 @@ RewriteRule ^ https://www.itspaxiosinnovation.in%{REQUEST_URI} [L,R=301]
 # -------------------------------------------------
 # 1. Redirect /page.html → /page
 # -------------------------------------------------
-RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
-RewriteRule ^ %1 [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+([^.]+)\.html[\s?] [NC]
+RewriteRule ^ %1/ [R=301,L]
 
 # -------------------------------------------------
-# 2. Serve .html files without typing .html
+# 2. Serve .html without typing it
 # -------------------------------------------------
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.+)$ $1.html [L,QSA]
+RewriteRule ^(.+?)/?$ $1.html [L,QSA]
 
 # -------------------------------------------------
 # 3. Redirect index.html → /
