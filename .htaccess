@@ -1,15 +1,21 @@
-# Enable Rewrite Engine
 RewriteEngine On
+RewriteBase /
 
 # -------------------------------------------------
-# 1. Redirect /page.html → /page   (remove .html)
+# 0. Force HTTPS + www
+# -------------------------------------------------
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www.itspaxiosinnovation.in%{REQUEST_URI} [L,R=301]
+
+# -------------------------------------------------
+# 1. Redirect /page.html → /page
 # -------------------------------------------------
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
 RewriteRule ^ %1 [R=301,L]
 
 # -------------------------------------------------
 # 2. Serve .html files without typing .html
-#    Example: /about → about.html
 # -------------------------------------------------
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
