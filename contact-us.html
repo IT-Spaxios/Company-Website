@@ -1,0 +1,2340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us|Your Web Develope Company</title>
+     <link rel="icon" type="image/png" href="/Images/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Playfair Display Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+
+        /* Import Poppins Font from Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+        /* Basic Reset & Font */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* --- NEW: Smooth Scrolling Effect --- */
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+
+        .header {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  width: 100vw;
+}
+ 
+.top-bar {
+  color: black;
+  padding: 8px 5%;
+  font-size: 13px;
+  background: linear-gradient(135deg, whitesmoke, #bcbfc6);
+  max-height: 100px;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+ 
+.top-bar--hidden {
+  max-height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  overflow: hidden;
+  border: none !important;
+}
+ 
+.top-bar-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+ 
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-right: auto;
+}
+ 
+.contact-info span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+ 
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+ 
+.social-icons a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+ 
+.social-icons a:hover {
+  transform: translateY(-3px);
+  color: #0d2a81;
+}
+ 
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  height: 80px;
+  position: relative;
+}
+ 
+.logo-img {
+  height: 120px;
+  width: auto;
+  margin-left: -20px;
+  transition: height 0.3s ease, margin-left 0.3s ease;
+ 
+}
+ 
+.desktop-nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  flex-grow: 1;
+  gap: 15px;
+  height: 100%;
+  padding-right: 20px;
+  margin: 0;
+}
+ 
+.desktop-nav-links li {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+ 
+.desktop-nav-links > li > a {
+  text-decoration: none;
+  color: #2c2c2c;
+  font-weight: 500;
+  padding: 0 5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+ 
+.desktop-nav-links > li > a::after {
+  content: '';
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #0d2a81;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+ 
+.desktop-nav-links > li > a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+ 
+.header-cta-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+ 
+.cta-button {
+  background-color: #0d2a81;
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 22px;
+  white-space: nowrap;
+  display: inline-block;
+  transition: background-color 0.3s, transform 0.3s;
+  text-align: center;
+}
+ 
+.cta-button:hover {
+  transform: translateY(-2px);
+}
+ 
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #2c2c2c;
+  padding: 5px;
+ 
+}
+ 
+body.no-scroll {
+    overflow: hidden;
+}
+.mobile-menu-overlay {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+.mobile-menu-overlay.active { opacity: 1; visibility: visible; }
+.mobile-nav-links {
+    list-style: none; padding: 0; margin: 0;
+    position: fixed; top: 0; left: 0;
+    width: 85%; max-width: 350px; height: 100%;
+    background-color: white;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in-out;
+}
+.mobile-menu-overlay.active .mobile-nav-links { transform: translateX(0); }
+.mobile-menu-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px; border-bottom: 1px solid #eee;
+    position: sticky; top: 0; background: white; z-index: 1;
+}
+.mobile-menu-title { font-size: 1.2rem; font-weight: bold; }
+.close-btn { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: black; }
+.mobile-nav-links li a {
+    padding: 18px 20px; display: block;
+    border-bottom: 1px solid #f5f5f5;
+    font-weight: 500; color: #333; /* Set a default dark color */
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+.mobile-nav-links li a:hover { background-color: #f9f9f9; }
+.mobile-cta-button-container { padding: 25px 20px; background-color: #f7f7f7; }
+.mobile-cta-button-container .cta-button { display: block; width: 100%; color: white !important; }
+/* ======================================================== */
+/* MOBILE STYLES - CORRECTED ALIGNMENT                      */
+/* ======================================================== */
+ 
+@media (max-width: 768px) {
+    /* --- General Nav Rules (Unchanged) --- */
+    .desktop-nav-links,
+    .header-cta-right .cta-button {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+    .main-nav {
+        height: 70px;
+        padding: 0 25px;
+    }
+ 
+    /* --- Base Top Bar Layout --- */
+    .top-bar {
+        padding: 15px 25px;
+    }
+    /* Creates the two-line structure */
+    .top-bar-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    /* Styles the first line (mail and phone) */
+    .contact-info {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+    /* Resets the social icons for centering */
+    .social-icons {
+        margin: 0;
+        gap: 15px;
+       
+    }
+      .social-icons{margin-top: 7px;}
+}
+ 
+/* ---------------------------------- */
+/* Large Mobile (<= 425px)            */
+/* ---------------------------------- */
+@media (max-width: 425px) {
+    /* The layout from above is correct, no changes needed */
+}
+ 
+/* ---------------------------------- */
+/* Medium Mobile (<= 375px)           */
+/* ---------------------------------- */
+@media (max-width: 375px) {
+    /* The layout is still correct. We can reduce side padding slightly. */
+    .top-bar, .main-nav {
+        padding: 15px 20px;
+    }
+ 
+}
+ 
+/* ---------------------------------- */
+/* Small Mobile (<= 360px)            */
+/* ---------------------------------- */
+@media (max-width: 360px) {
+    /* FIX: Stacks the contact info ONLY on very small screens */
+    .contact-info {
+        flex-direction: column;
+        align-items: center; /* Center the stacked items */
+        gap: 10px;
+    }
+    .top-bar, .main-nav {
+        padding: 15px 15px;
+    }
+      .social-icons{margin-top: 20px;}
+   
+}
+
+
+        /* HEADER SECTION STYLES */
+        :root {
+            --primary:#0d2a81;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --accent: #f72585;
+            --card-bg: #fcfcfc;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background:linear-gradient(to right, #fcfcfa, #f8f5ee);
+            color: #333;
+            line-height: 1.5;
+            padding-top: 105px !important;
+        }
+        
+        /* Header with Image */
+        .contact-header {
+            position: relative;
+            height: 280px;
+            background: #0d2a81;
+            color: white;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            margin-bottom: 20px;
+        }
+        
+        .header-content {
+            width: 100%;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .header-content h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .header-content p {
+            font-size: 0.9rem;
+            max-width: 100%;
+            opacity: 0.9;
+            font-weight: 300;
+            padding: 0 10px;
+            margin-bottom: 0;
+            color: white;
+        }
+        
+        .header-image {
+            display: none;
+            margin-top: -40px;
+        }
+        
+        .header-content h1 span {
+            color: #24eef5;
+        }
+
+        .header-content p span {
+            color: #24eef5;
+        }
+
+        /* Main Grid Layout */
+        .contact-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        
+        /* Cards with Enhanced Effects */
+        .contact-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 1.2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); 
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1rem;
+            position: relative;
+            font-weight: 500;
+            color: var(--dark);
+            font-size: 0.85rem;
+        }
+
+        .form-group label {
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .form-group1 {
+            position: relative;
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group1 label {
+            position: absolute;
+            top: -20px;
+            left: 0;
+            font-weight: 500;
+            color: var(--dark);
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            pointer-events: none;
+        }
+
+        .form-group1 .input-icon {
+            position: absolute;
+            top: 12px;
+            right: 0;
+            opacity: 0;
+            transition: all 0.2s ease;
+            color: var(--primary);
+            font-size: 0.85rem;
+        }
+
+        .line-input {
+            width: 100%;
+            padding: 0.4rem 0;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            background: transparent;
+            margin-bottom: 10px;
+        }
+
+        .line-input:hover {
+            border-bottom: 2px solid black;
+        }
+
+        .line-input:focus {
+            outline: none;
+            border-bottom-color: var(--primary);
+            box-shadow: 0 1px 0 0 var(--primary);
+        }
+
+        /* When input is focused or has value */
+        .form-group1.focused label {
+            opacity: 1;
+            transform: translateY(-20px);
+        }
+
+        .form-group1.focused .input-icon {
+            opacity: 1;
+        }
+
+        /* Inline form fields - stacked on mobile */
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        
+        /* Checkbox grid layout - single column on mobile */
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.4rem;
+            margin-top: 0.3rem;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-item input {
+            width: auto;
+            margin-right: 0.5rem;
+        }
+        
+        .checkbox-item label {
+            font-weight: 400;
+            font-size: 0.85rem;
+            margin-bottom: 0;
+        }
+        
+        textarea {
+            min-height: 90px;
+            resize: vertical;
+            width: 100%;
+            padding: 0.7rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            background-color: #f9fafc;
+        }
+        
+        .submit-btn-container {
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
+            padding-top: 1rem;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(to bottom, #24eef5 ,#1ba6b3);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.3rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+            box-shadow: 0 2px 8px rgba(67, 97, 238, 0.2);
+        }
+        
+        /* About Company Card */
+        .about-company {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .about-company h2 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .about-company h3 {
+            font-size: 20px;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+            font-weight: 300px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .about-company p {
+            color: #555;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+        }
+
+       
+        
+        .feature-list {
+            margin: 0.8rem 0;
+            text-align: center; /* Centers first item */
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.6rem;
+        }
+
+        /* First item centered */
+        .feature-item:first-child {
+            justify-content: center;
+        }
+
+        /* Subsequent items aligned with first bullet */
+        .feature-item:not(:first-child) {
+            margin-left: 27%; /* Push to middle */
+            transform: translateX(calc(-0.9rem - 0.6rem)); /* Adjust for icon width + margin */
+            text-align: left;
+        }
+
+        .feature-item i {
+            color: var(--primary);
+            margin-right: 0.6rem;
+            margin-top: 0.1rem;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .feature-item span {
+            color: #555;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        
+       .company-image {
+            text-align: center;
+            margin-top: 3rem;
+            width: 100%;
+        }
+
+        .company-image img {
+            max-width: 100%;
+            height: auto;
+            display: inline-block;
+            
+        }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 1.2rem;
+            right: 1.2rem;
+            width: 46px;
+            height: 46px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 3px 12px rgba(37, 211, 102, 0.3);
+            z-index: 100;
+            cursor: pointer;
+            animation: pulse-whatsapp 2s infinite;
+            transition: all 0.2s ease;
+        }
+        
+        @keyframes pulse-whatsapp {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        @media (max-width: 480px){
+            .feature-item i {
+                margin-left: -27px;
+            }
+        }
+
+        /* styles for banner in the middle  */
+        .banner-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            margin-bottom: 70px;
+        }
+
+        .banner {
+            background: linear-gradient(135deg, #1a2a3d 0%, #2c3e50 50%, #34495e 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 80px;
+            /* Creating the exact asymmetric rounded shape from the image */
+            border-radius: 150px 50px 150px 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+           
+        }
+
+        /* Decorative background elements to match the original */
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .banner::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .content-section {
+            flex: 1;
+            z-index: 2;
+            position: relative;
+            max-width: 820px;
+            padding-right: 40px;
+        }
+
+        .title-section {
+            flex: 0 0 auto;
+            z-index: 2;
+            position: relative;
+            text-align: left;
+        }
+
+        .main-title {
+            font-family: 'Arial Black', Arial, sans-serif;
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -2px;
+        }
+
+        .scale-text {
+            color: #24eef5;
+            display: block;
+            font-size: 3.8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .up-text {
+            color: #ffffff;
+            display: block;
+            font-size: 5.2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-top: -10px;
+        }
+
+        .content-text {
+            color: #ffffff;
+            font-size: 1.25rem;
+            line-height: 1.7;
+            font-weight: 400;
+            text-align: left;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .highlight {
+            color: #24eef5;
+            font-weight: 600;
+        }
+
+        .success-text {
+            font-weight: 700;
+            color: #24eef5;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .banner {
+                padding: 50px 60px;
+            }
+            
+            .scale-text {
+                font-size: 3.2rem;
+            }
+            
+            .up-text {
+                font-size: 4.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 50px 40px;
+                border-radius: 80px 30px 80px 30px;
+            }
+
+            .title-section {
+                order: 1;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+
+            .content-section {
+                order: 2;
+                max-width: 100%;
+                padding-right: 0;
+            }
+
+            .scale-text {
+                font-size: 2.8rem;
+            }
+
+            .up-text {
+                font-size: 3.8rem;
+            }
+
+            .content-text {
+                font-size: 1.1rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner {
+                padding: 40px 30px;
+                border-radius: 60px 20px 60px 20px;
+                min-height: 240px;
+            }
+
+            .scale-text {
+                font-size: 2.2rem;
+            }
+
+            .up-text {
+                font-size: 3.2rem;
+                margin-top: 1px;
+            }
+
+            .content-text {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+        }
+
+        /* Office Section Styles */
+        .office-section {
+            max-width: 1100px !important;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .office-section h1 {
+            text-align: center;
+            margin-bottom: 80px;
+            font-size: 2.8rem;
+            color: #0d2a81;
+            font-family: 'Poppins';
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-top: 80px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .office-section h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: #0d2a81;
+            transition: width 0.3s ease;
+        }
+        
+        .office-section h1:hover::after {
+            width: 100%;
+        }
+        
+        .office-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+        }
+        
+        .map-container {
+            height: 400px;
+            width: 100%;
+        }
+        
+        .contact-details {
+            padding: 30px;
+            background: #fcfcfa;
+            width: 100%;
+        }
+        
+        .contact-details h2 {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            color: var(--dark);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            border-bottom: 2px solid #24eef5;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .contact-item {
+            margin-bottom: 22px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-item i {
+            margin-right: 15px;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-top: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover i {
+            color: #24eef5;
+            transform: scale(1.1);
+        }
+        
+        .contact-item p {
+            margin: 0;
+            font-weight: 500;
+            color: #444;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .contact-item p + p {
+            margin: 6px 0 0 0;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            color: var(--primary);
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: #24eef5;
+            transform: translateY(-3px) scale(1.1);
+        }
+        
+        /* Responsive adjustments */
+        @media (min-width: 600px) {
+            .company-image img {
+                max-width: 80%;
+            }
+            
+            .contact-header {
+                height: 320px;
+            }
+            
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .header-content p {
+                font-size: 1rem;
+            }
+            
+            .contact-container {
+                padding: 0 20px;
+                gap: 18px;
+            }
+            
+            .contact-card {
+                padding: 1.4rem;
+            }
+            
+            .about-company h2 {
+                font-size: 1.4rem;
+            }
+            
+            .about-company h3 {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .office-card {
+                display: flex;
+                flex-direction: row;
+                height: 500px;
+            }
+            
+            .map-container {
+                flex: 70%;
+                height: 100%;
+            }
+            
+            .contact-details {
+                flex: 30%;
+                height: 100%;
+            }
+            
+            .office-section h1 {
+                font-size: 2.8rem;
+                margin-bottom: 80px;
+                margin-top: 80px;
+            }
+            
+            .submit-btn {
+                width: auto;
+                padding: 0.7rem 2rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .company-image img {
+                max-width: 70%;
+            }
+            
+            .contact-header {
+                height: 350px;
+                text-align: left;
+            }
+            
+            .header-content {
+                width: 60%;
+                text-align: left;
+            }
+            
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .header-content p {
+                font-size: 1.05rem;
+                padding: 0;
+            }
+            
+            .header-image {
+                display: block;
+                position: absolute;
+                right: 5%;
+                height: 75%;
+                opacity: 0.8;
+                margin-right: 0;
+            }
+            
+            .contact-container {
+                grid-template-columns: 58% 40%;
+                max-width: 1200px;
+                margin: -8% auto 30px;
+                padding: 0 30px;
+                gap: 2%;
+            }
+            
+            .form-row {
+                flex-direction: row;
+            }
+            
+            .checkbox-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+            
+            .about-company {
+                justify-content: space-between;
+            }
+            
+            .company-image {
+                margin-top: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .company-image img {
+                max-width: 60%;
+            }
+            
+            .contact-header {
+                height: 400px;
+            }
+            
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-content p {
+                font-size: 1.1rem;
+            }
+            
+            .contact-container {
+                margin: -10% auto 40px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .contact-header {
+                height: 250px;
+                padding: 0 3%;
+            }
+            
+            .header-content h1 {
+                font-size: 1.6rem;
+                margin-bottom: 0.4rem;
+            }
+            
+            .header-content p {
+                font-size: 0.8rem;
+            }
+            
+            .contact-container {
+                padding: 0 10px;
+                gap: 12px;
+            }
+            
+            .contact-card {
+                padding: 1rem;
+                border-radius: 8px;
+            }
+            
+            .line-input {
+                padding: 0.6rem 0;
+                font-size: 0.8rem;
+            }
+            
+            .about-company h2 {
+                font-size: 1.2rem;
+            }
+            
+            .whatsapp-float {
+                width: 42px;
+                height: 42px;
+                font-size: 1.1rem;
+            }
+            
+            .office-section h1 {
+                font-size: 2rem;
+                margin-bottom: 40px;
+                margin-top: 40px;
+            }
+        }
+
+
+          .site-footer {
+    background-color: #0d2a81;
+    color: #e0e0e0;
+    padding: 60px 5% 25px 5%;
+    font-size: 15px;
+}
+ 
+/* --- DESKTOP GRID LAYOUT --- */
+.site-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    grid-template-areas:
+        "main-about links form"
+        "contact links form";
+    gap: 20px 40px;
+    align-items: start;
+    padding-bottom: 40px;
+}
+.footer-about-main { grid-area: main-about; }
+.footer-about-contact { grid-area: contact; align-self: end; } /* Aligns contact to bottom */
+.footer-links { grid-area: links; }
+.footer-form { grid-area: form; }
+.footerits{font-size: 28px; font-weight: 700; margin-bottom: 20px; color: #ffffff; }
+.site-footer h3 { font-size: 20px; font-weight: 700; margin-bottom: 20px; color: #ffffff; }
+.footer-about-main p,
+.footer-about-contact p { line-height: 1.7; margin-bottom: 20px; }
+.footer-about-contact .social-icons a { color: #ffffff;}
+.footer-about-contact .social-icons a:hover { color: #bdbfc7; }
+.footer-links {
+    display: flex;
+    gap: 40px;
+    /* REVERTED: டெஸ்க்டாப்பில் பழைய அலைன்மென்ட் படியே வைக்கப்பட்டுள்ளது */
+    justify-content: flex-start;
+}
+.footer-links ul { list-style: none; padding: 0; }
+.footer-links ul li { margin-bottom: 12px; }
+.footer-links ul li a { color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s; }
+.footer-links ul li a:hover { opacity: 1; }
+.footer-bold b{color: #24eef5;}
+ 
+/* --- FOOTER FORM STYLES --- */
+.footer-form form { display: flex; flex-direction: column; gap: 15px; }
+.footer-form input,
+.footer-form textarea,
+.footer-form button {
+    width: 100%; padding: 12px 15px; border-radius: 5px;
+    font-family: 'Poppins', sans-serif; transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #dcdcdc;
+}
+.footer-form button {
+    background-color: #395dcb; color: white; border: none;
+    font-weight: 700; cursor: pointer;
+}
+.footer-form input:hover,
+.footer-form textarea:hover,
+.footer-form button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.footer-form button:hover { background-color: #2c4280; }
+.footer-copyright { text-align: center; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.7); }
+ 
+/* =================================== */
+/* RESPONSIVE STYLES                   */
+/* =================================== */
+@media (max-width: 768px) {
+    /* --- MOBILE FLEXBOX LAYOUT --- */
+    .site-footer .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+   
+    /* The HTML change automatically fixes the order. No special CSS order needed. */
+    .footer-about-main,
+    .footer-about-contact,
+    .footer-links,
+    .footer-form {
+        width: 100%;
+        max-width: 400px;
+    }
+   
+    .footer-about-contact .social-icons {
+        display: flex;
+        /* FIXED: மொபைலில் social icons-ஐ மையப்படுத்த */
+        justify-content: right;
+        gap: 15px;
+        margin-right: 85px;
+        margin-top: 20px;
+    }
+ 
+    .footer-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: center;
+        gap: 20px;
+        width: 100%;
+    }
+    .footer-links > div {
+        flex: 1;
+    }
+    .footer-form { text-align: center; }
+    .footer-form form { text-align: left; }
+    .footer-copyright { padding-left: 15px; padding-right: 15px; }
+}
+ /* =================================== */
+/* 3D WHATSAPP BUTTON STYLES           */
+/* =================================== */
+
+/* Floating Button for WhatsApp */
+.whatsapp-toggle-button {
+    position: fixed;
+    bottom: 20px;
+    left: 30px; /* Positioned on the left */
+    width: 60px;
+    height: 60px;
+    background-color: #25D366; /* Official WhatsApp green color */
+    color: white;
+    border-radius: 50%;
+    border: none;
+    font-size: 30px; /* Made icon slightly bigger */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); /* Green shadow */
+    z-index: 1001;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    /* Apply the new WhatsApp animation */
+    animation: pulse-and-float-whatsapp 3s infinite ease-in-out;
+}
+
+.whatsapp-toggle-button:hover {
+    transform: scale(1.1);
+    background-color: #1DA851; /* Darker green on hover */
+}
+
+/* New animation specifically for the WhatsApp button's green shadow */
+@keyframes pulse-and-float-whatsapp {
+    0% {
+        transform: translateY(0);
+        box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        transform: translateY(-10px); /* Moves the button up */
+        box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5); /* Makes the shadow bigger */
+    }
+    100% {
+        transform: translateY(0);
+        box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    }
+}
+/* =================================== */
+/* MOBILE STYLES                       */
+/* =================================== */
+@media (max-width: 768px) {
+    /* FIX: This stops the floating animation on mobile screens */
+    .whatsapp-toggle-button {
+        animation: none;margin-left: -5px;
+    }
+    
+}
+/* =================================== */
+/* 3D CHATBOX STYLES                   */
+/* =================================== */
+:root {
+    --dark-blue: #0d2a81;
+    --cyan-accent: #1abec4;
+    --light-gradient: linear-gradient(to right, #24eef5, #1ba6b3);
+    --text-dark: #2c3e50;
+    --text-light: #555e68;
+    --bg-light: #f5f7fa;
+    --white: #ffffff;
+}
+
+/* ================================================= */
+/* CHATBOT CSS - FINAL VERSION (WITH FIXES)          */
+/* ================================================= */
+
+/* --- Global Fix --- */
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Floating Animation Keyframes (FOR LAPTOP) --- */
+@keyframes float-animation {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* --- Floating Button --- */
+.chat-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: var(--dark-blue, #0d2a81);
+    color: white;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    /* FIX: Re-added the floating animation for laptops */
+    animation: float-animation 3s ease-in-out infinite;
+}
+.chat-fab.hidden {
+    transform: scale(0);
+    opacity: 0;
+}
+
+/* --- Chatbox Container --- */
+.chatbox-container {
+    position: fixed;
+    z-index: 9998;
+    background: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    bottom: 95px;
+    right: 20px;
+    width: 370px;
+    height: 70vh;
+    max-height: 550px;
+    transform: translateY(20px) scale(0.95);
+    transform-origin: bottom right;
+}
+.chatbox-container.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* --- Header --- */
+.chatbox-header {
+    background: var(--dark-blue, #0d2a81);
+    color: white;
+    padding: 15px 20px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.chatbox-header h3 { margin: 0; font-size: 1.1rem; }
+.chatbox-close-btn { background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; }
+
+/* --- Messages Area --- */
+.chatbox-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.bot-message, .user-message {
+    padding: 10px 15px;
+    border-radius: 18px;
+    max-width: 85%;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+.bot-message {
+    background: #e9e9eb;
+    color: #333;
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+}
+.user-message {
+    background: var(--cyan-accent, #00BFA6);
+    color: white;
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
+}
+
+/* --- Options & Form Area --- */
+.chatbox-options-container {
+    padding: 0 15px 10px 15px;
+    border-top: 1px solid #eee;
+    flex-shrink: 0;
+}
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 10px;
+}
+.options.hidden, #form-wrap.hidden {
+    display: none;
+}
+.option-btn, .choice-btn {
+    background: var(--cyan-accent, #00BFA6);
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+}
+#form-wrap p { margin: 10px 0; font-size: 0.9rem; color: #555; }
+#form-wrap input, #form-wrap textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+#form-submit-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: -19px;
+    background: var(--dark-blue, #0d2a81);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* --- Input Area --- */
+.chatbox-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    flex-shrink: 0;
+}
+#chat-input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    background: transparent;
+    outline: none;
+}
+#send-btn {
+    background: none;
+    border: none;
+    color: var(--dark-blue, #0d2a81);
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+/* =================================== */
+/* MOBILE RESPONSIVENESS               */
+/* =================================== */
+@media (max-width: 768px) {
+    .chat-fab {
+        /* FIX: Stop the floating animation on mobile devices */
+        animation: none;
+    }
+
+    .chatbox-container {
+        /* FIX: Reduced the height to look like a card, not a full page */
+        width: calc(100% - 30px);
+        right: 15px;
+        bottom: 85px; /* Positioned cleanly above the chat button */
+        height: 70vh;
+        max-height: 520px;
+        
+        /* Unset properties from previous centering method */
+        left: auto;
+        transform: translateY(20px) scale(0.95);
+        transform-origin: bottom right;
+    }
+    
+    .chatbox-container.active {
+       transform: translateY(0) scale(1);
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+<header class="header">
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="top-bar-content">
+      <div class="contact-info">
+        <span><i class="fa-solid fa-envelope"></i>info@itspaxiosinnovation.in</span>
+        <span class="phone-number"><i class="fa-solid fa-phone"></i>+91 99622 14790</span>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61578271812457"target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/company/it-spaxios-innovation/"target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/it_spaxios_innovation_/" target="_blank"aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com/ItSpaxios" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/919962214790" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://teams.live.com/l/invite/FEAUb-ZBopyUKkEDwE?v=g1" aria-label="Microsoft Teams"target="_blank"><i class="fa-brands fa-teamspeak"></i></a>
+      </div>
+    </div>
+  </div>
+  <!-- Main nav -->
+  <nav class="main-nav">
+    <img src="/Images/IT spaxios innovation.webp" alt="Spaxios Innovation" class="logo-img" loading="lazy">
+    <ul class="desktop-nav-links">
+      <li><a href="https://itspaxiosinnovation.in/">Home</a></li>
+      <li><a href="/digital-marketing-service/">Digital Marketing</a></li>
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="/career/">Career</a></li>
+      <li><a href="/blog/">Blog</a></li>
+    </ul>
+    <div class="header-cta-right">
+      <a href="#" class="cta-button">Get Start Now</a>
+      <button class="hamburger" id="hamburger-open" aria-label="Open Menu">
+        <i class="fa-solid fa-bars"></i></button></div></nav>
+</header>
+<!-- Mobile navigation overlay -->
+<div class="mobile-menu-overlay" id="mobile-menu">
+  <ul class="mobile-nav-links">
+    <li class="mobile-menu-header">
+      <span class="mobile-menu-title">Menu</span>
+      <button class="close-btn" id="hamburger-close" aria-label="Close Menu">
+        <i class="fa-solid fa-times"></i>
+      </button></li>
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/digital-marketing-service/">Digital Marketing</a></li>
+    <li><a href="#">Contact Us</a></li>
+    <li><a href="/career/">Career</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li class="mobile-cta-button-container">
+      <a href="#" class="cta-button">Get Start Now</a></li></ul>
+</div>
+
+
+    <!-- Header with Image -->
+    <header class="contact-header">
+        <div class="header-content">
+            <h1>Let's Build Your <span>Vision</span></h1>
+            <p>Get in touch with our expert team to discuss your project <span>requirements and ideas.</span></p>
+        </div>
+        <img src="/Images/contactus-banner.webp" alt="Contactus" class="header-image" loading="lazy">
+    </header>
+    
+    <!-- Main Content -->
+    <div class="contact-container">
+        <!-- Contact Form -->
+        <section class="contact-card">
+            <h2 style="margin-bottom: 2rem; font-size: 1.5rem; color: var(--dark);">Tell Us About Your Project</h2>
+            <form id="webDevContactForm">
+                <div class="form-row">
+                    <div class="form-group1 ">
+                        <label for="name">Your Name*</label>
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" id="name" name="name" class="line-input" required>
+                    </div>
+                    
+                    <div class="form-group1">
+                        <label for="email">Email Address*</label>
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" id="email" name="email" class="line-input" required>
+                    </div>
+                </div>
+                
+                <div class="form-group1">
+                    <label for="mobile">Mobile Number*</label>
+                    <i class="fas fa-phone input-icon"></i>
+                    <input type="tel" id="mobile" name="mobile" class="line-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Purpose*</label>
+                    <div class="checkbox-grid">
+                        <div class="checkbox-item">
+    <input type="checkbox" id="purpose1" name="purpose" value="business-website">
+    <label for="purpose1">Business Website</label>
+  </div>
+
+  <div class="checkbox-item">
+    <input type="checkbox" id="purpose2" name="purpose" value="website-redesign">
+    <label for="purpose2">Website Redesign</label>
+  </div>
+
+  <div class="checkbox-item">
+    <input type="checkbox" id="purpose3" name="purpose" value="digital-marketing">
+    <label for="purpose3">Digital Marketing / SEO</label>
+  </div>
+
+  <div class="checkbox-item">
+    <input type="checkbox" id="purpose4" name="purpose" value="ecommerce">
+    <label for="purpose4">E-Commerce</label>
+  </div>
+
+  <div class="checkbox-item">
+    <input type="checkbox" id="purpose5" name="purpose" value="web-app">
+    <label for="purpose5">Web Application / SaaS</label>
+  </div>
+
+  <div class="checkbox-item">
+    <input type="checkbox" id="purpose6" name="purpose" value="social-media-ads">
+    <label for="purpose6">Social Media Ads</label>
+  </div>
+
+  <div class="checkbox-item">
+    <input type="checkbox" id="purpose7" name="purpose" value="technical-support">
+    <label for="purpose7">Technical Support / Maintenance</label>
+  </div>
+
+  <div class="checkbox-item">
+    <input type="checkbox" id="purpose8" name="purpose" value="consultation">
+    <label for="purpose8">Consultation</label>
+  </div>
+
+  <div class="checkbox-item">
+    <input type="checkbox" id="purpose9" name="purpose" value="other">
+    <label for="purpose9">Other</label>
+  </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>How Did You Find Us?*</label>
+                    <div class="checkbox-grid">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="source1" name="source" value="google">
+                            <label for="source1">Google</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="source2" name="source" value="social">
+                            <label for="source2">Social Media</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="source3" name="source" value="referral">
+                            <label for="source3">Referral</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="source4" name="source" value="advertisement">
+                            <label for="source4">Advertisement</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="source5" name="source" value="friend">
+                            <label for="source5">Friend</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="source6" name="source" value="other">
+                            <label for="source6">Other</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message*</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your project goals, timeline, and any specific requirements..." required></textarea>
+                </div>
+                
+                <div class="submit-btn-container">
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </div>
+            </form>
+        </section>
+        
+        <!-- About Company Card -->
+        <section class="contact-card about-company">
+            <h2>About<br> IT Spaxios Innovation</h2>
+            <h3>"Transforming Your Ideas Into Success"</h3>
+            <p>We elevate businesses by providing website development and digital marketing services in Chennai. Our premium development services assist you in increasing your business visibility and online presence.</p>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Experienced and creative Team</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Successful projects</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Custom solution for your business</span>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>24/7 support and maintenance </span>
+                </div>
+            </div>
+            
+            
+            <div class="company-image">
+                <img src="/Images/contactus-about.webp" alt="website development company in chennai,web development company in chennai,website design company in chennai,web design company in chennai" loading="lazy">
+            </div>
+        </section>
+    </div>
+
+
+   
+    
+  
+
+    
+    <!-- Connect With Our Office Section -->
+    <section class="office-section">
+        <div class="office-header text-center">
+            <h1>Connect With Our Offices</h1>
+        </div>
+        
+        <div class="office-card">
+            <!-- Map Section -->
+            <div class="map-container">
+               <iframe
+  width="100%"
+  height="100%"
+  style="border:0;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31100.877685220352!2d80.17326091083984!3d12.996796499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267491ba2070b%3A0xf643d4bfb19fd04e!2sIT%20Spaxios%20Innovation%20Private%20Limited!5e0!3m2!1sen!2sus!4v1756808250148!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>">
+</iframe>
+
+            </div>
+            
+            <!-- Contact Details Section -->
+            <div class="contact-details">
+                <h2>IT SPAXIOS INNOVATION</h2>
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <p> 15, Gopalakrishnan Street,</p>
+                        <p>National Flag Building,</p>
+                        <p>Lane of Vandikaran Street,</p>
+                        <p>Guindy, Chennai-600088.</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <p>+91 9962214790</p>
+                        
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <p>info@itspaxiosinnovation.in</p>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61578271812457" target="_blank" rel="nofollow"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/ItSpaxios" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/company/it-spaxios-innovation/" target="_blank" rel="nofollow"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/it_spaxios_innovation_/" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- BANNER SECTION FOR CONTACT US -->
+
+
+      <div class="banner-container">
+        <div class="banner">
+            <div class="content-section">
+                <p class="content-text">
+                    <span >Let's talk and let us know your queries!</span> 
+                     <span class="highlight success-text">We deliver 100% successful results.</span> Our experienced team will lift your business to reach high levels. We make your business visible digitally and create a high ROI margin.
+
+
+
+                </p>
+            </div>
+            
+            <div class="title-section">
+                <h1 class="main-title">
+                    <span class="scale-text">Scale</span>
+                    <span class="up-text">Up!!</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="site-footer">
+    <div class="container">
+ 
+        <div class="footer-about-main">
+            <h3><span class="footerits">IT Spaxios Innovation</span></h3>
+            <p class="footer-bold"><b>Collaborate With Us !! Grow Your Business !!</b></p>
+            <p>We are a renowned website development company in Chennai,India. Our talented team builds a responsive website with SEO and user friendly for your business. Along with this we are expertise in Digital Marketing. We provide result driven digital marketing strategies which make high ROI, build brand awareness, credibility, increase sales and leads.</p>
+        </div>
+ 
+        <div class="footer-links">
+            <div>
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Digital Marketing</a></li>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">SEO</a></li>
+                    <li><a href="#">Social Media Marketing</a></li>
+                    <li><a href="#">Search Engine Marketing</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Quickie</h3>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/digital-marketing-service/">Digital Marketing</a></li>
+                    <li><a href="/contact-us/">Contact Us</a></li>
+                    <li><a href="/career/">Career</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+       
+        <div class="footer-form">
+            <h3>Touch With Us</h3>
+            <form id="footer-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="3" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+ 
+        <div class="footer-about-contact">
+            <p>National Flag, 15, Gopalakrishnan Street, Lane Of Vandikaran Street, Guindy, Chennai-88</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61578271812457"target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/company/it-spaxios-innovation/"target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/it_spaxios_innovation_/"target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/ItSpaxios" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
+                <a href="https://wa.me/919962214790" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="mailto:info@itspaxiosinnovation.in"target="_blank" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://teams.live.com/l/invite/FEAUb-ZBopyUKkEDwE?v=g1" aria-label="Microsoft Teams"target="_blank"><i class="fa-brands fa-teamspeak"></i></a>
+            </div>
+        </div>
+ 
+    </div>
+    <div class="footer-copyright">
+        <p>&copy; 2025 IT Spaxios Innovation. All rights reserved.</p>
+    </div>
+</footer>
+
+    <!------------------------------------------Watsapp----------------------------------->
+<a href="https://wa.me/919962214790" target="_blank" class="whatsapp-toggle-button" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+   <!---------------------chatbox--------------------------------------------------------------------------------------->
+    <button class="chat-fab" id="chat-fab" aria-label="Open Chat">
+    <i class="fa-solid fa-comments"></i>
+</button>
+
+<div class="chatbox-container" id="chatbox-container">
+    <div class="chatbox-header">
+        <h3>Chat with Us!</h3>
+        <button class="chatbox-close-btn" id="chatbox-close-btn" aria-label="Close Chat">
+            <i class="fa-solid fa-times"></i>
+        </button>
+    </div>
+    <div class="chatbox-messages" id="chatbox-messages">
+        </div>
+    <div class="chatbox-options-container">
+        <div class="options hidden" id="first-options">
+            <button class="option-btn" data-service="Website Development">Website Development</button>
+            <button class="option-btn" data-service="Digital Marketing">Digital Marketing</button>
+        </div>
+        <div class="options hidden" id="dev-options">
+            <button class="choice-btn" data-sub="Website Types">Website Types</button>
+            <button class="choice-btn" data-sub="Website Cost">Website Cost</button>
+        </div>
+        <div class="options hidden" id="dm-options">
+            <button class="choice-btn" data-sub="SEO">SEO</button>
+            <button class="choice-btn" data-sub="SEM">SEM</button>
+            <button class="choice-btn" data-sub="SMM">SMM</button>
+        </div>
+        <div id="form-wrap" class="hidden">
+            <p><strong>Please enter your details to proceed.</strong></p>
+             <input id="chat-name" type="text" placeholder="Name*" required>
+<input id="chat-contact" type="tel" placeholder="Contact Number*" required>
+<input id="chat-email" type="email" placeholder="Email Address*" required>
+<textarea id="chat-message" placeholder="Message (optional)"></textarea>
+<button type="button" id="form-submit-btn">Send Details</button>
+
+        </div>
+    </div>
+    <div class="chatbox-input">
+        <input id="chat-input" type="text" placeholder="Type your message...">
+        <button id="send-btn" aria-label="Send Message"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+</div>
+   
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+   let chosenService = "General";
+let chosenSub = "";
+
+    // ----------------------
+    // Toast function
+    // ----------------------
+    function showToast(message, duration = 4000, bgColor = "#4BB543") {
+        let toast = document.getElementById("toast");
+        if (!toast) {
+            // Create toast if it doesn't exist
+            toast = document.createElement("div");
+            toast.id = "toast";
+            toast.style.cssText = `
+                visibility: hidden;
+                min-width: 250px;
+                background-color: ${bgColor};
+                color: white;
+                text-align: center;
+                border-radius: 5px;
+                padding: 16px;
+                position: fixed;
+                z-index: 1000;
+                left: 50%;
+                bottom: 30px;
+                transform: translateX(-50%);
+                font-size: 17px;
+            `;
+            document.body.appendChild(toast);
+        }
+
+        toast.textContent = message;
+        toast.style.backgroundColor = bgColor;
+        toast.style.visibility = "visible";
+
+        setTimeout(() => {
+            toast.style.visibility = "hidden";
+        }, duration);
+    }
+
+    // ----------------------
+    // webDevContactForm submission
+    // ----------------------
+    const webform = document.getElementById('webDevContactForm');
+
+    webform.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(webform);
+
+    // Collect checkbox groups into arrays
+    const purpose = Array.from(document.querySelectorAll('input[name="purpose"]:checked')).map(i => i.value);
+    const source  = Array.from(document.querySelectorAll('input[name="source"]:checked')).map(i => i.value);
+
+    const payload = {
+      name: formData.get('name')?.trim(),
+      email: formData.get('email')?.trim(),
+      mobile: formData.get('mobile')?.trim(),
+      purpose,
+      source,
+      message: formData.get('message')?.trim()
+    };
+
+    try {
+      const res = await fetch('https://company-website-8ib6.vercel.app/api/main/maincontact', { // if your backend is on another origin, use full URL
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.error || 'Failed to submit');
+       showToast("Thank you! Your message has been sent. We will contact you soon.");
+        webform.reset();
+        document.querySelectorAll(".form-group1").forEach(g => g.classList.remove("focused"));
+    } catch (err) {
+      console.error(err);
+     showToast(`There was a problem: ${err.message || "unknown error"}`, 5000, "#FF4C4C");
+    }
+  });
+
+    
+    // ----------------------
+    // Focus/blur animation
+    // ----------------------
+    document.querySelectorAll('.form-group1 .line-input').forEach(input => {
+        const parent = input.parentElement;
+
+        input.addEventListener('focus', () => parent.classList.add('focused'));
+        input.addEventListener('blur', () => {
+            if (!input.value) parent.classList.remove('focused');
+        });
+
+        if (input.value) parent.classList.add('focused');
+    });
+
+    // ----------------------
+    // contactForm submission with backend API
+    // ----------------------
+    
+   const form = document.getElementById("footer-form");
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = {
+            name: form.name.value,
+            email: form.email.value,
+            message: form.message.value
+        };
+
+        try {
+            const res = await fetch("https://company-website-8ib6.vercel.app/api/contact/addcontact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            });
+
+            console.log("Response:", res);
+            const data = await res.json();
+            console.log("Data:", data);
+
+            if (res.ok) {
+                showToast("Thank you! Your query has been received. We will get back to you soon.");
+
+                form.reset();
+
+                // Remove focused class if using focus animation
+                document.querySelectorAll('.form-group1').forEach(group => group.classList.remove('focused'));
+            } else {
+                showToast("Something went wrong. Please try again!", 4000, "#FF4C4C");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            showToast("Server not reachable!", 4000, "#FF4C4C");
+        }
+    });
+  }
+
+
+
+    const header = document.querySelector('.header');
+    const topBar = document.querySelector('.top-bar');
+    const hamburgerOpen = document.getElementById('hamburger-open');
+    const hamburgerClose = document.getElementById('hamburger-close');
+    const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+    const body = document.body;
+ 
+    if (topBar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                topBar.classList.add('top-bar--hidden');
+            } else {
+                topBar.classList.remove('top-bar--hidden');
+            }
+        });
+    }
+ 
+    const toggleMenu = (show) => {
+        if (mobileMenuOverlay) mobileMenuOverlay.classList.toggle('active', show);
+        if (body) body.classList.toggle('no-scroll', show);
+    };
+ 
+    if (hamburgerOpen) {
+        hamburgerOpen.addEventListener('click', () => toggleMenu(true));
+    }
+    if (hamburgerClose) {
+        hamburgerClose.addEventListener('click', () => toggleMenu(false));
+    }
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileMenuOverlay) {
+                toggleMenu(false);
+            }
+        });
+   }
+  
+    // ===================================================================
+    // 8. (CHATBOX)
+    // ===================================================================
+    const chatFab = document.getElementById('chat-fab');
+    const chatboxContainer = document.getElementById('chatbox-container');
+    const chatboxCloseBtn = document.getElementById('chatbox-close-btn');
+    const messagesContainer = document.getElementById('chatbox-messages');
+    const chatInputContainer = document.querySelector('.chatbox-input');
+    const chatInput = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('send-btn');
+    const firstOptions = document.getElementById('first-options');
+    const devOptions = document.getElementById('dev-options');
+    const dmOptions = document.getElementById('dm-options');
+    const formWrap = document.getElementById('form-wrap');
+    const formSubmitBtn = document.getElementById('form-submit-btn');
+
+    let autoOpenTimer;
+    let hasChatBeenOpened = false;
+
+    const scrollToBottom = () => { if (messagesContainer) messagesContainer.scrollTop = messagesContainer.scrollHeight; };
+    
+    const addMessage = (text, sender) => {
+        if (!messagesContainer) return;
+        const messageDiv = document.createElement('div');
+        messageDiv.className = sender === 'bot' ? 'bot-message' : 'user-message';
+        messageDiv.textContent = text;
+        messagesContainer.appendChild(messageDiv);
+        scrollToBottom();
+    };
+
+    const showOptions = (element) => { if(element) element.classList.remove('hidden'); };
+
+    const hideAllOptions = () => {
+        if (firstOptions) firstOptions.classList.add('hidden');
+        if (devOptions) devOptions.classList.add('hidden');
+        if (dmOptions) dmOptions.classList.add('hidden');
+        if (formWrap) formWrap.classList.add('hidden');
+    };
+    
+    const openChatbox = () => {
+        if (hasChatBeenOpened && chatboxContainer.classList.contains('active')) return;
+        hasChatBeenOpened = true;
+        clearTimeout(autoOpenTimer);
+        
+        chatboxContainer.classList.add('active');
+        chatFab.classList.add('hidden');
+        messagesContainer.innerHTML = '';
+        hideAllOptions();
+        chatInputContainer.style.display = 'flex';
+        chatboxContainer.classList.remove('form-active');
+        addMessage("Hello! Welcome to Spaxios Innovation. How can I assist you today?", 'bot');
+        setTimeout(() => showOptions(firstOptions), 1000);
+    };
+
+    const closeChatbox = () => {
+        chatboxContainer.classList.remove('active');
+        chatFab.classList.remove('hidden');
+        clearTimeout(autoOpenTimer);
+    };
+
+    const showForm = (message) => {
+        hideAllOptions();
+        chatInputContainer.style.display = 'none';
+        chatboxContainer.classList.add('form-active');
+        setTimeout(() => {
+            addMessage(message, 'bot');
+            showOptions(formWrap);
+            scrollToBottom();
+        }, 1000);
+    };
+
+    const handleSubmit = async () => {
+        console.log("✅ handleSubmit triggered");  // add this
+    const nameInput = document.getElementById('chat-name');
+const contactInput = document.getElementById('chat-contact');
+const emailInput = document.getElementById('chat-email');
+const messageInput = document.getElementById('chat-message');
+
+
+    const name = nameInput ? nameInput.value.trim() : '';
+    const contact = contactInput ? contactInput.value.trim() : '';
+    const email = emailInput ? emailInput.value.trim() : '';
+    const message = messageInput ? messageInput.value.trim() : '';
+
+ 
+
+    // ✅ Check all fields including message
+    if (!name || !contact || !email ) {
+        addMessage("Please fill in all required fields (Name, Contact, Email).", 'bot');
+        return;
+    }
+
+    // ✅ Show user submission in chat
+    const formData = `Name: ${name}\nContact: ${contact}\nEmail: ${email}\nMessage: ${message}`;
+    addMessage(formData, 'user');
+    hideAllOptions();
+    console.log("Submitting chat form:", {
+    serviceCategory: chosenService,
+    subCategory: chosenSub,
+    name, contact, email, message
+});
+
+
+    try {
+        const res = await fetch("https://company-website-8ib6.vercel.app/api/chat/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                serviceCategory: chosenService || "General", // ✅ added
+                subCategory: chosenSub || "",                // ✅ added
+                name,
+                contact,
+                email,
+                message
+            })
+        });
+
+        const data = await res.json();
+        console.log("Collected values:", data);
+
+
+        if (res.ok) {
+            addMessage("✅ Thank you for submitting. Our team will reach out to you soon!", 'bot');
+            setTimeout(closeChatbox, 3000);
+        } else {
+            addMessage("❌ Oops! Something went wrong. Please try again later.", 'bot');
+            console.error("API Error:", data);
+        }
+    } catch (err) {
+        addMessage("⚠️ Network error. Please try again later.", 'bot');
+        console.error("Network error:", err);
+    }
+};
+
+    if (chatFab) chatFab.addEventListener('click', openChatbox);
+    if (chatboxCloseBtn) chatboxCloseBtn.addEventListener('click', closeChatbox);
+    
+    // if (sendBtn) {
+    //     sendBtn.addEventListener('click', () => {
+    //         const text = chatInput.value.trim();
+    //         if (text) {
+    //             addMessage(text, 'user');
+    //             chatInput.value = '';
+    //             setTimeout(() => addMessage("Please select one of the options to proceed.", 'bot'), 1000);
+    //         }
+    //     });
+    // }
+
+    if (firstOptions) {
+        firstOptions.addEventListener('click', (e) => {
+            if (!e.target.matches('.option-btn')) return;
+            const choice = e.target.dataset.service;
+             chosenService = choice; // ✅ save it
+            addMessage(choice, 'user');
+            hideAllOptions();
+            if (choice === 'Website Development') {
+                setTimeout(() => {
+                    addMessage("Great! What would you like to know about our Website Development services?", 'bot');
+                    showOptions(devOptions);
+                }, 1000);
+            } else {
+                setTimeout(() => {
+                    addMessage("Excellent! Which area of Digital Marketing are you interested in?", 'bot');
+                    showOptions(dmOptions);
+                }, 1000);
+            }
+        });
+    }
+
+    const handleSubOptionClick = (e) => {
+        if (!e.target.matches('.choice-btn')) return;
+        const choice = e.target.dataset.sub;
+        chosenSub = choice; // ✅ save it
+        addMessage(choice, 'user');
+        showForm("To discuss this further, please provide your details and our team will get in touch.");
+    };
+
+    if (devOptions) devOptions.addEventListener('click', handleSubOptionClick);
+    if (dmOptions) dmOptions.addEventListener('click', handleSubOptionClick);
+    if (formSubmitBtn) formSubmitBtn.addEventListener('click', handleSubmit);
+
+    // Auto-open timer after 10 seconds
+    if (chatboxContainer) { // Only set the timer if the chatbox exists on the page
+        autoOpenTimer = setTimeout(openChatbox, 10000);
+    }
+});
+ </script>
+</body>
+</html>

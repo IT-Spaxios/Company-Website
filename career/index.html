@@ -1751,7 +1751,7 @@ html, body {
                 if (!icon.style.transform || icon.style.transform === "") {
                     icon.style.transform = `translateX(${-xPos * parallaxIntensity}px) translateY(${-yPos * parallaxIntensity}px)`;
                 } else {
-                    icon.style.transform += ` translateX(${-xPos * parallaxIntensity}px) translateY(${-yPos * parallaxIntensity}px)`;
+                    icon.style.transform = ` translateX(${-xPos * parallaxIntensity}px) translateY(${-yPos * parallaxIntensity}px)`;
                 }
             });
         });
