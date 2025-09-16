@@ -787,6 +787,12 @@ html, body {
     }
     
 }
+.text-truncate-content {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+}
 
 
     
@@ -865,108 +871,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Blog Cards Section -->
   <div class="container my-5">
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card h-100">
-          <img src="/Images/AI-Search-Engine-2025.webp" class="card-img-top" alt="AI-Search-Engine" loading="lazy">
-          <div class="card-body">
-            <h5 class="card-title">How to Optimize for AI Search Results in 2025: A Complete Guide</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the content.</p>
-            <a href="#" class="stretched-link">Continue Reading…</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100">
-          <img src="/Images/best-chrome-extensions-for-seo-featured-image.png" class="card-img-top" alt="Best-SEO-Chrome-Extensions" loading="lazy">
-          <div class="card-body">
-            <h5 class="card-title">20 Best SEO Chrome Extensions to Boost Your Website Performance in 2026</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the content.</p>
-            <a href="#" class="stretched-link">Continue Reading…</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100">
-          <img src="/Images/AI-SEO-Agents-The-Ultimate-Guide-for-2025.webp" class="card-img-top" alt="AI-SEO-Agents" loading="lazy">
-          <div class="card-body">
-            <h5 class="card-title">New Google AI Mode: Everything You Need to Know & What to Do Next</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the content.</p>
-            <a href="#" class="stretched-link">Continue Reading…</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100">
-          <img src="/Images/google map citations.png" class="card-img-top" alt="Google-Map-Citations" loading="lazy">
-          <div class="card-body">
-            <h5 class="card-title">How to Optimize Google Maps Citations for Local SEO Success</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the content.</p>
-            <a href="#" class="stretched-link">Continue Reading…</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100">
-          <img src="/Images/improve-your-seo-post-banner.jpeg" class="card-img-top" alt="Improve-Your-SEO" loading="lazy">
-          <div class="card-body">
-            <h5 class="card-title">Why Your Company Needs an SEO-Optimized Website to Grow Better</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the content.</p>
-            <a href="#" class="stretched-link">Continue Reading…</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100">
-          <img src="/Images/SEO-Basics.jpeg" class="card-img-top" alt="SEO-Basics" loading="lazy">
-          <div class="card-body">
-            <h5 class="card-title">The 11 Best SEO Tools in 2025: A Complete Guide to Smarter Search Rankings</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the content.</p>
-            <a href="#" class="stretched-link">Continue Reading…</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100">
-          <img src="/Images/the-importance-of-consistency-in-seo-banner-image-1.webp" class="card-img-top" alt="Importance-of-Consistency-in-SEO" loading="lazy">
-          <div class="card-body">
-            <h5 class="card-title">SEO is Not a One-Day Magic Trick: Why Real SEO Takes Time, Strategy, and Consistency</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the content.</p>
-            <a href="#" class="stretched-link">Continue Reading…</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100">
-          <img src="/Images/ecommerce marketing.webp" class="card-img-top" alt="Ecommerce-Marketing" loading="lazy">
-          <div class="card-body">
-            <h5 class="card-title">Importance of eCommerce Website for Your Online Business</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the content.</p>
-            <a href="#" class="stretched-link">Continue Reading…</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100">
-          <img src="/Images/organic-traffic-featured-image.jpeg" class="card-img-top" alt="Organic-Traffic " loading="lazy">
-          <div class="card-body">
-            <h5 class="card-title">How to Rank Higher on Google and Get More Organic Traffic</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the content.</p>
-            <a href="#" class="stretched-link">Continue Reading…</a>
-          </div>
-        </div>
-      </div>
+    <div class="row g-4" id="blog-container">
+     
     </div>
 
-    
-
     <!-- Pagination -->
-    <nav aria-label="Page navigation" class="mt-5">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled"><a class="page-link">Previous</a></li>
+    <nav aria-label="Page navigation" class="mt-5" >
+  <ul class="pagination justify-content-center" id="pagination">
+    <!-- <li class="page-item disabled"><a class="page-link">Previous</a></li>
     <li class="page-item active"><a class="page-link" href="#">1</a></li>
     <li class="page-item"><a class="page-link" href="https://itspaxiosinnovation.in/Blog2">2</a></li>
-    <li class="page-item"><a class="page-link" href="https://itspaxiosinnovation.in/Blog2">Next</a></li>
+    <li class="page-item"><a class="page-link" href="https://itspaxiosinnovation.in/Blog2">Next</a></li> -->
   </ul>
 </nav>
 
@@ -1077,6 +992,101 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 </div>
 <script>
+    const apiURL = "https://company-website-8ib6.vercel.app/story/getAllStories";
+const blogContainer = document.getElementById("blog-container");
+const paginationContainer = document.getElementById("pagination");
+
+let currentPage = 1;
+const postsPerPage = 6; // must match backend limit
+
+async function fetchStories() {
+  try {
+    const response = await fetch(`${apiURL}?page=${currentPage}&limit=${postsPerPage}`);
+    const result = await response.json();
+
+    if (result && result.success && Array.isArray(result.data)) {
+      renderPage(result.data);
+      renderPagination(result.pages, result.page); // ✅ use backend pages & page
+    } else {
+      blogContainer.innerHTML = `<p class="text-warning">No stories found.</p>`;
+    }
+  } catch (error) {
+    console.error("Error fetching stories:", error);
+    blogContainer.innerHTML = `<p class="text-danger">Failed to load stories.</p>`;
+  }
+}
+
+function renderPage(stories) {
+  blogContainer.innerHTML = "";
+
+  stories.forEach(story => {
+    const card = document.createElement("div");
+    card.classList.add("col-md-4");
+
+  card.innerHTML = `
+  <div class="card h-100 d-flex flex-column">
+    <img src="${story.image || '/Images/default.png'}" class="card-img-top" alt="${story.title}" loading="lazy">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">${story.title}</h5>
+      <p class="card-text text-truncate-content">${story.description || ''}</p>
+      <a href="/story/${story._id}" class="mt-auto stretched-link">Continue Reading…</a>
+    </div>
+  </div>
+`;
+
+    blogContainer.appendChild(card);
+  });
+}
+
+function renderPagination(totalPages, current) {
+  paginationContainer.innerHTML = "";
+  currentPage = current; // update global currentPage
+
+  // Previous
+  const prev = document.createElement("li");
+  prev.className = `page-item ${currentPage === 1 ? "disabled" : ""}`;
+  prev.innerHTML = `<a class="page-link" href="#">Previous</a>`;
+  prev.onclick = e => {
+    e.preventDefault();
+    if (currentPage > 1) {
+      currentPage--;
+      fetchStories();
+    }
+  };
+  paginationContainer.appendChild(prev);
+
+  // Page numbers
+  for (let i = 1; i <= totalPages; i++) {
+    const li = document.createElement("li");
+    li.className = `page-item ${i === currentPage ? "active" : ""}`;
+    li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+    li.onclick = e => {
+      e.preventDefault();
+      if (i !== currentPage) {
+        currentPage = i;
+        fetchStories();
+      }
+    };
+    paginationContainer.appendChild(li);
+  }
+
+  // Next
+  const next = document.createElement("li");
+  next.className = `page-item ${currentPage === totalPages ? "disabled" : ""}`;
+  next.innerHTML = `<a class="page-link" href="#">Next</a>`;
+  next.onclick = e => {
+    e.preventDefault();
+    if (currentPage < totalPages) {
+      currentPage++;
+      fetchStories();
+    }
+  };
+  paginationContainer.appendChild(next);
+}
+
+// Initial fetch
+fetchStories();
+
   // ===================================================================
     // 8. (CHATBOX)
     // ===================================================================

@@ -10,7 +10,7 @@ import { FiArrowLeft } from 'react-icons/fi'
 import '../../Css/AddStory.css'
 import API from "../../Utility/API.js";
 
-const AddStory = () => {
+const AddStory = ({ onStoryAdded }) => {
 
     const { config } = useContext(AuthContext)
     const imageEl = useRef(null)
@@ -39,6 +39,11 @@ const AddStory = () => {
         try {
             const { data } = await API.post("/story/addstory", formdata, config)
             setSuccess('Add story successfully ')
+             // ✅ Update story list dynamically
+           // ✅ Call parent callback to update story list
+            if (onStoryAdded) {
+                onStoryAdded(data.data)
+            }
 
             clearInputs()
             setTimeout(() => {
@@ -89,7 +94,7 @@ const AddStory = () => {
                     }}
                     ref={editorEl}
                 />
-                <div class="StoryImageField">
+                <div className="StoryImageField">
                     <AiOutlineUpload />
                     <div className="txt">
                         {image ? image.name :
