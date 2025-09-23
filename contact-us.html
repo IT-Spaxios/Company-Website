@@ -2108,7 +2108,7 @@ if (form) {
 
     // 🔹 Lazy loading effect on button + style change
     button.disabled = true;
-    button.textContent = "Sending... ⏳";
+    button.innerHTML = `Sending... <i class="fa-solid fa-hourglass-end"></i>`;
     button.style.backgroundColor = "white";
     button.style.color = "black";
 
