@@ -998,13 +998,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 const blogContainer = document.getElementById("blog-container");
 const paginationContainer = document.getElementById("pagination");
 
+const loadingIndicator = document.createElement('div');
+  loadingIndicator.className = 'loading-indicator'; // Add some loading spinner class or animation
+  blogContainer.appendChild(loadingIndicator);
+
 let currentPage = 1;
 const postsPerPage = 6; // must match backend limit
 
 async function fetchStories() {
   try {
+    // Show loading spinner before fetch
+      loadingIndicator.style.display = 'block';
     const response = await fetch(`${apiURL}?page=${currentPage}&limit=${postsPerPage}`);
     const result = await response.json();
+
+    
+      // Hide loading spinner once data is fetched
+      loadingIndicator.style.display = 'none';
 
     if (result && result.success && Array.isArray(result.data)) {
       renderPage(result.data);
@@ -1330,7 +1340,7 @@ if (form) {
 
     // 🔹 Lazy loading effect on button + style change
     button.disabled = true;
-    button.textContent = "Sending... ⏳";
+   button.innerHTML = `Sending... <i class="fa-solid fa-hourglass-end"></i>`;
     button.style.backgroundColor = "white";
     button.style.color = "black";
 
