@@ -925,7 +925,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        
         <div class="footer-form">
             <h3>Touch With Us</h3>
-            <form>
+            <form id="footer-form">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <textarea name="message" placeholder="Your Message" rows="3" required></textarea>
@@ -993,6 +993,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 </div>
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
     const apiURL = "https://company-website-8ib6.vercel.app/story/getAllStories";
 const blogContainer = document.getElementById("blog-container");
 const paginationContainer = document.getElementById("pagination");
@@ -1310,11 +1311,12 @@ fetchStories();
     // contactForm submission with backend API
     // ----------------------
    const form = document.getElementById("footer-form");
+   console.log("Form:", form); // 🔹 debug: should not be null
 
 if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-
+  console.log("Submit intercepted"); // 🔹 debug
     const formData = {
       name: form.name.value,
       email: form.email.value,
@@ -1399,8 +1401,9 @@ if (form) {
             }
         });
    }
+   });
 </script>
-
   
+
 </body>
 </html>
