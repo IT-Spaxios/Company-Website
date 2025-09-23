@@ -1007,6 +1007,11 @@ async function fetchStories() {
     if (result && result.success && Array.isArray(result.data)) {
       renderPage(result.data);
       renderPagination(result.pages, result.page); // ✅ use backend pages & page
+       // 🔹 Scroll user back to top smoothly
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     } else {
       blogContainer.innerHTML = `<p class="text-warning">No stories found.</p>`;
     }
