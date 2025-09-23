@@ -391,7 +391,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .hero-image-container {
             width: 100%;
             min-height: 350px !important;
-            background-image: url('/Images/Result-drivendigitalmarketingCompany.webp');
+            background-image: url('/Images/Result-driven digital marketing Company.webp');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -3359,7 +3359,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <!-- Main nav -->
   <nav class="main-nav">
-    <img src="/Images/image.svg" alt="Spaxios Innovation" class="logo-img" loading="lazy">
+    <a href="/"><img src="/Images/IT spaxios innovation.webp" alt="Spaxios Innovation" class="logo-img" loading="lazy"></a>
     <ul class="desktop-nav-links">
       <li><a href="https://itspaxiosinnovation.in/">Home</a></li>
       <li><a href="https://itspaxiosinnovation.in/digital-marketing-service">Digital Marketing</a></li>
@@ -3453,6 +3453,7 @@ for your business"></div>
             </div>
         </div>
     </section>
+    
    <!-- ==================================== -->
   <!-- WHY IT SPAXIOS SECTION -->
    <!-- ================================== -->
@@ -3475,7 +3476,7 @@ for your business"></div>
                 <div class="visual-content">
                     <div class="main-visual">
                         
-                        <img src="/Images/Digital Marketing Agency in Chennai.webp" alt="Digital Marketing agency in Chennai" class="marketing-png" loading="lazy">
+                        <img src="/Images/Digital Marketing Agency In Chennai.png" alt="Digital Marketing agency in Chennai" class="marketing-png" loading="lazy">
                     </div>
                 </div>
 
@@ -3895,6 +3896,7 @@ for your business"></div>
     </div>
 </section>
 
+
         <!---Faq Section-->
 <!--------------------------------------->
 <section class="faq-section-final">
@@ -3994,11 +3996,11 @@ for your business"></div>
             <div>
                 <h3>Quickie</h3>
                 <ul>
-                    <li><a href="/index.html">Home</a></li>
-                    <li><a href="#">Digital Marketing</a></li>
+                    <li><a href="https://itspaxiosinnovation.in/">Home</a></li>
+                    <li><a href="https://itspaxiosinnovation.in/digital-marketing-service">Digital Marketing</a></li>
                     <li><a href="https://itspaxiosinnovation.in/contact-us">Contact Us</a></li>
-                    <li><a href="/career/">Career</a></li>
-                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="https://itspaxiosinnovation.in/career">Career</a></li>
+                    <li><a href="https://itspaxiosinnovation.in/Blog">Blog</a></li>
                 </ul>
             </div>
         </div>
@@ -4628,8 +4630,8 @@ for your business"></div>
             GOOGLE_MY_BUSINESS: {
                 title: "Why Google My Business Page?",
                 desc: `Many businesses want to pull customers to their doorstep. For those, Google My Business profile is key to their business. If someone searches for services and products that you provide in your area, <span class="highlight-themes">your business profile appears on maps</span> with accurate business details, reviews, updates, directions, your location, working hours, and photos. so they can choose your business with confidence.`,
-                img: "/images/googlemybusiness service in chennai.webp",
-                alt:"googlemybusiness service in chennai, gmb service in chennai",
+                img: "/Images/google my business service in chennai.webp",
+                alt:"google my business service in chennai, gmb service in chennai",
                 benefits: [
                     "More visibility in local Google searches & Maps results",
                     "Build trust with authentic reviews & ratings",
@@ -4639,13 +4641,14 @@ for your business"></div>
                 ],
                 ctaTagline: "Ready to boost your local presence?",
                 ctaButtonText: "Get GMB Profile",
+                 ctaButtonLink: "https://itspaxiosinnovation.in/contact-us",
                 imageTagline: "Your business, discovered locally"
             },
             EMAIL_MARKETING_SERVICE: {
                 title: "Why Email Marketing Service?",
                 desc: `Email marketing is more than newsletters. It’s cost-effective, measurable, and one of the best ways to drive repeat sales. You can <span class="highlight-themes">reach your customers with personalized email marketing campaigns, automation, updates and offers</span>, and you can turn customers into one-time buyers to loyal customers.`,
-                img: "/images/emailmarketing service in chennai.webp",
-                alt: "emailmarketing service in chennai, EM service in chennai",
+                img: "/Images/email marketing service in chennai.webp",
+                alt: "email marketing service in chennai, EM service in chennai",
                 benefits: [
                     "Directly reach your customers in their inbox",
                     "Build long-term relationships & loyalty",
@@ -4655,13 +4658,14 @@ for your business"></div>
                 ],
                 ctaTagline: "Start connecting with your audience today!",
                 ctaButtonText: "Start Email Marketing",
+                ctaButtonLink: "https://itspaxiosinnovation.in/contact-us",
                 imageTagline: "Direct communication, better results"
             },
             LOCAl_SEO_SERVICE: {
                 title: "Why Local SEO Service?",
                 desc: `Show your business in front of nearby people who are searching for services/products that you provide. Whether it’s “best salon in Chennai” or “electronic spare parts in Chennai”, <span class="highlight-themes">Local SEO ensures your business is at the top position.</span> It’s a perfect strategy for small and medium businesses that want to focus on location-based lead generation and increase visibility and traffic.`,
-                img: "/Images/localseo service in chennai.webp",
-                alt:"localseo service in chennai, LS service in chennai",
+                img: "/Images/local seo service in chennai.webp",
+                alt:"local seo service in chennai, LS service in chennai",
                 benefits: [
                     "Top rank in location-based searches",
                     "Attract in-market customers",
@@ -4671,6 +4675,7 @@ for your business"></div>
                 ],
                 ctaTagline: "Dominate your local market now!",
                 ctaButtonText: "Get Local SEO",
+                 ctaButtonLink: "https://itspaxiosinnovation.in/contact-us",
                 imageTagline: "Be the first choice in local searches"
             },
         };
@@ -4755,7 +4760,71 @@ for your business"></div>
                 });
             }, 100);
         });
-        
+        function updateContent(tab) {
+  // Update tab buttons
+  document.querySelectorAll(".tab-btn").forEach(b => {
+    b.classList.remove("active-btn");
+  });
+  const activeBtn = [...document.querySelectorAll(".tab-btn")].find(btn => btn.getAttribute("data-tab") === tab);
+  activeBtn.classList.add("active-btn");
+ 
+  // Custom headings for each service
+  const benefitHeadings = {
+    'GOOGLE_MY_BUSINESS': 'Advantages of Google My Business',
+    'EMAIL_MARKETING_SERVICE': 'Advantages of Email Marketing',
+    'LOCAl_SEO_SERVICE': 'Advantages of Local SEO'
+  };
+ 
+  // Fade out current content
+  document.querySelectorAll('.content-wrapper').forEach(el => {
+    el.classList.remove('active');
+  });
+ 
+  // After a brief delay, update content and fade in
+  setTimeout(() => {
+    document.getElementById("leftContent").innerHTML = `
+      <div class="description-box">
+        <h2 class="text-2xl font-bold mb-4 text-[#0D2A81]">${data[tab].title}</h2>
+        <p class="text-gray-600">${data[tab].desc}</p>
+      </div>
+    `;
+ 
+    document.getElementById("centerContent").innerHTML = `
+      <div class="flex flex-col justify-center items-center">
+        <img src="${data[tab].img}" alt="${tab} Image" class="w-48 h-48 object-contain">
+        <p class="images-tagline mt-2">${data[tab].imageTagline}</p>
+      </div>
+    `;
+ 
+    const benefitsContainer = document.querySelector('.benefits-container');
+    benefitsContainer.innerHTML = `
+      <h3 class="text-xl font-semibold mb-4 text-[#0D2A81]">${benefitHeadings[tab]}</h3>
+      <div class="space-y-3">
+        ${data[tab].benefits.map(benefit => `
+          <div class="benefit-item">${benefit}</div>
+        `).join("")}
+      </div>
+    `;
+ 
+    // ✅ Safe CTA link handling
+    const ctaSection = document.querySelector('.cta-section-card');
+    const link = data[tab].ctaButtonLink || "https://itspaxiosinnovation.in/contact-us";
+ 
+    ctaSection.innerHTML = `
+      <p class="cta-tagline-card">${data[tab].ctaTagline}</p>
+      <button class="cta-button-card" onclick="window.location.href='${link}'">
+        ${data[tab].ctaButtonText}
+      </button>
+    `;
+ 
+    // Fade in new content
+    document.querySelectorAll('.content-wrapper').forEach(el => {
+      setTimeout(() => {
+        el.classList.add('active');
+      }, 50);
+    });
+  }, 300);
+}
 
     // ======================================================== //
 // FINAL SCROLL-DRIVEN ZIGZAG LOGIC (CONTENT ONLY)          //
