@@ -3475,7 +3475,7 @@ html, body {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
-.footer-form button:hover { background-color: #f5f5f5; color: #0c0a0a; }
+.footer-form button:hover { background-color: #2c4280; }
 .footer-copyright { text-align: center; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.7); }
 
 /* =================================== */
@@ -4980,7 +4980,7 @@ counters.forEach(counter => counterObserver.observe(counter));
     // ----------------------
     // contactForm submission with backend API
     // ----------------------
-   const form = document.getElementById("footer-form");
+ const form = document.getElementById("footer-form");
 
 if (form) {
   form.addEventListener("submit", async (e) => {
@@ -4994,10 +4994,14 @@ if (form) {
 
     const button = form.querySelector("button");
     const oldText = button.textContent;
+    const oldBg = button.style.backgroundColor;
+    const oldColor = button.style.color;
 
-    // 🔹 Lazy loading effect on button
+    // 🔹 Lazy loading effect on button + style change
     button.disabled = true;
     button.textContent = "Sending... ⏳";
+    button.style.backgroundColor = "white";
+    button.style.color = "black";
 
     try {
       const res = await fetch("https://company-website-8ib6.vercel.app/api/contact/addcontact", {
@@ -5021,12 +5025,15 @@ if (form) {
       console.error("Error:", error);
       showToast("⚠️ Server not reachable!", 4000, "#FF4C4C");
     } finally {
-      // 🔹 Restore button
+      // 🔹 Restore button style + text
       button.disabled = false;
       button.textContent = oldText;
+      button.style.backgroundColor = oldBg;
+      button.style.color = oldColor;
     }
   });
 }
+
 
     </script>
 </body>

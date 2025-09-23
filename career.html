@@ -2035,25 +2035,60 @@ html, body {
         setTimeout(() => toast.style.visibility = "hidden", duration);
     }
 
-    form?.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const formData = { name: form.name.value, email: form.email.value, message: form.message.value };
-        try {
-            const res = await fetch("https://company-website-8ib6.vercel.app/api/contact/addcontact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData)
-            });
-            if (res.ok) {
-                showToast("✅ Thank you! Your query has been received.");
-                form.reset();
-            } else {
-                showToast("❌ Something went wrong", 4000, "#FF4C4C");
-            }
-        } catch (err) {
-            showToast("⚠️ Server not reachable", 4000, "#FF4C4C");
-        }
-    });
+
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value,
+    };
+
+    const button = form.querySelector("button");
+    const oldText = button.textContent;
+    const oldBg = button.style.backgroundColor;
+    const oldColor = button.style.color;
+
+    // 🔹 Lazy loading effect on button + style change
+    button.disabled = true;
+    button.textContent = "Sending... ⏳";
+    button.style.backgroundColor = "white";
+    button.style.color = "black";
+
+    try {
+      const res = await fetch("https://company-website-8ib6.vercel.app/api/contact/addcontact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        showToast("✅ Thank you! Your query has been received. We will get back to you soon.");
+        form.reset();
+        document.querySelectorAll(".form-group1").forEach((group) =>
+          group.classList.remove("focused")
+        );
+      } else {
+        showToast("❌ Something went wrong. Please try again!", 4000, "#FF4C4C");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      showToast("⚠️ Server not reachable!", 4000, "#FF4C4C");
+    } finally {
+      // 🔹 Restore button style + text
+      button.disabled = false;
+      button.textContent = oldText;
+      button.style.backgroundColor = oldBg;
+      button.style.color = oldColor;
+    }
+  });
+}
+
+
 });
 
 </script>

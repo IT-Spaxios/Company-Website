@@ -2082,43 +2082,59 @@ let chosenSub = "";
     // ----------------------
     
    const form = document.getElementById("footer-form");
-  if (form) {
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
 
-        const formData = {
-            name: form.name.value,
-            email: form.email.value,
-            message: form.message.value
-        };
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-        try {
-            const res = await fetch("https://company-website-8ib6.vercel.app/api/contact/addcontact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData)
-            });
+    const formData = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value,
+    };
 
-            console.log("Response:", res);
-            const data = await res.json();
-            console.log("Data:", data);
+    const button = form.querySelector("button");
+    const oldText = button.textContent;
+    const oldBg = button.style.backgroundColor;
+    const oldColor = button.style.color;
 
-            if (res.ok) {
-                showToast("Thank you! Your query has been received. We will get back to you soon.");
+    // 🔹 Lazy loading effect on button + style change
+    button.disabled = true;
+    button.textContent = "Sending... ⏳";
+    button.style.backgroundColor = "white";
+    button.style.color = "black";
 
-                form.reset();
+    try {
+      const res = await fetch("https://company-website-8ib6.vercel.app/api/contact/addcontact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-                // Remove focused class if using focus animation
-                document.querySelectorAll('.form-group1').forEach(group => group.classList.remove('focused'));
-            } else {
-                showToast("Something went wrong. Please try again!", 4000, "#FF4C4C");
-            }
-        } catch (error) {
-            console.error("Error:", error);
-            showToast("Server not reachable!", 4000, "#FF4C4C");
-        }
-    });
-  }
+      const data = await res.json();
+
+      if (res.ok) {
+        showToast("✅ Thank you! Your query has been received. We will get back to you soon.");
+        form.reset();
+        document.querySelectorAll(".form-group1").forEach((group) =>
+          group.classList.remove("focused")
+        );
+      } else {
+        showToast("❌ Something went wrong. Please try again!", 4000, "#FF4C4C");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      showToast("⚠️ Server not reachable!", 4000, "#FF4C4C");
+    } finally {
+      // 🔹 Restore button style + text
+      button.disabled = false;
+      button.textContent = oldText;
+      button.style.backgroundColor = oldBg;
+      button.style.color = oldColor;
+    }
+  });
+}
+
 
 
 
