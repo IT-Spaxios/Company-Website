@@ -14,7 +14,6 @@
 /* FONT IMPORT & CSS VARIABLES                               */
 /* ======================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
-
 :root {
     --dark-blue: #0d2a81;
     --cyan-accent: #1abec4;
@@ -24,12 +23,10 @@
     --bg-light: #f5f7fa;
     --white: #ffffff;
 }
-
 /* Universal box-sizing for better layout control */
 *, *::before, *::after {
     box-sizing: border-box;
 }
-
 /* =================================== */
 /* HEADER & NAVBAR STYLES              */
 /* =================================== */
@@ -41,7 +38,6 @@
   background-color: white;
   width: 100vw;
 }
-
 .top-bar {
   color: black;
   padding: 8px 5%;
@@ -51,7 +47,6 @@
   overflow: hidden;
   transition: max-height 0.4s ease-out, padding 0.4s ease-out;
 }
-
 .top-bar--hidden {
   max-height: 0 !important;
   padding-top: 0 !important;
@@ -59,7 +54,6 @@
   overflow: hidden;
   border: none !important;
 }
-
 .top-bar-content {
   display: flex;
   align-items: center;
@@ -67,7 +61,6 @@
   gap: 30px;
   flex-wrap: wrap;
 }
-
 .contact-info {
   display: flex;
   align-items: center;
@@ -75,31 +68,26 @@
   flex-wrap: wrap;
   margin-right: auto;
 }
-
 .contact-info span {
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
-
 .social-icons {
   display: flex;
   align-items: center;
   gap: 18px;
 }
-
 .social-icons a {
   color: #333;
   text-decoration: none;
   font-size: 1.2rem;
   transition: transform 0.3s ease, color 0.3s ease;
 }
-
 .social-icons a:hover {
   transform: translateY(-3px);
   color: #0d2a81;
 }
-
 .main-nav {
   display: flex;
   align-items: center;
@@ -108,14 +96,12 @@
   height: 80px;
   position: relative;
 }
-
 .logo-img {
   height: 120px;
   width: auto;
   margin-left: -20px;
   transition: height 0.3s ease, margin-left 0.3s ease;
 }
-
 .desktop-nav-links {
   list-style: none;
   display: flex;
@@ -127,14 +113,12 @@
   padding-right: 20px;
   margin: 0;
 }
-
 .desktop-nav-links li {
   position: relative;
   height: 100%;
   display: flex;
   align-items: center;
 }
-
 .desktop-nav-links > li > a {
   text-decoration: none;
   color: #2c2c2c;
@@ -145,7 +129,6 @@
   align-items: center;
   height: 100%;
 }
-
 .desktop-nav-links > li > a::after {
   content: '';
   position: absolute;
@@ -158,18 +141,15 @@
   transform-origin: bottom right;
   transition: transform 0.3s ease-out;
 }
-
 .desktop-nav-links > li > a:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-
 .header-cta-right {
   display: flex;
   align-items: center;
   gap: 15px;
 }
-
 .cta-button {
  background-color: #0d2a81;
   color: white;
@@ -180,15 +160,11 @@
   white-space: nowrap;
   display: inline-block;
   transition: background-color 0.3s, transform 0.3s;
-  text-align: center;
-  
-  
+  text-align: center; 
 }
-
 .cta-button:hover {
   transform: translateY(-2px);
 }
-
 .hamburger {
   display: none;
   background: none;
@@ -240,11 +216,9 @@ body.no-scroll {
 .mobile-nav-links li a:hover { background-color: #f9f9f9; }
 .mobile-cta-button-container { padding: 25px 20px; background-color: #f7f7f7; }
 .mobile-cta-button-container .cta-button { display: block; width: 100%; color: white !important; }
-
 /* ======================================================== */
 /* MOBILE STYLES - FINAL CORRECTED ALIGNMENT                */
 /* ======================================================== */
-
 /* ---------------------------------- */
 /* Tab (<= 768px)                     */
 /* ---------------------------------- */
@@ -261,7 +235,6 @@ body.no-scroll {
         height: 70px;
         padding: 0 25px;
     }
-
     /* --- Base Top Bar Layout --- */
     .top-bar {
         padding: 15px 25px;
@@ -285,19 +258,16 @@ body.no-scroll {
     /* Resets the social icons for centering */
     .social-icons {
         margin: 0;
-        gap: 15px;
-        
+        gap: 15px;       
     }
       .social-icons{margin-top: 7px;}
 }
-
 /* ---------------------------------- */
 /* Large Mobile (<= 425px)            */
 /* ---------------------------------- */
 @media (max-width: 425px) {
     /* The layout from above is correct, no changes needed */
 }
-
 /* ---------------------------------- */
 /* Medium Mobile (<= 375px)           */
 /* ---------------------------------- */
@@ -305,10 +275,8 @@ body.no-scroll {
     /* The layout is still correct. We can reduce side padding slightly. */
     .top-bar, .main-nav {
         padding: 15px 20px;
-    }
-  
+    } 
 }
-
 /* ---------------------------------- */
 /* Small Mobile (<= 360px)            */
 /* ---------------------------------- */
@@ -322,8 +290,7 @@ body.no-scroll {
     .top-bar, .main-nav {
         padding: 15px 15px;
     }
-      .social-icons{margin-top: 20px;}
-    
+      .social-icons{margin-top: 20px;}   
 }
 /* ======================================================== */
 /* GENERAL & CAREER PAGE STYLES                           */
@@ -335,32 +302,27 @@ body {
     margin: 0;
     padding: 0;
 }
-
 .career-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
-
 .section-title {
     text-align: center;
     margin-bottom: 60px;
 }
-
 .section-title h2 {
     font-size: 2.5rem;
     color: var(--dark-blue);
     margin-bottom: 10px;
     font-weight: 700;
 }
-
 .section-title p {
     font-size: 1.1rem;
     color: var(--text-light);
     max-width: 600px;
     margin: 0 auto;
 }
-
 .cta-button {
     display: inline-block;
     background: #0d2a81;
@@ -372,12 +334,10 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
-
 .cta-button:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 25px rgba(26, 190, 196, 0.3);
 }
-
 /* ======================================================== */
 /* HERO SECTION                                             */
 /* ======================================================== */
@@ -386,7 +346,6 @@ body {
     padding: 120px 0;
     overflow: hidden;
 }
-
 .career-hero-section .career-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -394,7 +353,6 @@ body {
     gap: 40px;
     margin-bottom: -55px;
 }
-
 .hero-text-content h1 {
     font-size: 3.5rem;
     color: white;
@@ -402,11 +360,9 @@ body {
     margin-bottom: 20px;
     font-weight: 800;
 }
-
 .hero-text-content h1 .highlight {
     color: var(--cyan-accent);
 }
-
 .hero-text-content p {
     font-size: 1.1rem;
     color: white;
@@ -431,7 +387,6 @@ body {
     perspective: 1500px; /* This creates the 3D space */
     transition: transform 0.3s ease-out; /* Smooths the tilt effect */
 }
-
 .floating-icon {
     position: absolute;
     background: var(--white);
@@ -443,7 +398,6 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.4s ease-out; /* Smooths parallax movement */
 }
-
 .floating-icon i { font-size: 1.5rem; }
 .icon-center { width: 200px; height: 200px; z-index: 5; font-size: 3rem !important; }
 .icon-1 { top: 10%; left: 15%; width: 60px; height: 60px; transform: translateZ(80px); }
@@ -454,7 +408,6 @@ body {
 /* CAREER HERO SECTION - LAPTOP ANIMATION EFFECTS           */
 /* ======================================================== */
 @media (min-width: 993px) {
-
   /* 1. Reusable animation definitions (Keyframes) */
   @keyframes slideInLeft {
     from {
@@ -466,7 +419,6 @@ body {
       transform: translateX(0);
     }
   }
-  
   @keyframes slideInRight {
     from {
       opacity: 0;
@@ -477,7 +429,6 @@ body {
       transform: translateX(0);
     }
   }
-
   /* 2. Set the initial (hidden) state for the elements */
   .career-hero-section .hero-text-content h1,
   .career-hero-section .hero-text-content p,
@@ -485,23 +436,19 @@ body {
   .career-hero-section .hero-3d-visual {
     opacity: 0; /* Start hidden */
   }
-
   /* 3. Apply the animations with delays for a smooth effect */
   .career-hero-section .hero-text-content h1 {
     animation: slideInLeft 0.8s ease-out forwards;
     animation-delay: 0.2s;
   }
-
   .career-hero-section .hero-text-content p {
     animation: slideInLeft 0.8s ease-out forwards;
     animation-delay: 0.4s;
   }
-
   .career-hero-section .herocta-button {
     animation: slideInLeft 0.8s ease-out forwards;
     animation-delay: 0.6s;
   }
-  
   .career-hero-section .hero-3d-visual {
     animation: slideInRight 0.8s ease-out forwards;
     animation-delay: 0.2s;
@@ -511,7 +458,6 @@ body {
 /* MOBILE HERO SECTION LAYOUT FIX (WITH FULL IMAGE)         */
 /* ======================================================== */
 @media (max-width: 768px) {
-
     /* --- General Section Adjustments --- */
     .career-hero-section {
         padding-top: 150px;
@@ -519,7 +465,6 @@ body {
         /* Add overflow to contain the scaled visual */
         overflow-x: hidden;
     }
-
     .career-hero-section .career-container {
         display: flex;
         flex-direction: column;
@@ -527,12 +472,10 @@ body {
         text-align: center;
         margin-bottom: 30px;
     }
-
     /* This allows us to reorder the h1, p, and button */
     .hero-text-content {
         display: contents;
     }
-
     /* --- Correct Element Order --- */
     .hero-text-content h1 {
         order: 1;
@@ -540,35 +483,29 @@ body {
         margin-bottom: -15px;
         margin-top: 70px;
     }
-
     .hero-text-content p {
         order: 2;
         /* Reduce bottom margin to pull the scaled image up */
         margin-bottom: -15px;
     }
-
     /* --- FIX: Displaying the Full Image --- */
     .hero-3d-visual {
         order: 3;
         position: relative; /* This is crucial for the floating icons */
         width: 450px;       /* Use the original desktop width */
         height: 400px;      /* Use the original desktop height */
-        
         /* This is the key: Scale the entire visual down to 70% */
-        transform: scale(0.7);
-        
+        transform: scale(0.7);   
         /* Use negative margins to fix the extra space caused by scaling */
         margin-top: -50px;
         margin-bottom: -50px;
         margin-left: 5px;
     }
-
     .hero-text-content .herocta-button {
         order: 4;
     }
     .herocta-button{margin-top: -80px;}
 }
-
 @media (max-width: 480px) {
     /* Further adjustments for very small screens */
     .hero-text-content h1 {
@@ -584,26 +521,22 @@ body {
 /* ======================================================== */
 /* PERKS SECTION                                            */
 /* ======================================================== */
-
 /* Keyframes for the icon's floating animation */
 @keyframes floatIcon {
   0% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
 }
-
 .career-perks-section {
   padding: 60px 0;
   background-color: whitesmoke;
 }
-
 /* Updated selector to match your new HTML */
 .cardssection-title {
   text-align: center;
   margin-bottom: 50px;
   margin-top: -50px;
 }
-
 /* --- Main Heading Style (h2) --- */
 .cardssection-title h2 {
   font-size: 2.8rem; /* Makes the heading large and impactful */
@@ -612,7 +545,6 @@ body {
   margin-bottom: 15px;
   line-height: 1.3;
 }
-
 /* --- Subheading Style (p) --- */
 .cardssection-title p {
   font-size: 1.0rem;
@@ -622,20 +554,17 @@ body {
   margin-left: auto;  /* Centers the paragraph */
   margin-right: auto; /* Centers the paragraph */
 }
-
 /* Responsive font size for mobile */
 @media (max-width: 768px) {
   .cardssection-title h2 {
     font-size: 2.2rem;
   }
 }
-
 .perks-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
 }
-
 .perk-card {
   background: var(--white);
   padding: 30px;
@@ -647,38 +576,31 @@ body {
   opacity: 1;
   transform: none;
 }
-
 .perk-icon {
   font-size: 2.5rem;
   color: var(--cyan-accent);
   margin-bottom: 20px;
 }
-
 .perk-card h3 {
   color: var(--dark-blue);
   font-size: 1.3rem;
   margin-bottom: 10px;
 }
-
 .perk-card p {
   color: var(--text-light);
   line-height: 1.7;
 }
-
 /* ======================================================== */
 /* DESKTOP ANIMATION (Applies only to screens > 992px)      */
 /* ======================================================== */
 @media (min-width: 992px) {
-  
   /* --- Initial (Hidden) States --- */
-  
   /* Set transitions for all animated elements */
   .cardssection-title h2,
   .cardssection-title p,
   .perk-card {
     transition: opacity .7s ease-out, transform 1.7s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-
   /* Headings start hidden and moved to the side */
   .cardssection-title h2 {
     opacity: 0;
@@ -689,7 +611,6 @@ body {
     transform: translateX(550px);
     transition-delay: 0.1s; /* Add delay */
   }
-
   /* Cards start hidden and moved to alternating sides */
   .perk-card {
       opacity: 0;
@@ -700,9 +621,7 @@ body {
   .perk-card:nth-child(even) {
     transform: translateX(50px);
   }
-
   /* --- Final (Visible) States --- */
-  
   /* When '.is-visible' is added by JS, animate them in */
   .cardssection-title h2.is-visible,
   .cardssection-title p.is-visible,
@@ -710,13 +629,11 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
-
   /* --- Staggered Delays for the cards --- */
   .perks-grid .perk-card:nth-child(1) { transition-delay: 0.2s; }
   .perks-grid .perk-card:nth-child(2) { transition-delay: 0.3s; }
   .perks-grid .perk-card:nth-child(3) { transition-delay: 0.4s; }
   .perks-grid .perk-card:nth-child(4) { transition-delay: 0.5s; }
-
   /* --- Floating Icon Animation --- */
   .perk-icon {
     animation: floatIcon 4s ease-in-out infinite;
@@ -733,27 +650,21 @@ body {
         transition: none;
     }
 }
-
-
 /* ======================================================== */
 /* OPENINGS SECTION - TITLE STYLES                          */
 /* ======================================================== */
-
 /* --- Container for the titles --- */
 .jobsection-title {
   text-align: center;
   margin-bottom: 80px;
 }
-
 /* --- Main Heading Style (h2) --- */
 .jobsection-title h2 {
   font-size: 2.8rem;
   color: var(--dark-blue);
   font-weight: 800;
-  line-height: 1.3;
-  
+  line-height: 1.3; 
 }
-
 /* --- Subheading Style (p) --- */
 .jobsection-title p {
   font-size: 1.1rem;
@@ -761,48 +672,40 @@ body {
   margin: 0;
   letter-spacing: 0.5px;
 }
-
 /* --- Responsive font size for mobile --- */
 @media (max-width: 768px) {
   .jobsection-title h2 {
     font-size: 2.2rem;
   }
 }
-
 /* ======================================================== */
 /* LAPTOP-ONLY ANIMATION EFFECTS (> 992px)                  */
 /* ======================================================== */
 @media (min-width: 992px) {
-  
   /* Initial (Hidden) States */
   .jobsection-title h2,
   .jobsection-title p {
     transition: opacity 0.7s ease-out, transform 1.7s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-
   .jobsection-title h2 {
     opacity: 0;
     transform: translateX(-850px);
   }
-  
   .jobsection-title p {
     opacity: 0;
     transform: translateX(800px);
   }
-
   /* Final (Visible) State - Triggered by JS */
   .jobsection-title h2.is-visible,
   .jobsection-title p.is-visible {
     opacity: 1;
     transform: translateX(0);
-  }
-  
+  } 
   /* Add a slight delay to the subheading for a smoother effect */
   .jobsection-title p.is-visible {
     transition-delay: 0.2s;
   }
 }
-
 .job-listing {
     display: flex;
     justify-content: space-between;
@@ -815,31 +718,25 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     /* Initial state for scroll animation */
    opacity: 1 !important; transform: none !important; 
-
 }
-
 .job-listing.is-visible {
     opacity: 1;
     transform: translateX(0);
 }
-
 .job-listing:hover {
     transform: translateY(-5px) scale(1.01);
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
-
 .job-info h3 {
     color: var(--dark-blue);
     margin-bottom: 8px;
 }
-
 .job-details {
     display: flex;
     gap: 20px;
     color: var(--text-light);
 }
 .job-details span { display: inline-flex; align-items: center; gap: 8px; }
-
 .apply-button {
     background-color: var(--dark-blue);
     color: var(--white);
@@ -850,17 +747,14 @@ body {
     white-space: nowrap;
     transition: background-color 0.3s ease;
 }
-
 .apply-button:hover {
     background-color: var(--cyan-accent);
 }
-
 .spontaneous-apply {
     text-align: center;
     margin-top: 50px;
 }
 .spontaneous-apply p { margin-bottom: 20px; font-size: 1.1rem; }
-
 /* ======================================================== */
 /* RESPONSIVE STYLES                                        */
 /* ======================================================== */
@@ -876,7 +770,6 @@ body {
     }
     .hero-text-content h1 { font-size: 2.8rem; }
 }
-
 @media (max-width: 768px) {
     .section-title h2 { font-size: 2rem; }
     .hero-text-content h1 { font-size: 2.2rem; }
@@ -889,7 +782,6 @@ body {
 /* ================================================== */
 /* JOB DETAILS MODAL STYLES (FINAL POLISHED VERSION)  */
 /* ================================================== */
-
 /* Make the entire job listing card clickable */
 .job-listing {
     cursor: pointer;
@@ -899,7 +791,6 @@ body {
     transform: translateY(-5px) scale(1.01);
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
-
 /* --- The dark background --- */
 .application-modal-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -909,7 +800,6 @@ body {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 .application-modal-overlay.active { opacity: 1; visibility: visible; }
-
 /* --- Main Modal Container --- */
 .application-modal-container {
     display: grid;
@@ -930,7 +820,6 @@ body {
     transition: transform 0.4s ease, opacity 0.4s ease;
 }
 .application-modal-overlay.active .application-modal-container { transform: scale(1); opacity: 1; }
-
 /* --- Close Button --- */
 .application-modal-close-btn {
     position: absolute; top: 15px; right: 15px;
@@ -966,7 +855,6 @@ html.no-scroll {
 .meta-item { display: flex; flex-direction: column; }
 .meta-item span { font-size: 0.9rem; color: #555; }
 .meta-item strong { font-size: 1rem; font-weight: 600; color: #0d2a81; }
-
 .modal-section { margin-bottom: 30px; }
 .modal-section h2 {
     font-size: 1.5rem;
@@ -979,7 +867,6 @@ html.no-scroll {
 .modal-section p { color: #555; line-height: 1.7; }
 .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 25px; }
 .skill-item { color: #333; font-size: 1rem; }
-
 /* --- Action Buttons --- */
 .modal-actions { display: flex; gap: 15px; margin-top: 30px; }
 .modal-btn {
@@ -989,7 +876,6 @@ html.no-scroll {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 .modal-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
-
 /* FIX: New button styles and 3D icon effect */
 .mail-btn { background-color: #1abec4; color: #fff; }
 .contact-btn { background-color: #0d2a81; color: #fff; } /* WhatsApp Green */
@@ -997,7 +883,6 @@ html.no-scroll {
     font-size: 1.2rem;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* 3D Effect */
 }
-
 /* --- Sticky Sidebar (Right) --- */
 .modal-sidebar {
     background-color: #0d2a81; /* Dark blue background */
@@ -1025,7 +910,6 @@ html.no-scroll {
     transition: background-color 0.2s, color 0.2s;
 }
 .sidebar-apply-btn:hover { background-color: #f0f0f0; }
-
 /* --- Responsive for Mobile --- */
 @media (max-width: 850px) {
     .application-modal-container {
@@ -1049,7 +933,6 @@ html.no-scroll {
     font-size: 15px;
     margin-top: 30px;
 }
-
 /* --- DESKTOP GRID LAYOUT --- */
 .site-footer .container {
     max-width: 1200px;
@@ -1076,7 +959,6 @@ html.no-scroll {
 .footer-links { 
     display: flex; 
     gap: 40px; 
-    /* REVERTED: டெஸ்க்டாப்பில் பழைய அலைன்மென்ட் படியே வைக்கப்பட்டுள்ளது */
     justify-content: flex-start; 
 }
 .footer-links ul { list-style: none; padding: 0; }
@@ -1084,7 +966,6 @@ html.no-scroll {
 .footer-links ul li a { color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s; }
 .footer-links ul li a:hover { opacity: 1; }
 .footer-bold b{color: #24eef5;}
-
 /* --- FOOTER FORM STYLES --- */
 .footer-form form { display: flex; flex-direction: column; gap: 15px; }
 .footer-form input,
@@ -1106,7 +987,6 @@ html.no-scroll {
 }
 .footer-form button:hover { background-color: #2c4280; }
 .footer-copyright { text-align: center; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.7); }
-
 /* =================================== */
 /* RESPONSIVE STYLES                   */
 /* =================================== */
@@ -1119,7 +999,6 @@ html.no-scroll {
         text-align: center;
         gap: 40px;
     }
-    
     /* The HTML change automatically fixes the order. No special CSS order needed. */
     .footer-about-main,
     .footer-about-contact,
@@ -1128,7 +1007,6 @@ html.no-scroll {
         width: 100%;
         max-width: 400px;
     }
-    
     .footer-about-contact .social-icons {
         display: flex;
         /* FIXED: மொபைலில் social icons-ஐ மையப்படுத்த */
@@ -1137,7 +1015,6 @@ html.no-scroll {
         margin-right: 85px;
         margin-top: 20px;
     }
-
     .footer-links {
         display: flex;
         flex-direction: row;
@@ -1165,11 +1042,9 @@ html.no-scroll {
     --bg-light: #f5f7fa;
     --white: #ffffff;
 }
-
 /* ================================================= */
 /* CHATBOT CSS - FINAL VERSION (WITH FIXES)          */
 /* ================================================= */
-
 /* --- Global Fix --- */
 html, body {
     width: 100%;
@@ -1177,13 +1052,11 @@ html, body {
     margin: 0;
     padding: 0;
 }
-
 /* --- Floating Animation Keyframes (FOR LAPTOP) --- */
 @keyframes float-animation {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
 }
-
 /* --- Floating Button --- */
 .chat-fab {
     position: fixed;
@@ -1210,7 +1083,6 @@ html, body {
     transform: scale(0);
     opacity: 0;
 }
-
 /* --- Chatbox Container --- */
 .chatbox-container {
     position: fixed;
@@ -1237,7 +1109,6 @@ html, body {
     visibility: visible;
     transform: translateY(0) scale(1);
 }
-
 /* --- Header --- */
 .chatbox-header {
     background: var(--dark-blue, #0d2a81);
@@ -1250,7 +1121,6 @@ html, body {
 }
 .chatbox-header h3 { margin: 0; font-size: 1.1rem; }
 .chatbox-close-btn { background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; }
-
 /* --- Messages Area --- */
 .chatbox-messages {
     flex-grow: 1;
@@ -1279,7 +1149,6 @@ html, body {
     border-bottom-right-radius: 4px;
     align-self: flex-end;
 }
-
 /* --- Options & Form Area --- */
 .chatbox-options-container {
     padding: 0 15px 10px 15px;
@@ -1325,7 +1194,6 @@ html, body {
     font-weight: 600;
     cursor: pointer;
 }
-
 /* --- Input Area --- */
 .chatbox-input {
     display: flex;
@@ -1348,7 +1216,6 @@ html, body {
     cursor: pointer;
     padding: 0 10px;
 }
-
 /* =================================== */
 /* MOBILE RESPONSIVENESS               */
 /* =================================== */
@@ -1376,11 +1243,9 @@ html, body {
        transform: translateY(0) scale(1);
     }
 }
-
 /* =================================== */
 /* 3D WHATSAPP BUTTON STYLES           */
 /* =================================== */
-
 /* Floating Button for WhatsApp */
 .whatsapp-toggle-button {
     position: fixed;
@@ -1435,7 +1300,6 @@ html, body {
     }
     
 }
-
    </style>
 </head>
 <body>
@@ -1488,8 +1352,6 @@ html, body {
     <li class="mobile-cta-button-container">
       <a href="https://itspaxiosinnovation.in/contact-us" class="cta-button">Get Start Now</a></li></ul>
 </div>
-
-
     <section class="career-hero-section">
         <div class="career-container">
             <div class="hero-text-content">
@@ -1497,7 +1359,6 @@ html, body {
                 <p>We're not just a company; we're a launchpad for talent. At IT Spaxios Innovation, we believe that the best digital solutions are built by passionate and creative minds. Explore how you can fit and make an impact with us. </p>
                 <a href="#open-positions" class="herocta-button">View Open Roles</a>
             </div>
-            
             <div class="hero-3d-visual">
                 <img src="/Images/careercenterimage.webp" alt="Spaxios Icon" class="floating-icon icon-center"> <div class="floating-icon icon-1"><i class="fas fa-code" loading="lazy"></i></div>
                 <div class="floating-icon icon-2"><i class="fas fa-lightbulb"></i></div>
@@ -1505,12 +1366,10 @@ html, body {
                 <div class="floating-icon icon-4"><i class="fas fa-chart-line"></i></div>
                 <div class="floating-icon icon-2"><i class="fas fa-lightbulb"></i></div>
                 <div class="floating-icon icon-3"><i class="fas fa-rocket"></i></div>
-                <div class="floating-icon icon-4"><i class="fas fa-chart-line"></i></div>
-                
+                <div class="floating-icon icon-4"><i class="fas fa-chart-line"></i></div>   
             </div>
         </div>
     </section>
-
     <section class="career-perks-section">
         <div class="cards-container">
             <div class="cardssection-title">
@@ -1541,36 +1400,29 @@ html, body {
             </div>
         </div>
     </section>
-
     <section id="open-positions" class="career-openings-section">
         <div class="career-container">
             <div class="jobsection-title">
                 <h2>Current Openings</h2>
                 <p><strong>Find your future role.</strong></p>
             </div>
-            <div class="job-listings-container" id="job-listings-container">
-              
+            <div class="job-listings-container" id="job-listings-container"> 
             </div>
-             <div class="spontaneous-apply">
-                
+             <div class="spontaneous-apply">  
                 <a href="mailto:info@itspaxiosinnovation.in" class="cta-button">We're always looking for talent.</a>
             </div>
         </div>
     <div id="application-modal" class="application-modal-overlay">
     <div class="application-modal-container">
-        
         <button class="application-modal-close-btn" aria-label="Close modal">&times;</button>
-        
         <div class="modal-main-content">
             <header class="modal-header">
                 <h1 id="modal-job-title">Job Title</h1>
             </header>
-            
             <section class="modal-section">
                 <h2>Job Description</h2>
                 <p>We are seeking a passionate and skilled individual to join our dynamic team. The ideal candidate will be responsible for [add a brief, general description here]. You will collaborate with other departments to create high-quality products and drive results.</p>
             </section>
-
             <section class="modal-section">
                 <h2>Skills Required</h2>
                 <div class="skills-grid">
@@ -1580,17 +1432,14 @@ html, body {
                     <div class="skill-item">✓ Excellent communication skills</div>
                 </div>
             </section>
-
             <div class="modal-actions">
-    <a href="mailto:info@itspaxiosinnovation.in" class="modal-btn mail-btn" target="_blank">
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hr@itspaxiosinnovation.in&su="target="_blank" aria-label="Email" class="modal-btn mail-btn">
         <i class="fas fa-envelope"></i> Mail Us
     </a>
     <a href="https://wa.me/919962214790" class="modal-btn contact-btn" target="_blank">
         <i class="fab fa-whatsapp"></i> Contact Us
     </a>
-</div>
-        </div>
-        
+</div></div>
         <aside class="modal-sidebar">
             <div class="sidebar-sticky-content">
                 <div class="sidebar-section">
@@ -1608,12 +1457,10 @@ html, body {
                 </div>
             </div>
         </aside>
-
     </div>
 </div>
     </section>
      <!---------------------chatbox--------------------------------------------------------------------------------------->
-
     <button class="chat-fab" id="chat-fab" aria-label="Open Chat">
     <i class="fa-solid fa-comments"></i>
 </button>
@@ -1647,7 +1494,6 @@ html, body {
 <input id="chat-email" type="email" placeholder="Email Address*" required>
 <textarea id="chat-message" placeholder="Message (optional)"></textarea>
 <button type="button" id="form-submit-btn">Send Details</button>
-
         </div>
     </div>
     <div class="chatbox-input">
@@ -1656,22 +1502,17 @@ html, body {
     </div>
 </div>
 <!------------------------------------------Watsapp----------------------------------->
-
-
 <a href="https://wa.me/919962214790" target="_blank" class="whatsapp-toggle-button" aria-label="Chat on WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
 </a>
-
 <!----------------------------------------------------------------------Footer--------------------------------------->
    <footer class="site-footer">
     <div class="container">
-
         <div class="footer-about-main">
             <h3><span class="footerits">IT Spaxios Innovation</span></h3>
             <p class="footer-bold"><b>Collaborate With Us !! Grow Your Business !!</b></p>
             <p>We are a renowned website development company in Chennai,India. Our talented team builds a responsive website with SEO and user friendly for your business. Along with this we are expertise in Digital Marketing. We provide result driven digital marketing strategies which make high ROI, build brand awareness, credibility, increase sales and leads.</p>
         </div>
-
         <div class="footer-links">
             <div>
                 <h3>Services</h3>
@@ -1693,8 +1534,7 @@ html, body {
                     <li><a href="https://itspaxiosinnovation.in/Blog">Blog</a></li>
                 </ul>
             </div>
-        </div>
-        
+        </div> 
         <div class="footer-form">
             <h3>Touch With Us</h3>
             <form id="footer-form">
@@ -1704,7 +1544,6 @@ html, body {
                 <button type="submit">Send Message</button>
             </form>
         </div>
-
         <div class="footer-about-contact">
             <p>National Flag, 15, Gopalakrishnan Street, Lane Of Vandikaran Street, Guindy, Chennai-88</p>
             <div class="social-icons">
@@ -1717,7 +1556,6 @@ html, body {
                 <a href="https://teams.live.com/l/invite/FEAUb-ZBopyUKkEDwE?v=g1" aria-label="Microsoft Teams"target="_blank"><i class="fa-brands fa-teamspeak"></i></a>
             </div>
         </div>
-
     </div>
     <div class="footer-copyright">
         <p>&copy; 2025 IT Spaxios Innovation. All rights reserved.</p>
@@ -1726,15 +1564,12 @@ html, body {
 <script>
     document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
-    
-
     // ============================================================
     // 1. HERO PARALLAX EFFECT
     // ============================================================
     const heroSection = document.querySelector('.career-hero-section');
     const visualContainer = document.querySelector('.hero-3d-visual');
     const floatingIcons = document.querySelectorAll('.floating-icon');
-
     if (heroSection && visualContainer) {
         heroSection.addEventListener('mousemove', (e) => {
             if (window.innerWidth < 992) return;
@@ -1744,9 +1579,7 @@ html, body {
             const yPos = (clientY / offsetHeight) - 0.5;
             const tiltIntensity = 15;
             const parallaxIntensity = 30;
-
             visualContainer.style.transform = `rotateY(${xPos * tiltIntensity}deg) rotateX(${-yPos * tiltIntensity}deg)`;
-
             floatingIcons.forEach(icon => {
                 if (!icon.style.transform || icon.style.transform === "") {
                     icon.style.transform = `translateX(${-xPos * parallaxIntensity}px) translateY(${-yPos * parallaxIntensity}px)`;
@@ -1755,7 +1588,6 @@ html, body {
                 }
             });
         });
-
         heroSection.addEventListener('mouseleave', () => {
             visualContainer.style.transform = `rotateY(0deg) rotateX(0deg)`;
             floatingIcons.forEach(icon => {
@@ -1763,8 +1595,6 @@ html, body {
             });
         });
     }
-    
-
     // ============================================================
     // 2. HEADER + MOBILE MENU
     // ============================================================
@@ -1772,24 +1602,20 @@ html, body {
     const hamburgerOpen = document.getElementById('hamburger-open');
     const hamburgerClose = document.getElementById('hamburger-close');
     const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
-
     if (topBar) {
         window.addEventListener('scroll', () => {
             topBar.classList.toggle('top-bar--hidden', window.scrollY > 50);
         });
     }
-
     const toggleMenu = (show) => {
         mobileMenuOverlay?.classList.toggle('active', show);
         body.classList.toggle('no-scroll', show);
     };
-
     hamburgerOpen?.addEventListener('click', () => toggleMenu(true));
     hamburgerClose?.addEventListener('click', () => toggleMenu(false));
     mobileMenuOverlay?.addEventListener('click', (e) => {
         if (e.target === mobileMenuOverlay) toggleMenu(false);
     });
-
     // ============================================================
     // 3. JOB LISTINGS + MODAL
     // ============================================================
@@ -1804,24 +1630,19 @@ html, body {
         applicationModalOverlay?.classList.add('active');
         body.style.overflow = 'hidden';
     };
-
     const closeApplicationModal = () => {
         applicationModalOverlay?.classList.remove('active');
         body.style.overflow = '';
     };
-
     closeModalBtn?.addEventListener('click', closeApplicationModal);
     applicationModalOverlay?.addEventListener('click', (e) => {
         if (e.target === applicationModalOverlay) closeApplicationModal();
     });
-
     const loadJobs = async () => {
         if (!jobListingsContainer) return;
-
         try {
             const res = await fetch('https://company-website-8ib6.vercel.app/api/careers');
             const jobs = await res.json();
-
             if (Array.isArray(jobs) && jobs.length > 0) {
                 jobListingsContainer.innerHTML = jobs.map(job => `
                     <div class="job-listing">
@@ -1850,16 +1671,13 @@ html, body {
             jobListingsContainer.innerHTML = `<p>Unable to load jobs.</p>`;
         }
     };
-
     loadJobs();
-
     // ============================================================
     // 4. SCROLL-IN ANIMATIONS
     // ============================================================
     const animatedElements = document.querySelectorAll(
         '.perk-card, .job-listing, .cardssection-title h2, .cardssection-title p, .jobsection-title h2, .jobsection-title p'
     );
-
     if (animatedElements.length > 0) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1872,7 +1690,6 @@ html, body {
 
         animatedElements.forEach(element => observer.observe(element));
     }
-
     // ============================================================
     // 5. CHATBOX
     // ============================================================
@@ -1886,12 +1703,10 @@ html, body {
     const dmOptions = document.getElementById('dm-options');
     const formWrap = document.getElementById('form-wrap');
     const formSubmitBtn = document.getElementById('form-submit-btn');
-
     let autoOpenTimer;
     let hasChatBeenOpened = false;
     let chosenService = '';
     let chosenSub = '';
-
     if (chatboxContainer) {
         const scrollToBottom = () => { if (messagesContainer) messagesContainer.scrollTop = messagesContainer.scrollHeight; };
         const addMessage = (text, sender) => {
@@ -1902,16 +1717,13 @@ html, body {
             messagesContainer.appendChild(messageDiv);
             scrollToBottom();
         };
-
         const hideAllOptions = () => {
             firstOptions?.classList.add('hidden');
             devOptions?.classList.add('hidden');
             dmOptions?.classList.add('hidden');
             formWrap?.classList.add('hidden');
         };
-
         const showOptions = (element) => { element?.classList.remove('hidden'); };
-
         const openChatbox = () => {
             if (hasChatBeenOpened && chatboxContainer.classList.contains('active')) return;
             hasChatBeenOpened = true;
@@ -1925,13 +1737,11 @@ html, body {
             addMessage("Hello! Welcome to Spaxios Innovation. How can I assist you today?", 'bot');
             setTimeout(() => showOptions(firstOptions), 1000);
         };
-
         const closeChatbox = () => {
             chatboxContainer.classList.remove('active');
             chatFab?.classList.remove('hidden');
             clearTimeout(autoOpenTimer);
         };
-
         const showForm = (message) => {
             hideAllOptions();
             if (chatInputContainer) chatInputContainer.style.display = 'none';
@@ -1942,33 +1752,27 @@ html, body {
                 scrollToBottom();
             }, 1000);
         };
-
         const handleSubmit = async () => {
             const nameInput = document.getElementById('chat-name');
             const contactInput = document.getElementById('chat-contact');
             const emailInput = document.getElementById('chat-email');
             const messageInput = document.getElementById('chat-message');
-
             const name = nameInput?.value.trim() || '';
             const contact = contactInput?.value.trim() || '';
             const email = emailInput?.value.trim() || '';
             const message = messageInput?.value.trim() || '';
-
             if (!name || !contact || !email) {
                 addMessage("Please fill in all required fields (Name, Contact, Email).", 'bot');
                 return;
             }
-
             addMessage(`Name: ${name}\nContact: ${contact}\nEmail: ${email}\nMessage: ${message}`, 'user');
             hideAllOptions();
-
             try {
                 const res = await fetch("https://company-website-8ib6.vercel.app/api/chat/submit", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ serviceCategory: chosenService || "General", subCategory: chosenSub || "", name, contact, email, message })
                 });
-
                 if (res.ok) {
                     addMessage("✅ Thank you for submitting. Our team will reach out to you soon!", 'bot');
                     setTimeout(closeChatbox, 3000);
@@ -1979,11 +1783,9 @@ html, body {
                 addMessage("⚠️ Network error. Please try again later.", 'bot');
             }
         };
-
         chatFab?.addEventListener('click', openChatbox);
         chatboxCloseBtn?.addEventListener('click', closeChatbox);
         formSubmitBtn?.addEventListener('click', handleSubmit);
-
         firstOptions?.addEventListener('click', (e) => {
             if (!e.target.matches('.option-btn')) return;
             chosenService = e.target.dataset.service;
@@ -1995,25 +1797,20 @@ html, body {
                 setTimeout(() => { addMessage("Excellent! Which area of Digital Marketing are you interested in?", 'bot'); showOptions(dmOptions); }, 1000);
             }
         });
-
         const handleSubOptionClick = (e) => {
             if (!e.target.matches('.choice-btn')) return;
             chosenSub = e.target.dataset.sub;
             addMessage(chosenSub, 'user');
             showForm("To discuss this further, please provide your details and our team will get in touch.");
         };
-
         devOptions?.addEventListener('click', handleSubOptionClick);
         dmOptions?.addEventListener('click', handleSubOptionClick);
-
         autoOpenTimer = setTimeout(openChatbox, 10000);
     }
-
     // ============================================================
     // 6. CONTACT FORM (FOOTER)
     // ============================================================
     const form = document.getElementById("footer-form");
-
     function showToast(msg, duration = 4000, bgColor = "#4BB543") {
         let toast = document.getElementById("toast");
         if (!toast) {
@@ -2034,38 +1831,30 @@ html, body {
         `;
         setTimeout(() => toast.style.visibility = "hidden", duration);
     }
-
-
 if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-
     const formData = {
       name: form.name.value,
       email: form.email.value,
       message: form.message.value,
     };
-
     const button = form.querySelector("button");
     const oldText = button.textContent;
     const oldBg = button.style.backgroundColor;
     const oldColor = button.style.color;
-
     // 🔹 Lazy loading effect on button + style change
     button.disabled = true;
     button.innerHTML = `Sending... <i class="fa-solid fa-hourglass-end"></i>`;
     button.style.backgroundColor = "white";
     button.style.color = "black";
-
     try {
       const res = await fetch("https://company-website-8ib6.vercel.app/api/contact/addcontact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
       const data = await res.json();
-
       if (res.ok) {
         showToast("✅ Thank you! Your query has been received. We will get back to you soon.");
         form.reset();
@@ -2087,10 +1876,7 @@ if (form) {
     }
   });
 }
-
-
 });
-
 </script>
 </body>
 </html>
