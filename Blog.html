@@ -18,7 +18,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Playfair Display Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
@@ -26,7 +25,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     body{
       font-family: poppins, sans-serif;
     }
-
     .header {
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   position: fixed;
@@ -35,7 +33,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   background-color: white;
   width: 100vw;
 }
- 
 .top-bar {
   color: black;
   padding: 8px 5%;
@@ -45,7 +42,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   overflow: hidden;
   transition: max-height 0.4s ease-out, padding 0.4s ease-out;
 }
- 
 .top-bar--hidden {
   max-height: 0 !important;
   padding-top: 0 !important;
@@ -53,7 +49,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   overflow: hidden;
   border: none !important;
 }
- 
 .top-bar-content {
   display: flex;
   align-items: center;
@@ -61,7 +56,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gap: 30px;
   flex-wrap: wrap;
 }
- 
 .contact-info {
   display: flex;
   align-items: center;
@@ -69,31 +63,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   flex-wrap: wrap;
   margin-right: auto;
 }
- 
 .contact-info span {
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
- 
 .social-icons {
   display: flex;
   align-items: center;
   gap: 18px;
 }
- 
 .social-icons a {
   color: #333;
   text-decoration: none;
   font-size: 1.2rem;
   transition: transform 0.3s ease, color 0.3s ease;
 }
- 
 .social-icons a:hover {
   transform: translateY(-3px);
   color: #0d2a81;
 }
- 
 .main-nav {
   display: flex;
   align-items: center;
@@ -102,15 +91,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   height: 80px;
   position: relative;
 }
- 
 .logo-img {
   height: 120px;
   width: auto;
   margin-left: -20px;
   transition: height 0.3s ease, margin-left 0.3s ease;
-  
 }
- 
 .desktop-nav-links {
   list-style: none;
   display: flex;
@@ -122,14 +108,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   padding-right: 20px;
   margin: 0;
 }
- 
 .desktop-nav-links li {
   position: relative;
   height: 100%;
   display: flex;
   align-items: center;
 }
- 
 .desktop-nav-links > li > a {
   text-decoration: none;
   color: #2c2c2c;
@@ -140,7 +124,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   align-items: center;
   height: 100%;
 }
- 
 .desktop-nav-links > li > a::after {
   content: '';
   position: absolute;
@@ -153,18 +136,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   transform-origin: bottom right;
   transition: transform 0.3s ease-out;
 }
- 
 .desktop-nav-links > li > a:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
- 
 .header-cta-right {
   display: flex;
   align-items: center;
   gap: 15px;
 }
- 
 .cta-button {
   background-color: #0d2a81;
   color: white;
@@ -177,11 +157,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   transition: background-color 0.3s, transform 0.3s;
   text-align: center;
 }
- 
 .cta-button:hover {
   transform: translateY(-2px);
 }
- 
 .hamburger {
   display: none;
   background: none;
@@ -190,9 +168,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   cursor: pointer;
   color: #2c2c2c;
   padding: 5px;
-  
 }
- 
 /* MOBILE MENU STYLES */
 .mobile-menu-overlay {
   position: fixed; top: 0; left: 0;
@@ -233,7 +209,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 /* ======================================================== */
 /* MOBILE STYLES - CORRECTED ALIGNMENT                      */
 /* ======================================================== */
- 
 @media (max-width: 768px) {
     /* --- General Nav Rules (Unchanged) --- */
     .desktop-nav-links,
@@ -247,7 +222,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         height: 70px;
         padding: 0 25px;
     }
- 
     /* --- Base Top Bar Layout --- */
     .top-bar {
         padding: 15px 25px;
@@ -276,14 +250,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
       .social-icons{margin-top: 7px;}
 }
- 
 /* ---------------------------------- */
 /* Large Mobile (<= 425px)            */
 /* ---------------------------------- */
 @media (max-width: 425px) {
     /* The layout from above is correct, no changes needed */
 }
- 
 /* ---------------------------------- */
 /* Medium Mobile (<= 375px)           */
 /* ---------------------------------- */
@@ -294,7 +266,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
  
 }
- 
 /* ---------------------------------- */
 /* Small Mobile (<= 360px)            */
 /* ---------------------------------- */
@@ -308,10 +279,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .top-bar, .main-nav {
         padding: 15px 15px;
     }
-      .social-icons{margin-top: 20px;}
-   
+      .social-icons{margin-top: 20px;} 
 }
-
    .banner {
       background-color: #011d70;
       text-align: center;
@@ -320,7 +289,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: #fff;
       padding-top: 177px;
     }
-
     .banner h1 {
       font-weight: bold;
       color: #f4f5f8;
@@ -338,9 +306,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     overflow: hidden;      /* Makes image follow the radius */
     box-shadow: 10px 10px 10px rgba(0,0,0,0.1); /* Optional soft shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-
     }
-
     ol.breadcrumb a {
       color: #e3e6ee;
       text-decoration: none;
@@ -357,7 +323,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   position: relative;
   overflow-x: hidden;
 }
-
 .bg-shape {
   position: absolute;
   top: -50px;
@@ -369,7 +334,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   opacity: 0.1;
   z-index: -1;
 }
-
 /* .bg-shape2 {
   position: absolute;
   bottom: -50px;
@@ -396,14 +360,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .breadcrumb-item + .breadcrumb-item::before {
   color: white;   /* change this to your desired slash color */
 }
-
    .site-footer {
     background-color: #0d2a81;
     color: #e0e0e0;
     padding: 60px 5% 25px 5%;
     font-size: 15px;
 }
- 
 /* --- DESKTOP GRID LAYOUT --- */
 .site-footer .container {
     max-width: 1200px;
@@ -438,7 +400,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .footer-links ul li a { color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s; }
 .footer-links ul li a:hover { opacity: 1; }
 .footer-bold b{color: #24eef5;}
- 
 /* --- FOOTER FORM STYLES --- */
 .footer-form form { display: flex; flex-direction: column; gap: 15px; }
 .footer-form input,
@@ -460,7 +421,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 .footer-form button:hover { background-color: #2c4280; }
 .footer-copyright { text-align: center; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.7); }
- 
 /* =================================== */
 /* RESPONSIVE STYLES                   */
 /* =================================== */
@@ -473,7 +433,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         text-align: center;
         gap: 40px;
     }
-   
     /* The HTML change automatically fixes the order. No special CSS order needed. */
     .footer-about-main,
     .footer-about-contact,
@@ -482,7 +441,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         width: 100%;
         max-width: 400px;
     }
-   
     .footer-about-contact .social-icons {
         display: flex;
         /* FIXED: மொபைலில் social icons-ஐ மையப்படுத்த */
@@ -491,7 +449,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         margin-right: 85px;
         margin-top: 20px;
     }
- 
     .footer-links {
         display: flex;
         flex-direction: row;
@@ -519,11 +476,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     --bg-light: #f5f7fa;
     --white: #ffffff;
 }
-
 /* ================================================= */
 /* CHATBOT CSS - FINAL VERSION (WITH FIXES)          */
 /* ================================================= */
-
 /* --- Global Fix --- */
 html, body {
     width: 100%;
@@ -531,13 +486,11 @@ html, body {
     margin: 0;
     padding: 0;
 }
-
 /* --- Floating Animation Keyframes (FOR LAPTOP) --- */
 @keyframes float-animation {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
 }
-
 /* --- Floating Button --- */
 .chat-fab {
     position: fixed;
@@ -564,7 +517,6 @@ html, body {
     transform: scale(0);
     opacity: 0;
 }
-
 /* --- Chatbox Container --- */
 .chatbox-container {
     position: fixed;
@@ -591,7 +543,6 @@ html, body {
     visibility: visible;
     transform: translateY(0) scale(1);
 }
-
 /* --- Header --- */
 .chatbox-header {
     background: var(--dark-blue, #0d2a81);
@@ -604,7 +555,6 @@ html, body {
 }
 .chatbox-header h3 { margin: 0; font-size: 1.1rem; }
 .chatbox-close-btn { background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; }
-
 /* --- Messages Area --- */
 .chatbox-messages {
     flex-grow: 1;
@@ -633,7 +583,6 @@ html, body {
     border-bottom-right-radius: 4px;
     align-self: flex-end;
 }
-
 /* --- Options & Form Area --- */
 .chatbox-options-container {
     padding: 0 15px 10px 15px;
@@ -679,7 +628,6 @@ html, body {
     font-weight: 600;
     cursor: pointer;
 }
-
 /* --- Input Area --- */
 .chatbox-input {
     display: flex;
@@ -702,7 +650,6 @@ html, body {
     cursor: pointer;
     padding: 0 10px;
 }
-
 /* =================================== */
 /* MOBILE RESPONSIVENESS               */
 /* =================================== */
@@ -711,7 +658,6 @@ html, body {
         /* FIX: Stop the floating animation on mobile devices */
         animation: none;
     }
-
     .chatbox-container {
         /* FIX: Reduced the height to look like a card, not a full page */
         width: calc(100% - 30px);
@@ -719,22 +665,18 @@ html, body {
         bottom: 85px; /* Positioned cleanly above the chat button */
         height: 70vh;
         max-height: 520px;
-        
         /* Unset properties from previous centering method */
         left: auto;
         transform: translateY(20px) scale(0.95);
         transform-origin: bottom right;
     }
-    
     .chatbox-container.active {
        transform: translateY(0) scale(1);
     }
 }
-
 /* =================================== */
 /* 3D WHATSAPP BUTTON STYLES           */
 /* =================================== */
-
 /* Floating Button for WhatsApp */
 .whatsapp-toggle-button {
     position: fixed;
@@ -757,12 +699,10 @@ html, body {
     /* Apply the new WhatsApp animation */
     animation: pulse-and-float-whatsapp 3s infinite ease-in-out;
 }
-
 .whatsapp-toggle-button:hover {
     transform: scale(1.1);
     background-color: #1DA851; /* Darker green on hover */
 }
-
 /* New animation specifically for the WhatsApp button's green shadow */
 @keyframes pulse-and-float-whatsapp {
     0% {
@@ -794,13 +734,8 @@ html, body {
   -webkit-line-clamp: 3; /* Number of lines to show */
   -webkit-box-orient: vertical;
 }
-
-
-    
   </style>
 </head>
-
-
 <body>
   <!--added command to push-->
 <!-- Google Tag Manager (noscript) -->
@@ -855,27 +790,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li class="mobile-cta-button-container">
       <a href="https://itspaxiosinnovation.in/contact-us" class="cta-button">Get Start Now</a></li></ul>
 </div>
-
-
-
   <div class="bg-shape"></div>
 <div class="bg-shape2"></div>
 <div class="bg-shape3"></div>
 <div class="bg-shape4"></div>
-
-
-
   <!-- Banner Section -->
   <section class="banner">
     <h1>BLOG</h1>
   </section>
-
   <!-- Blog Cards Section -->
   <div class="container my-5">
     <div class="row g-4" id="blog-container">
-     
     </div>
-
     <!-- Pagination -->
     <nav aria-label="Page navigation" class="mt-5" >
   <ul class="pagination justify-content-center" id="pagination">
@@ -885,7 +811,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li class="page-item"><a class="page-link" href="https://itspaxiosinnovation.in/Blog2">Next</a></li> -->
   </ul>
 </nav>
-
   </div>
 <!------------------------------------------Watsapp----------------------------------->
 <a href="https://wa.me/919962214790" target="_blank" class="whatsapp-toggle-button" aria-label="Chat on WhatsApp">
@@ -893,13 +818,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </a>
   <footer class="site-footer">
     <div class="container">
- 
         <div class="footer-about-main">
             <h3><span class="footerits">IT Spaxios Innovation</span></h3>
             <p class="footer-bold"><b>Collaborate With Us !! Grow Your Business !!</b></p>
             <p>We are a renowned website development company in Chennai,India. Our talented team builds a responsive website with SEO and user friendly for your business. Along with this we are expertise in Digital Marketing. We provide result driven digital marketing strategies which make high ROI, build brand awareness, credibility, increase sales and leads.</p>
         </div>
- 
         <div class="footer-links">
             <div>
                 <h3>Services</h3>
@@ -922,7 +845,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </ul>
             </div>
         </div>
-       
         <div class="footer-form">
             <h3>Touch With Us</h3>
             <form id="footer-form">
@@ -932,7 +854,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <button type="submit">Send Message</button>
             </form>
         </div>
- 
         <div class="footer-about-contact">
             <p>National Flag, 15, Gopalakrishnan Street, Lane Of Vandikaran Street, Guindy, Chennai-88</p>
             <div class="social-icons">
@@ -997,25 +918,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const apiURL = "https://company-website-8ib6.vercel.app/story/getAllStories";
 const blogContainer = document.getElementById("blog-container");
 const paginationContainer = document.getElementById("pagination");
-
 const loadingIndicator = document.createElement('div');
   loadingIndicator.className = 'loading-indicator'; // Add some loading spinner class or animation
   blogContainer.appendChild(loadingIndicator);
-
 let currentPage = 1;
 const postsPerPage = 6; // must match backend limit
-
 async function fetchStories() {
   try {
     // Show loading spinner before fetch
       loadingIndicator.style.display = 'block';
     const response = await fetch(`${apiURL}?page=${currentPage}&limit=${postsPerPage}`);
     const result = await response.json();
-
-    
       // Hide loading spinner once data is fetched
       loadingIndicator.style.display = 'none';
-
     if (result && result.success && Array.isArray(result.data)) {
       renderPage(result.data);
       renderPagination(result.pages, result.page); // ✅ use backend pages & page
@@ -1032,14 +947,11 @@ async function fetchStories() {
     blogContainer.innerHTML = `<p class="text-danger">Failed to load stories.</p>`;
   }
 }
-
 function renderPage(stories) {
   blogContainer.innerHTML = "";
-
   stories.forEach(story => {
     const card = document.createElement("div");
     card.classList.add("col-md-4");
-
   card.innerHTML = `
   <div class="card h-100 d-flex flex-column">
     <img src="${story.image || '/Images/default.png'}" class="card-img-top" alt="${story.title}" loading="lazy">
@@ -1050,15 +962,12 @@ function renderPage(stories) {
     </div>
   </div>
 `;
-
     blogContainer.appendChild(card);
   });
 }
-
 function renderPagination(totalPages, current) {
   paginationContainer.innerHTML = "";
   currentPage = current; // update global currentPage
-
   // Previous
   const prev = document.createElement("li");
   prev.className = `page-item ${currentPage === 1 ? "disabled" : ""}`;
@@ -1071,7 +980,6 @@ function renderPagination(totalPages, current) {
     }
   };
   paginationContainer.appendChild(prev);
-
   // Page numbers
   for (let i = 1; i <= totalPages; i++) {
     const li = document.createElement("li");
@@ -1086,7 +994,6 @@ function renderPagination(totalPages, current) {
     };
     paginationContainer.appendChild(li);
   }
-
   // Next
   const next = document.createElement("li");
   next.className = `page-item ${currentPage === totalPages ? "disabled" : ""}`;
@@ -1100,10 +1007,8 @@ function renderPagination(totalPages, current) {
   };
   paginationContainer.appendChild(next);
 }
-
 // Initial fetch
 fetchStories();
-
   // ===================================================================
     // 8. (CHATBOX)
     // ===================================================================
@@ -1119,12 +1024,9 @@ fetchStories();
     const dmOptions = document.getElementById('dm-options');
     const formWrap = document.getElementById('form-wrap');
     const formSubmitBtn = document.getElementById('form-submit-btn');
-
     let autoOpenTimer;
     let hasChatBeenOpened = false;
-
     const scrollToBottom = () => { if (messagesContainer) messagesContainer.scrollTop = messagesContainer.scrollHeight; };
-    
     const addMessage = (text, sender) => {
         if (!messagesContainer) return;
         const messageDiv = document.createElement('div');
@@ -1133,21 +1035,17 @@ fetchStories();
         messagesContainer.appendChild(messageDiv);
         scrollToBottom();
     };
-
     const showOptions = (element) => { if(element) element.classList.remove('hidden'); };
-
     const hideAllOptions = () => {
         if (firstOptions) firstOptions.classList.add('hidden');
         if (devOptions) devOptions.classList.add('hidden');
         if (dmOptions) dmOptions.classList.add('hidden');
         if (formWrap) formWrap.classList.add('hidden');
     };
-    
     const openChatbox = () => {
         if (hasChatBeenOpened && chatboxContainer.classList.contains('active')) return;
         hasChatBeenOpened = true;
         clearTimeout(autoOpenTimer);
-        
         chatboxContainer.classList.add('active');
         chatFab.classList.add('hidden');
         messagesContainer.innerHTML = '';
@@ -1157,13 +1055,11 @@ fetchStories();
         addMessage("Hello! Welcome to Spaxios Innovation. How can I assist you today?", 'bot');
         setTimeout(() => showOptions(firstOptions), 1000);
     };
-
     const closeChatbox = () => {
         chatboxContainer.classList.remove('active');
         chatFab.classList.remove('hidden');
         clearTimeout(autoOpenTimer);
     };
-
     const showForm = (message) => {
         hideAllOptions();
         chatInputContainer.style.display = 'none';
@@ -1174,29 +1070,24 @@ fetchStories();
             scrollToBottom();
         }, 1000);
     };
-
     const handleSubmit = async () => {
     const nameInput = document.getElementById('name');
     const contactInput = document.getElementById('contact');
     const emailInput = document.getElementById('email');
     const messageInput = document.getElementById('message');
-
     const name = nameInput ? nameInput.value.trim() : '';
     const contact = contactInput ? contactInput.value.trim() : '';
     const email = emailInput ? emailInput.value.trim() : '';
     const message = messageInput ? messageInput.value.trim() : '';
-
     // ✅ Check all fields including message
     if (!name || !contact || !email || !message) {
         addMessage("Please fill in all required fields (Name, Contact, Email, Message).", 'bot');
         return;
     }
-
     // ✅ Show user submission in chat
     const formData = `Name: ${name}\nContact: ${contact}\nEmail: ${email}\nMessage: ${message}`;
     addMessage(formData, 'user');
     hideAllOptions();
-
     try {
         const res = await fetch("https://company-website-beta-six.vercel.app/api/chat/submit", {
             method: "POST",
@@ -1210,9 +1101,7 @@ fetchStories();
                 message
             })
         });
-
         const data = await res.json();
-
         if (res.ok) {
             addMessage("✅ Thank you for submitting. Our team will reach out to you soon!", 'bot');
             setTimeout(closeChatbox, 3000);
@@ -1225,10 +1114,8 @@ fetchStories();
         console.error("Network error:", err);
     }
 };
-
     if (chatFab) chatFab.addEventListener('click', openChatbox);
     if (chatboxCloseBtn) chatboxCloseBtn.addEventListener('click', closeChatbox);
-    
     if (sendBtn) {
         sendBtn.addEventListener('click', () => {
             const text = chatInput.value.trim();
@@ -1239,7 +1126,6 @@ fetchStories();
             }
         });
     }
-
     if (firstOptions) {
         firstOptions.addEventListener('click', (e) => {
             if (!e.target.matches('.option-btn')) return;
@@ -1260,7 +1146,6 @@ fetchStories();
             }
         });
     }
-
     const handleSubOptionClick = (e) => {
         if (!e.target.matches('.choice-btn')) return;
         const choice = e.target.dataset.sub;
@@ -1268,18 +1153,13 @@ fetchStories();
         addMessage(choice, 'user');
         showForm("To discuss this further, please provide your details and our team will get in touch.");
     };
-
     if (devOptions) devOptions.addEventListener('click', handleSubOptionClick);
     if (dmOptions) dmOptions.addEventListener('click', handleSubOptionClick);
     if (formSubmitBtn) formSubmitBtn.addEventListener('click', handleSubmit);
-
     // Auto-open timer after 10 seconds
     if (chatboxContainer) { // Only set the timer if the chatbox exists on the page
         autoOpenTimer = setTimeout(openChatbox, 10000);
     }
-
-
-
     // ----------------------
     // Toast function
     // ----------------------
@@ -1306,23 +1186,18 @@ fetchStories();
             `;
             document.body.appendChild(toast);
         }
-
         toast.textContent = message;
         toast.style.backgroundColor = bgColor;
         toast.style.visibility = "visible";
-
         setTimeout(() => {
             toast.style.visibility = "hidden";
         }, duration);
     }
-
-   
     // ----------------------
     // contactForm submission with backend API
     // ----------------------
    const form = document.getElementById("footer-form");
    console.log("Form:", form); // 🔹 debug: should not be null
-
 if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -1332,27 +1207,22 @@ if (form) {
       email: form.email.value,
       message: form.message.value,
     };
-
     const button = form.querySelector("button");
     const oldText = button.textContent;
     const oldBg = button.style.backgroundColor;
     const oldColor = button.style.color;
-
     // 🔹 Lazy loading effect on button + style change
     button.disabled = true;
    button.innerHTML = `Sending... <i class="fa-solid fa-hourglass-end"></i>`;
     button.style.backgroundColor = "white";
     button.style.color = "black";
-
     try {
       const res = await fetch("https://company-website-8ib6.vercel.app/api/contact/addcontact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
       const data = await res.json();
-
       if (res.ok) {
         showToast("✅ Thank you! Your query has been received. We will get back to you soon.");
         form.reset();
@@ -1374,15 +1244,12 @@ if (form) {
     }
   });
 }
-
-
     const header = document.querySelector('.header');
     const topBar = document.querySelector('.top-bar');
     const hamburgerOpen = document.getElementById('hamburger-open');
     const hamburgerClose = document.getElementById('hamburger-close');
     const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
     const body = document.body;
- 
     if (topBar) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -1392,12 +1259,10 @@ if (form) {
             }
         });
     }
- 
     const toggleMenu = (show) => {
         if (mobileMenuOverlay) mobileMenuOverlay.classList.toggle('active', show);
         if (body) body.classList.toggle('no-scroll', show);
     };
- 
     if (hamburgerOpen) {
         hamburgerOpen.addEventListener('click', () => toggleMenu(true));
     }
@@ -1413,7 +1278,5 @@ if (form) {
    }
    });
 </script>
-  
-
 </body>
 </html>
