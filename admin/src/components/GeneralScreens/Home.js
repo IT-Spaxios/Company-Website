@@ -19,47 +19,34 @@ const Home = () => {
   const [page, setPage] = useState(1);
   const [pages, setPages] = useState(1);
 
+useEffect(() => {
+  let isMounted = true;
 
-  useEffect(() => {
-    const getStories = async () => {
-
-      setLoading(true)
-      try {
-
-        const { data } = await API.get(`/story/getAllStories?search=${searchKey || ""}&page=${page}`)
-
-        if (searchKey) {
-          navigate({
-            pathname: '/',
-            search: `?search=${searchKey}${page > 1 ? `&page=${page}` : ""}`,
-          });
-        }
-        else {
-          navigate({
-            pathname: '/',
-            search: `${page > 1 ? `page=${page}` : ""}`,
-          });
-
-
-        }
-        setStories(data.data)
-        setPages(data.pages)
-
-        setLoading(false)
+  const getStories = async () => {
+    setLoading(true);
+    try {
+      const { data } = await API.get(`/story/getAllStories?search=${searchKey || ""}&page=${page}`);
+      if (isMounted) {
+        setStories(data.data);
+        setPages(data.pages);
+        setLoading(false);
       }
-      catch (error) {
-        console.error("Failed to fetch stories:", error);
-  setStories([]); // make sure stories is always an array
-  setLoading(false);
+    } catch (error) {
+      console.error("Failed to fetch stories:", error);
+      if (isMounted) {
+        setStories([]);
+        setLoading(false);
       }
     }
-    getStories()
-  }, [setLoading, search, page, navigate])
+  };
 
+  getStories();
 
-  useEffect(() => {
-    setPage(1)
-  }, [searchKey])
+  return () => {
+    isMounted = false; // cleanup
+  };
+}, [search, page, navigate]);
+
 
 
   return (

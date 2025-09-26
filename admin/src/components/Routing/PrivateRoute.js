@@ -12,6 +12,7 @@ const PrivateRoute = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
+      let isMounted = true; // flag to track mount status
     const checkAuth = async () => {
       const token = localStorage.getItem("authToken");
 
@@ -23,11 +24,15 @@ const PrivateRoute = () => {
       }
 
       try {
-        const { data } = await API.get(`${process.env.REACT_APP_BACKEND_URL}/api/auth/private`, {
+        const { data } = await API.get(`/api/auth/private`, {
           headers: { authorization: `Bearer ${token}` },
         });
 
+
+         if (isMounted) { // only update state if still mounted
         setAuth(true);
+      }
+      
         setActiveUser(data.user);
 
         setConfig({
@@ -44,6 +49,9 @@ const PrivateRoute = () => {
     };
 
     checkAuth();
+     return () => {
+    isMounted = false; // cleanup on unmount
+  };
   }, [navigate, setActiveUser, setConfig]);
 
   return auth ? <Outlet /> : <Home error={error} />;

@@ -55,7 +55,7 @@ const Header = () => {
                             <Link to="/readList" className='readList-link'>
                                 <BsBookmarks />
                                 <span id="readListLength">
-                                    {activeUser.readListLength}
+                                     {activeUser?.readListLength ?? 0}
                                 </span>
                             </Link>
                           <Link className='chatsubmit-link' to="/chat-section"> Chat Section </Link>

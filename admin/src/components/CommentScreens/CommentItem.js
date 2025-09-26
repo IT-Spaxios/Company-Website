@@ -14,30 +14,31 @@ const CommentItem = ({ comment, activeUser }) => {
     const [likeCount, setLikeCount] = useState(comment.likeCount)
     const [likeStatus, setLikeStatus] = useState(false)
 
-    useEffect(() => {
+useEffect(() => {
+  let isMounted = true;
 
-        const getCommentLikeStatus = async () => {
+  const getCommentLikeStatus = async () => {
+    const comment_id = comment._id;
+    try {
+      const { data } = await API.post(`/comment/${comment_id}/getCommentLikeStatus`, { activeUser }, {
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      });
+      if (isMounted) {
+        setLikeStatus(data.likeStatus);
+      }
+    } catch (error) {
+      console.error("getCommentLikeStatus failed", error);
+    }
+  };
 
-            const comment_id = comment._id
-            try {
-                const { data } = await API.post(`/comment/${comment_id}/getCommentLikeStatus`, { activeUser }, {
-                    headers: {
-                        "Content-Type": "application/json",
-                        authorization: `Bearer ${localStorage.getItem("authToken")}`,
-                    },
-                })
-                setLikeStatus(data.likeStatus)
-            }
-            catch (error) {
+  getCommentLikeStatus();
 
-                localStorage.removeItem("authToken")
-                navigate("/")
-            }
-        }
+  return () => { isMounted = false }; // cleanup
+}, [comment._id, activeUser]);
 
-        getCommentLikeStatus()
-
-    }, [])
     const editDate = (createdAt) => {
         const d = new Date(createdAt);
         var datestring = d.toLocaleString('eng', { month: 'long' }).substring(0, 3) + " " + d.getDate()

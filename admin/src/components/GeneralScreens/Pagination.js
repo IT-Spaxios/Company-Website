@@ -18,7 +18,10 @@ const Pagination = ({ page, pages, changePage }) => {
 
             <button
                 key={index + 1}
-                onClick={() => changePage(index + 1)}
+                 onClick={(e) => {
+    e.stopPropagation(); // prevent clicks from bubbling to parent links
+    changePage(index + 1);
+  }} // prevent clicks from bubbling to parent links
                 disabled={page === index + 1}
             >
                 {index + 1}

@@ -94,19 +94,26 @@ export const commentLike = asyncErrorWrapper(async(req, res, next) => {
 
 })
 
-export const getCommentLikeStatus = asyncErrorWrapper(async(req, res, next) => {
+export const getCommentLikeStatus = asyncErrorWrapper(async (req, res, next) => {
+  const { activeUser } = req.body || {};
+  const { comment_id } = req.params;
 
-    const { activeUser} =  req.body 
-    const { comment_id} =  req.params 
+  const comment = await Comment.findById(comment_id);
 
-    const comment = await Comment.findById(comment_id)
-    const likeStatus = comment.likes.includes(activeUser._id)
+  if (!comment) {
+    return res.status(404).json({ success: false, message: "Comment not found" });
+  }
 
-    return res.status(200)
-    .json({
-        success: true,
-        likeStatus:likeStatus
-    })
+  // if no active user, treat as not liked
+  if (!activeUser || !activeUser._id) {
+    return res.status(200).json({ success: true, likeStatus: false });
+  }
 
-})
+  const likeStatus = comment.likes.includes(activeUser._id);
+
+  return res.status(200).json({
+    success: true,
+    likeStatus,
+  });
+});
 
