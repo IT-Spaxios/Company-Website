@@ -23,7 +23,7 @@ const PrivateRoute = () => {
       }
 
       try {
-        const { data } = await API.get("http://localhost:5000/api/auth/private", {
+        const { data } = await API.get(`${process.env.REACT_APP_BACKEND_URL}/api/auth/private`, {
           headers: { authorization: `Bearer ${token}` },
         });
 
