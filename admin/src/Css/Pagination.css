@@ -17,6 +17,18 @@
     align-items: center;
     color: rgb(145, 145, 145);
     background-color: #EDF0F7;
+    transition: all 0.2s ease;
+}
+
+.pagination button:hover {
+    background-color: #0063a5;
+    color: #fff;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #666;
 }
 
 .pagination button svg {
@@ -24,9 +36,9 @@
     font-size: 1.1rem;
 }
 
-.pagination button:disabled {
-    color: #0063a5;
+/* Active page highlighting */
+.pagination button.active-page {
+    background-color: #0063a5;
+    color: #fff;
     font-weight: bold;
-    text-decoration: underline;
-    text-underline-offset: 6px;
 }

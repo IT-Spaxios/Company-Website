@@ -79,12 +79,13 @@ useEffect(() => {
 
           </div>
 
-          <Pagination page={page} pages={pages} changePage={setPage} />
+          
 
         </div>
 
       }
       <br />
+      <Pagination page={page} pages={pages} changePage={setPage} />
     </div>
 
   )
