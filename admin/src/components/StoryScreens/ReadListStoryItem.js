@@ -8,6 +8,7 @@ const ReadListStoryItem = ({ story, editDate }) => {
         const trimmedString = content.substr(0, 130);
         return trimmedString
     }
+  if (!story) return null; // ✅ defensive check
 
     return (
 

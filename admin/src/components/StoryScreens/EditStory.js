@@ -105,16 +105,16 @@ const EditStory = () => {
 
                             />
 
-                            <div class="currentlyImage">
-                                <div class="absolute">
+                            <div className="currentlyImage">
+                                <div className="absolute">
                                     Currently Image
                                 </div>
                                <img src={previousImage} alt="storyImage" />
 
                             </div>
-                            <div class="StoryImageField">
+                            <div className="StoryImageField">
                                 <AiOutlineUpload />
-                                <div class="txt">
+                                <div className="txt">
 
                                     {image === previousImage ? "    Change the image in your story " :
                                         image.name}

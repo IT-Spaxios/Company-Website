@@ -22,7 +22,7 @@ const ReadListPage = () => {
             setLoading(true)
 
             try {
-                const { data } = await (await API .get(`/user/readList`, config)).data
+                const { data } = await (await API.get(`/user/readList`, config)).data
                 setReadList(data)
                 setLoading(false)
             }
@@ -89,24 +89,18 @@ const ReadListPage = () => {
 
                     <div className="readList-story-wrapper">
 
-                        {readList.length !== 0 ?
-                            <>
-                                {readList.map(story => {
-                                    return (
-                                        <ReadListStoryItem key={story._id} story={story} editDate={editDate} />
+                        {readList?.filter(story => story && story._id).length > 0 ? (
+  readList
+    .filter(story => story && story._id)
+    .map(story => (
+      <ReadListStoryItem key={story._id} story={story} editDate={editDate} />
+    ))
+) : (
+  <div className="empty-readList">
+    Reading List is empty
+  </div>
+)}
 
-                                    )
-                                })}
-                            </>
-
-                            :
-
-                            <div className="empty-readList">
-
-                                Reading List is empty
-
-                            </div>
-                        }
 
 
                     </div>
