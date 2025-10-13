@@ -196,6 +196,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="preconnect" href="https://img1.wsimg.com">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+
+<!-- ✅ DNS Prefetch fallback -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="https://img1.wsimg.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
 <!-- ✅ Optimized Google Fonts: Non-blocking load -->
 <link rel="preload" as="style"
   href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
@@ -593,6 +603,7 @@ body.no-scroll {
   .hero-btn { padding: 10px 16px; font-size: 15px; }}
 /* Extra Small (less than 480px) */
 @media (max-width: 480px) {
+    .hero-section .hero-section-ColorChange{font-size: larger;font-weight: 950;}
   .hero-section { margin-top: 140px; margin-bottom: -330px; padding: 25px 5%; }
   .hero-text h1 { font-size: 28px; margin-top: 30px; }
   .hero-text p { font-size: 16px; }
@@ -1794,6 +1805,30 @@ background: #1a2a3d;box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         gap: 40px;
     }
 }
+@media (max-width: 768px) {
+    .solution-section {
+        padding: 80px 5%;
+        margin-bottom: -100px;
+    }
+    .section-service-headline h3 {
+        font-size: 28px;
+    }
+    .section-service-headline p {
+        font-size: 16px;
+        margin-top: -20px;
+    }
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .service-item:nth-child(4n+1),
+    .service-item:nth-child(4n+2),
+    .service-item:nth-child(4n+3),
+    .service-item:nth-child(4n+4) {
+        transform: none;
+    }
+}
+@media (max-width:480px){.service-h3-1a strong {color: #1abec4; font-weight: 800; font-size: larger;}}
 @media (max-width: 600px) {
     /* === MOBILE FIX: Disables all animations and ensures visibility === */
     .service-item,
@@ -1952,7 +1987,7 @@ background: #1a2a3d;box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     from { border-radius: 83% 17% 83% 17% / 23% 73% 27% 77%; }
     to { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
 }
-.text-in-shape h6 {
+.text-in-shape h3 {
     position: relative; z-index: 2;
     color: white; font-size: 18px;
     font-weight: 500; line-height: 1.7;
@@ -2009,7 +2044,7 @@ background: #1a2a3d;box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     }
     .section-workflow-headline h2 { font-size: 28px; }
     .text-in-shape { padding: 40px 25px; }
-    .text-in-shape h6 { font-size: 16px; }
+    .text-in-shape h3 { font-size: 16px; }
     /* --- MOBILE FIX: Make the text shape static --- */
     .text-in-shape::before {
         /* Stop the morphing animation on mobile */
@@ -2245,6 +2280,9 @@ background: #1a2a3d;box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         transition: none;
     }
 }
+@media (max-width:480px){
+    .tech-section-strong{font-size: 46px; font-weight: 800;}}
+
 /* ======================================================== */
 /* PORTFOLIO & 3D CAROUSEL POPUP (Optimized for Performance) */
 /* ======================================================== */
@@ -2656,6 +2694,7 @@ background: #1a2a3d;box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     .feature-chooseus-card p {
         font-size: 14px;
     }
+    .choose-h2-1a{color: #1abec4; font-size: larger; font-weight: 800;}
 }
     /* === ANIMATIONS DISABLED FOR MOBILE SCREENS END HERE === */
     .choose-us-section {
@@ -2682,6 +2721,8 @@ background: #1a2a3d;box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     .choose-us-section {
         padding: 50px 20px;
     }
+    .choose-p-1a{color: #1ba6b3;font-size: large;}
+    .choose-p-1b{color: #1ba6b3;font-size: large;}
     .section-chooseus-headline h2 {
         font-size: 24px;
         text-align: center;
@@ -3113,6 +3154,26 @@ html, body {
     cursor: pointer;
     padding: 0 10px;
 }
+@media (max-width: 480px) {
+    .option-btn {background: var(--cyan-accent, #00BFA6);
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 14px;}
+    .choice-btn{
+        background: var(--cyan-accent, #00BFA6);
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 14px;
+    }
+}
 /* =================================== */
 /* MOBILE RESPONSIVENESS               */
 /* =================================== */
@@ -3314,7 +3375,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="https://www.facebook.com/profile.php?id=61578271812457"target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="https://www.linkedin.com/company/it-spaxios-innovation/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
         <a href="https://www.instagram.com/it_spaxios_innovation_/"target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://x.com/ItSpaxios" target="_blank" rel="nofollow"><i class="fa-brands fa-x-twitter"></i></a>
+<a href="https://x.com/ItSpaxios" 
+   target="_blank" 
+   rel="nofollow" 
+   aria-label="Visit IT Spaxios on X (Twitter)">
+  <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+</a>
         <a href="https://wa.me/919962214790" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
         <a href="https://teams.live.com/l/invite/FEAUb-ZBopyUKkEDwE?v=g1" aria-label="Microsoft Teams" target="_blank"><i class="fa-brands fa-teamspeak"></i></a>
       </div></div></div>
@@ -3347,7 +3413,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button class="close-btn" id="hamburger-close" aria-label="Close Menu">
         <i class="fa-solid fa-times"></i>
       </button></li>
-    <li><a href="https://itspaxiosinnovation.in/">Home</a></li>
+    <li><a href="https://itspaxiosinnovation.in">Home</a></li>
     <li><a href="https://itspaxiosinnovation.in/digital-marketing-service">Digital Marketing</a></li>
     <li><a href="https://itspaxiosinnovation.in/contact-us">Contact Us</a></li>
     <li><a href="https://itspaxiosinnovation.in/career">Career</a></li>
@@ -3390,12 +3456,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </div>
         <div class="section-about-cta">
-            <a href="https://itspaxiosinnovation.in/contact-us" class="btn-primary">
-                <span><b>Click Here</b></span>
-                <div class="btn-icon">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-            </a>
+           <a href="https://itspaxiosinnovation.in/contact-us" class="btn-primary" aria-label="Contact Us for a Free Consultation">
+    <span><b>Click Here</b></span>
+    <div class="btn-icon">
+        <i class="fa-solid fa-arrow-right"></i>
+    </div>
+</a>
         </div>
     </div>
 </section>
@@ -3421,7 +3487,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- Row 2: Image Left, Text Right -->
             <div class="zigzag-row">
                 <div class="zigzag-image">
-                    <img src="/Images/There is no Proper Support When It Comes to Bugs and Issues.webp" alt="website development company wont provide Proper Support When It Comes to Bugs and Issues.">
+                    <img 
+  src="/Images/There is no Proper Support When It Comes to Bugs and Issues.webp" 
+  alt="Website development company won't provide proper support when it comes to bugs and issues." 
+  loading="lazy" 
+  decoding="async" 
+  width="600" height="400">
+
                 </div>
                 <div class="zigzag-text">
                     <p> <span class="zigzag-p2a"><strong>There is no Proper Support When It Comes to Bugs and Issues. </strong></span>You will have to spend more time and money to rectify them, even more than you initially saved. Every time you need to go to them for updates and issues. That's why we say don't get yourself into this trap without knowing these.</p>
@@ -3438,12 +3510,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </div>
         <div class="section-zigzag-cta">
-    <a href="https://itspaxiosinnovation.in/contact-us" class="btn-primary">
-        <span><b>Click Here - We Will Explain How It Works</b></span>
-        <div class="btn-icon">
-            <i class="fa-solid fa-arrow-right"></i>
-        </div>
-    </a>
+    <a href="https://itspaxiosinnovation.in/contact-us" class="btn-primary" aria-label="Contact Us to Learn How It Works">
+    <span><b>Click Here - We Will Explain How It Works</b></span>
+    <div class="btn-icon">
+        <i class="fa-solid fa-arrow-right"></i>
+    </div>
+</a>
 </div>
 </div>
 </section>
@@ -3656,7 +3728,7 @@ Boost your brand visibility!! user engagement!! sale!!
     </div>
     <div class="text-in-shape-container">
         <div class="text-in-shape">
-            <h6>Process makes the best outcome, don't trust those who say within 3hrs get your websites. We can also give a website in 2 hours by changing the color and text. But we don't do that. Because <span class="workflow-p-1a"><strong>Every Business Has a Mission and Vision, We Value That.</strong></span> <strong>Our premium website development service has a procedure to follow in every project. By following these steps,</strong> <span class="workflow-p-1b"><strong>we are giving a 100% efficient website for a client.</strong></span></h6>
+            <h3>Process makes the best outcome, don't trust those who say within 3hrs get your websites. We can also give a website in 2 hours by changing the color and text. But we don't do that. Because <span class="workflow-p-1a"><strong>Every Business Has a Mission and Vision, We Value That.</strong></span> <strong>Our premium website development service has a procedure to follow in every project. By following these steps,</strong> <span class="workflow-p-1b"><strong>we are giving a 100% efficient website for a client.</strong></span></h3>
         </div>
     </div>
     <div class="Workflow-cta">
@@ -4192,7 +4264,7 @@ Boost your brand visibility!! user engagement!! sale!!
                 <a href="https://www.facebook.com/profile.php?id=61578271812457"target="_blank" aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                 <a href="https://www.linkedin.com/company/it-spaxios-innovation/" target="_blank"aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                 <a href="https://www.instagram.com/it_spaxios_innovation_/" target="_blank"aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://x.com/ItSpaxios" target="_blank" rel="nofollow"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://x.com/ItSpaxios" target="_blank" rel="nofollow" aria-label="Visit IT Spaxios on X (Twitter)"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
                 <a href="https://wa.me/919962214790" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@itspaxiosinnovation.in&su=Inquiry&body=Hello%20Team%20Spaxios,"target="_blank" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
                 <a href="https://teams.live.com/l/invite/FEAUb-ZBopyUKkEDwE?v=g1" aria-label="Microsoft Teams"target="_blank" title="Microsoft Teams"><i class="fa-brands fa-teamspeak"></i></a>
@@ -4238,9 +4310,7 @@ for (let i = 0; i < myElements.length; i++) {
   myElements[i].style.opacity = '1';
   myElements[i].style.width = (containerWidth / 2) + 'px';
 }
-    // ===================================================================
     // 2.(HEADER & MOBILE MENU)
-    // ===================================================================
     const header = document.querySelector('.header');
     const topBar = document.querySelector('.top-bar');
     const hamburgerOpen = document.getElementById('hamburger-open');
@@ -4273,27 +4343,20 @@ for (let i = 0; i < myElements.length; i++) {
             }
         });
     }
-    // ===================================================================
-// 3.(LOTTIE ANIMATIONS - LAZY LOADED FOR PERFORMANCE)
-// ===================================================================
 let lottieScriptLoaded = false;
 const lottieAnimations = [
-    { id: 'website-build-vector', path: 'https://lottie.host/8807d9f9-5777-4a0b-9366-f51952e96eb0/8vH98yQv61.json' },
+    { id: 'website-build-vector', path: '/assets/lottie/website-build-vector.json' },
     { id: 'website-vector', path: 'https://assets1.lottiefiles.com/packages/lf20_ikvz7qhc.json' }
 ];
+
 const loadLottieScript = (callback) => {
-    if (lottieScriptLoaded) {
-        callback();
-        return;
-    }
+    if (lottieScriptLoaded) { callback(); return; }
     const script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js';
-    script.onload = () => {
-        lottieScriptLoaded = true;
-        callback();
-    };
+    script.onload = () => { lottieScriptLoaded = true; callback(); };
     document.body.appendChild(script);
 };
+
 const lottieObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -4301,29 +4364,31 @@ const lottieObserver = new IntersectionObserver((entries, observer) => {
             const animData = lottieAnimations.find(anim => anim.id === container.id);
             if (animData) {
                 loadLottieScript(() => {
-                    lottie.loadAnimation({
-                        container: container,
-                        renderer: 'svg',
-                        loop: true,
-                        autoplay: true,
-                        path: animData.path
-                    });
+                    try {
+                        lottie.loadAnimation({
+                            container: container,
+                            renderer: 'svg',
+                            loop: true,
+                            autoplay: true,
+                            path: animData.path,
+                            rendererSettings: { preserveAspectRatio: 'xMidYMid meet', progressiveLoad: true }
+                        });
+                    } catch(e) {
+                        console.error(`Failed to load Lottie animation: ${animData.id}`, e);
+                    }
                 });
-                observer.unobserve(container); // Load each animation only once
+                observer.unobserve(container);
             }
         }
     });
-}, { rootMargin: '100px' }); // Start loading when it's 100px away from the screen
-// Observe all Lottie containers
+}, { rootMargin: '100px' });
+
 lottieAnimations.forEach(anim => {
     const el = document.getElementById(anim.id);
-    if (el) {
-        lottieObserver.observe(el);
-    }
+    if (el) lottieObserver.observe(el);
 });
-// ===================================================================
+
 // COUNTER SECTION (UPDATED FOR DESKTOP REPEAT)
-// ===================================================================
 const counters = document.querySelectorAll('.distraction-counter');
 // The function that makes the numbers count up
 const animateCounter = (counter) => {
@@ -4332,7 +4397,6 @@ const animateCounter = (counter) => {
     const updateCount = () => {
         const count = +counter.innerText;
         const increment = target / 200; // Speed of the count
-        
         if (count < target) {
             counter.innerText = Math.ceil(count + increment);
             setTimeout(updateCount, 10);
@@ -4347,7 +4411,6 @@ const animateCounter = (counter) => {
 const counterObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         const counter = entry.target;
-
         // --- LOGIC FOR DESKTOP (repeats animation) ---
         if (window.innerWidth > 768) {
             if (entry.isIntersecting && counter.dataset.isAnimating !== 'true') {
